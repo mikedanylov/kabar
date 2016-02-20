@@ -19,12 +19,11 @@ SongsListSchema = new SimpleSchema({
 		min: 0
 	},
 	duration: {
-		type: Number,
-		label: 'Song duration',
-		max: 10
+		type: String,
+		label: 'Song duration'
 	},
 	places: {
-		type: [Object],
+		type: [String],
 		label: 'Karaoke places'
 	},
 	createdAt: {
@@ -32,26 +31,27 @@ SongsListSchema = new SimpleSchema({
 		label: 'Created at',
 		autoValue: function() {
 			if (this.isInsert) {
-				return new Date;
+				return new Date();
 			}
 		}
 	},
 	updatedAt: {
-		type: Date,
-		label: 'Updated at',
-		autoValue: function() {
-			if (this.isUpdate) {
-				return new Date;
-			}
-		}
-	},
-	createdBy: {
-		type: String,
-		label: 'Created by',
-		autoValue: function() {
-			return this.userId;
-		}
-	}
+        type: Date,
+        label: 'Updated at',
+        optional: true, // not sure about this, might not work when updating
+        autoValue: function () {
+            if (this.isUpdate) {
+                return new Date();
+            }
+        }
+    }
+	//createdBy: {
+	//	type: String,
+	//	label: 'Created by',
+	//	autoValue: function() {
+	//		return this.userId;
+	//	}
+	//}
 
 });
 
