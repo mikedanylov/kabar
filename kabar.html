@@ -9,9 +9,25 @@
 </body>
 
 <template name="songsList">
-  <ul>
-  {{#each song}}
-  	<li>{{name}} {{artist}} {{duration}}</li>
-  {{/each}}
-  </ul>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th><h4>Username</h4></th>
+                <th><h4>Song Name</h4></th>
+                <th><h4>Song Artist</h4></th>
+                <th><h4>Duration</h4></th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {{#each song}}
+            <tr>
+                <td>username</td>
+                <td>{{name}}</td>
+                <td>{{artist}}</td>
+                <td>{{duration}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
 </template>
