@@ -1,0 +1,17 @@
+<head>
+  <title>kabar</title>
+</head>
+
+<body>
+  <h1>Songs List</h1>
+
+  {{> songsList}}
+</body>
+
+<template name="songsList">
+  <ul>
+  {{#each song}}
+  	<li>{{name}} {{artist}}</li>
+  {{/each}}
+  </ul>
+</template>

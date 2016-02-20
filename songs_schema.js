@@ -1,0 +1,58 @@
+SongsList = new Mongo.Collection('songs');
+
+// schema for songslist collection
+SongsListSchema = new SimpleSchema({
+	name: {
+		type: String,
+		label: 'Name',
+		max: 64
+	},
+	artist: {
+		type: String,
+		label: 'Artist',
+		max: 64
+	},
+	popularity: {
+		type: Number,
+		label: 'Reservation counter',
+		defaultValue: 0,
+		min: 0
+	},
+	duration: {
+		type: Number,
+		label: 'Song duration',
+		max: 10
+	},
+	places: {
+		type: [Object],
+		label: 'Karaoke places'
+	},
+	createdAt: {
+		type: Date,
+		label: 'Created at',
+		autoValue: function() {
+			if (this.isInsert) {
+				return new Date;
+			}
+		}
+	},
+	updatedAt: {
+		type: Date,
+		label: 'Updated at',
+		autoValue: function() {
+			if (this.isUpdate) {
+				return new Date;
+			}
+		}
+	},
+	createdBy: {
+		type: String,
+		label: 'Created by',
+		autoValue: function() {
+			return this.userId;
+		}
+	}
+
+});
+
+SongsList.attachSchema(SongsListSchema);
