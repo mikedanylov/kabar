@@ -19,8 +19,8 @@ PlacesSchema = new SimpleSchema({
 		min: 0
 	},
 	location: {
-		type: String,
-		label: 'Song duration'
+		type: Object,
+		label: 'Karaoke place location'
 	},
 	createdAt: {
 		type: Date,
