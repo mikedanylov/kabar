@@ -4,10 +4,6 @@
 
 Template.songsList.helpers({
     song: function() {
-        return SongsList.find();
+        return Songs.find();
     }
 });
-
- Template.songsList.events({
-
- });

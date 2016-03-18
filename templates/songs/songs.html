@@ -1,0 +1,29 @@
+<template name="songs">
+    <h1>Songs</h1>
+    {{> songsList}}
+</template>
+
+<template name="songsList">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><h4>Song Name</h4></th>
+            <th><h4>Song Artist</h4></th>
+            <th><h4>Duration</h4></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each song}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{artist}}</td>
+                <td>{{duration}}</td>
+                <a class="show" href="/songs/{{_id}}/show">Show</a>
+                <a class="edit" href="/songs/{{_id}}/edit">Edit</a>
+                <a class="remove" href="/songs/{{_id}}/remove">Remove</a>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>

@@ -1,0 +1,29 @@
+<template name="places">
+    <h1>Karaoke places</h1>
+    {{> placesList}}
+</template>
+
+<template name="placesList">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><h4>Place Name</h4></th>
+            <th><h4>Address</h4></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each place}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{address}}</td>
+                <a class="show" href="/places/{{_id}}/show">Show</a>
+                <a class="edit" href="/places/{{_id}}/edit">Edit</a>
+                <a class="remove" href="/places/{{_id}}/remove">Remove</a>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <br>
+    <a class="show" href="/places/add">Add new place</a>
+</template>

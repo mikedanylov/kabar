@@ -1,0 +1,9 @@
+a.show, a.edit, a.remove {
+    color: black;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+a.show:hover, a.edit:hover, a.remove:hover {
+    color: cadetblue;
+}

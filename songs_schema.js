@@ -1,4 +1,4 @@
-SongsList = new Mongo.Collection('songs');
+Songs = new Mongo.Collection('songs');
 
 // schema for songslist collection
 SongsListSchema = new SimpleSchema({
@@ -55,4 +55,4 @@ SongsListSchema = new SimpleSchema({
 
 });
 
-SongsList.attachSchema(SongsListSchema);
+Songs.attachSchema(SongsListSchema);
