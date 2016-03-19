@@ -1,6 +1,9 @@
 <template name="home">
     <h1>Home</h1>
-    <a href="{{pathFor route='register'}}">Register</a>
-    or
-    <a href="{{pathFor route='login'}}">Login</a>
+
+    {{#if currentUser}}
+        <p>Welcome, {{currentUser.username}}</p>
+    {{else}}
+        <a href="{{pathFor route='register'}}">Register</a>
+    {{/if}}
 </template>

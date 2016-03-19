@@ -48,12 +48,6 @@ Template.songEdit.events({
 
 Template.songs.events({
     'click .remove': function(event) {
-        Songs.remove(this._id, function(error, results) {
-           if (error) {
-               console.log(error);
-               return;
-           }
-            Router.go('songs');
-        });
+        Songs.remove(this._id);
     }
 });

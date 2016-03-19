@@ -7,7 +7,10 @@ Router.configure({
 });
 Router.route('/', {
     name: 'home',
-    template: 'home'
+    template: 'home',
+    data: function() {
+        return Meteor.user();
+    }
 });
 Router.route('/register');
 Router.route('/login');
@@ -30,9 +33,6 @@ Router.route('/places/:_id/edit', {
         return Places.findOne({ _id: this.params._id})
     }
 });
-Router.route('/places/:_id/remove', {
-    template: 'placeEdit'
-});
 
 Router.route('/songs');
 Router.route('/songs/add', {
@@ -49,7 +49,4 @@ Router.route('/songs/:_id/edit', {
     data: function () {
         return Songs.findOne({ _id: this.params._id})
     }
-});
-Router.route('/songs/:_id/remove', {
-    template: 'songEdit'
 });

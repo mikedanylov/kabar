@@ -50,12 +50,6 @@ Template.placeEdit.events({
 
 Template.places.events({
     'click .remove': function(event) {
-        Places.remove(this._id, function(error, results) {
-            if (error) {
-                console.log(error);
-                return;
-            }
-            Router.go('places');
-        });
+        Places.remove(this._id);
     }
 });
