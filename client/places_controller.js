@@ -53,3 +53,8 @@ Template.places.events({
         Places.remove(this._id);
     }
 });
+
+Template.registerHelper('isAdmin', function(adminsList) {
+   console.log(Meteor.user());
+   return true ? adminsList.indexOf(Meteor.user().username) >= 0 : false;
+});

@@ -28,6 +28,10 @@ PlacesSchema = new SimpleSchema({
         decimal: true,
 		label: 'Karaoke place location longitude'
 	},
+    admin: {
+        type: [String],
+        label: 'Karaoke place admin'
+    },
 	createdAt: {
 		type: Date,
 		label: 'Created at',

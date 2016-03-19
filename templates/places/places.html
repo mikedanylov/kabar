@@ -10,18 +10,21 @@
             <th><h4>Place Name</h4></th>
             <th><h4>Address</h4></th>
             <th><h4>Location</h4></th>
+            <th><h4>Admin</h4></th>
         </tr>
         </thead>
 
         <tbody>
         {{#each place}}
             <tr>
-                <td>{{name}}</td>
+                <td><a class="link" href="/places/{{_id}}/show">{{name}}</a></td>
                 <td>{{address}}</td>
                 <td>{{latitude}}, {{longitude}}</td>
-                <a class="link" href="/places/{{_id}}/show">Show</a>
-                <a class="link" href="/places/{{_id}}/edit">Edit</a>
-                <a class="link remove" href="#">Remove</a>
+                <td>{{admin}}</td>
+                {{#if isAdmin admin}}
+                    <a class="link" href="/places/{{_id}}/edit">Edit</a>
+                    <a class="link remove" href="#">Remove</a>
+                {{/if}}
             </tr>
         {{/each}}
         </tbody>

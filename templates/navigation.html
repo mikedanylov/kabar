@@ -1,12 +1,12 @@
 <template name="navigation">
     <ul>
-        <li><a href="{{pathFor route='home'}}">Home</a></li>
-        <li><a href="{{pathFor route='songs'}}">Songs</a></li>
-        <li><a href="{{pathFor route='places'}}">Places</a></li>
+        <li><a class="link" href="{{pathFor route='home'}}">Home</a></li>
+        <li><a class="link" href="{{pathFor route='songs'}}">Songs</a></li>
+        <li><a class="link" href="{{pathFor route='places'}}">Places</a></li>
         {{#if currentUser}}
-            <li><a class="logout" href="#">Logout</a></li>
+            <li><a class="link logout" href="#">Logout</a></li>
         {{else}}
-            <li><a href="{{pathFor route='login'}}">Login</a></li>
+            <li><a class="link" href="{{pathFor route='login'}}">Login</a></li>
         {{/if}}
     </ul>
 </template>

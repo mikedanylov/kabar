@@ -11,7 +11,8 @@ Template.register.events({
        Accounts.createUser({
            username: username,
            email: email,
-           password: pwd
+           password: pwd,
+           admin: false
        }, function errorHandling(error){
            if (error) {
                console.log('Registration Failed: ' + error.reason);

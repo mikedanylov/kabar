@@ -7,3 +7,11 @@ a.link {
 a.link:hover {
     color: cadetblue;
 }
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+}
