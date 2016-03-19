@@ -18,9 +18,15 @@ PlacesSchema = new SimpleSchema({
 		defaultValue: 0,
 		min: 0
 	},
-	location: {
-		type: Object,
-		label: 'Karaoke place location'
+	latitude: {
+		type: Number,
+        decimal: true,
+		label: 'Karaoke place location latitude'
+	},
+	longitude: {
+		type: Number,
+        decimal: true,
+		label: 'Karaoke place location longitude'
 	},
 	createdAt: {
 		type: Date,

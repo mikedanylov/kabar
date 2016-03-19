@@ -12,10 +12,11 @@ Router.route('/', {
 Router.route('/register');
 Router.route('/login');
 
-Router.route('/places');
+Router.route('/places', {
+    name: 'places'
+});
 Router.route('/places/add', {
-    name: 'add-place',
-    template: 'add-place'
+    template: 'placeAdd'
 });
 Router.route('/places/:_id/show', {
     template: 'placeShow',

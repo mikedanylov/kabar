@@ -1,9 +1,9 @@
-a.show, a.edit, a.remove {
+a.link {
     color: black;
     text-decoration: none;
     margin: 0 5px;
 }
 
-a.show:hover, a.edit:hover, a.remove:hover {
+a.link:hover {
     color: cadetblue;
 }

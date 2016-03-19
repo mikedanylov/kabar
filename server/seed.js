@@ -94,19 +94,22 @@ Meteor.startup(function () {
         name: 'The Louder The Better',
         address: 'Rautatientori 1, Heslisnki',
         popularity: '10',
-        location: {lat: 60.1712419, lng: 24.942252}
+        latitude: 60.1712419,
+        longitude: 24.942252
     });
     Places.insert({
         name: 'Swengi',
         address: 'Kolmas linja 34, Heslisnki',
         popularity: '10',
-        location: {lat: 60.1712419, lng: 24.942252}
+        latitude: 60.1712419,
+        longitude: 24.942252
     });
     Places.insert({
         name: 'Karaoke-bar',
         address: 'Helsinginkatu 15, Heslisnki',
         popularity: '10',
-        location: {lat: 60.1712419, lng: 24.942252}
+        latitude: 60.1712419,
+        longitude: 24.942252
     });
     // END PLACES SONGS ###############################################################################################
 
