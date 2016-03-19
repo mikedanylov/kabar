@@ -30,17 +30,26 @@ Router.route('/places/:_id/edit', {
         return Places.findOne({ _id: this.params._id})
     }
 });
+Router.route('/places/:_id/remove', {
+    template: 'placeEdit'
+});
 
 Router.route('/songs');
 Router.route('/songs/add', {
-    name: 'add-song',
-    template: 'add-song'
+    template: 'songAdd'
 });
 Router.route('/songs/:_id/show', {
-    name: 'show-song',
-    template: 'show-song'
+    template: 'songShow',
+    data: function () {
+        return Songs.findOne({ _id: this.params._id})
+    }
 });
 Router.route('/songs/:_id/edit', {
-    name: 'edit-song',
-    template: 'edit-song'
+    template: 'songEdit',
+    data: function () {
+        return Songs.findOne({ _id: this.params._id})
+    }
+});
+Router.route('/songs/:_id/remove', {
+    template: 'songEdit'
 });

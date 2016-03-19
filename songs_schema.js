@@ -24,6 +24,7 @@ SongsListSchema = new SimpleSchema({
 	},
 	places: {
 		type: [String],
+		optional: true,
 		label: 'Karaoke places'
 	},
 	createdAt: {

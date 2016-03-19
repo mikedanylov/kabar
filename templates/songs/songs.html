@@ -19,11 +19,13 @@
                 <td>{{name}}</td>
                 <td>{{artist}}</td>
                 <td>{{duration}}</td>
-                <a class="show" href="/songs/{{_id}}/show">Show</a>
-                <a class="edit" href="/songs/{{_id}}/edit">Edit</a>
-                <a class="remove" href="/songs/{{_id}}/remove">Remove</a>
+                <a class="link" href="/songs/{{_id}}/show">Show</a>
+                <a class="link" href="/songs/{{_id}}/edit">Edit</a>
+                <a class="link remove" href="/songs/{{_id}}/remove">Remove</a>
             </tr>
         {{/each}}
         </tbody>
     </table>
+    <br>
+    <a class="link" href="/songs/add">Add new song</a>
 </template>
