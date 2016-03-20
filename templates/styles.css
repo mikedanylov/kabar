@@ -1,7 +1,7 @@
 a.link {
     color:coral;
     text-decoration: none;
-    margin: 0 5px;
+    margin: 5px;
 }
 
 a.link:hover {
@@ -14,4 +14,5 @@ ul {
 
 li {
     display: inline-block;
+    margin: 5px;
 }

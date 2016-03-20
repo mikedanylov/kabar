@@ -90,6 +90,24 @@ Template.songEdit.events({
     }
 });
 
+Template.songShow.events({
+    'click .order-song': function(event) {
+        event.preventDefault(); // don't refresh page
+        console.log(this);
+        //Orders.insert({
+        //    username: Meteor.user().username,
+        //
+        //}, function(error, results) {
+        //    if (error) {
+        //        console.log(error);
+        //        return;
+        //    }
+        //    console.log(results);
+        //    Router.go('placeKaraoke');
+        //});
+    }
+});
+
 Template.songs.events({
     'click .remove': function(event) {
         Songs.remove(this._id);

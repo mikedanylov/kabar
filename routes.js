@@ -55,7 +55,7 @@ Router.route('/places/:_id/karaoke', {
     data: function () {
         var place = Places.findOne({ _id: this.params._id});
         return {
-            songs: Songs.find({places: place}),
+            orders: Orders.find({places: place}),
             user: Meteor.user(),
             place: place
         }

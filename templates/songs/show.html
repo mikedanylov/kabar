@@ -5,7 +5,8 @@
     {{#if currentUser}}
         <p>Book this song:</p>
         {{#each place name}}
-            <td><a class="link" href="/places/{{placeId this}}/show">{{this}}</a></td>
+            <!--<a class="link" href="/places/{{placeId this}}/show">{{this}}</a>-->
+            <a class="link order-song" href="#">{{this}}</a>
             <br>
         {{/each}}
     {{/if}}

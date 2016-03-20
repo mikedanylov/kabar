@@ -32,9 +32,11 @@ Template.placeSongs.helpers({
 });
 
 Template.placeKaraoke.helpers({
-    getUsername: function(name) {
-       return name;
-   }
+    orders: function () {
+        console.log('data: ');
+        console.log(this);
+        return this.orders;
+    }
 });
 
 Template.songsList.helpers({
@@ -44,8 +46,8 @@ Template.songsList.helpers({
 });
 
 Template.songShow.helpers({
-    place: function(name) {
-        var currentSong = Songs.findOne({name: name});
+    place: function(songName) {
+        var currentSong = Songs.findOne({name: songName});
         return currentSong.places;
     },
     placeId: function(place) {
