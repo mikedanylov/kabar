@@ -21,6 +21,8 @@
                 <td>{{address}}</td>
                 <td>{{latitude}}, {{longitude}}</td>
                 <td>{{admin}}</td>
+
+                <!-- only karaoke admins can modify their place info -->
                 {{#if isAdmin admin}}
                     <a class="link" href="/places/{{_id}}/edit">Edit</a>
                     <a class="link remove" href="#">Remove</a>
@@ -30,5 +32,8 @@
         </tbody>
     </table>
     <br>
-    <a class="link" href="/places/add">Add new place</a>
+    <!-- Only app admins can add new places -->
+    {{#if isKabarAdmin}}
+        <a class="link" href="/places/add">Add new place</a>
+    {{/if}}
 </template>
