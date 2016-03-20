@@ -16,10 +16,9 @@
         <tbody>
         {{#each song}}
             <tr>
-                <td>{{name}}</td>
+                <td><a class="link" href="/songs/{{_id}}/show">{{name}}</a></td>
                 <td>{{artist}}</td>
                 <td>{{duration}}</td>
-                <a class="link" href="/songs/{{_id}}/show">Show</a>
                 <a class="link" href="/songs/{{_id}}/edit">Edit</a>
                 <a class="link remove" href="#">Remove</a>
             </tr>
