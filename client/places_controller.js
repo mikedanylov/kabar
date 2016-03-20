@@ -8,6 +8,15 @@ Template.placesList.helpers({
     }
 });
 
+Template.placeSongs.helpers({
+    songs: function() {
+        return Songs.find();
+    },
+    admins: function () {
+        
+    }
+});
+
 Template.placeAdd.events({
     'submit form': function(event) {
         event.preventDefault(); // don't refresh page
@@ -55,6 +64,8 @@ Template.places.events({
 });
 
 Template.registerHelper('isAdmin', function(adminsList) {
-   console.log(Meteor.user());
-   return true ? adminsList.indexOf(Meteor.user().username) >= 0 : false;
+    if (Meteor.user()) {
+        return true ? adminsList.indexOf(Meteor.user().username) >= 0 : false;
+    }
+    return false;
 });

@@ -2,5 +2,9 @@
     <h2>{{name}}</h2>
     <p>{{artist}}</p>
     <p>{{duration}}</p>
-    <p>{{places}}</p>
+    <p>Book this song:</p>
+    {{#each place name}}
+        <td><a class="link" href="/places/{{placeId this}}/show">{{this}}</a></td>
+        <br>
+    {{/each}}
 </template>

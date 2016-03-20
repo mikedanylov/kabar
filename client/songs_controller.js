@@ -8,6 +8,17 @@ Template.songsList.helpers({
     }
 });
 
+Template.songShow.helpers({
+    place: function(name) {
+        var currentSong = Songs.findOne({name: name});
+        return currentSong.places;
+    },
+    placeId: function(place) {
+        var currPlace = Places.findOne({name: place});
+        return currPlace._id;
+    }
+});
+
 Template.songAdd.events({
     'submit form': function(event) {
         event.preventDefault(); // don't refresh page

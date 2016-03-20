@@ -33,6 +33,15 @@ Router.route('/places/:_id/edit', {
         return Places.findOne({ _id: this.params._id})
     }
 });
+Router.route('/places/:_id/songs', {
+    template: 'placeSongs',
+    data: function () {
+        return {
+            songs: Songs.find(),
+            place: Places.findOne({ _id: this.params._id})
+        }
+    }
+});
 
 Router.route('/songs');
 Router.route('/songs/add', {
