@@ -44,7 +44,10 @@ Template.placeEdit.events({
 
 Template.places.events({
     'click .remove': function(event) {
-        Places.remove(this._id);
+        var answer = confirm("Are you 100% sure you want to remove your karaoke place?");
+        if (answer) {
+            Places.remove(this._id);
+        }
     }
 });
 

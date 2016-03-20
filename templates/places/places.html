@@ -15,12 +15,13 @@
         </thead>
 
         <tbody>
-        {{#each place}}
+        {{#each places}}
             <tr>
                 <td><a class="link" href="/places/{{_id}}/show">{{name}}</a></td>
                 <td>{{address}}</td>
                 <td>{{latitude}}, {{longitude}}</td>
                 <td>{{admin}}</td>
+                <a class="link" href="/places/{{_id}}/karaoke">karaoke</a>
 
                 <!-- only karaoke admins can modify their place info -->
                 {{#if isAdmin admin}}

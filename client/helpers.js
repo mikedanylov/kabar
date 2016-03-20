@@ -10,23 +10,35 @@ Template.registerHelper('isKabarAdmin', function() {
     return true ? (Meteor.user() && Meteor.user().username === 'kabaradmin') : false;
 });
 
+Template.registerHelper('songs', function() {
+    console.log(this);
+    return Songs.find({places: this.place.name});
+});
+
+Template.registerHelper('addOneTo', function(index) {
+    return index + 1;
+});
+
 Template.placesList.helpers({
-    place: function() {
+    places: function() {
         return Places.find();
     }
 });
 
 Template.placeSongs.helpers({
     songs: function() {
-        return Songs.find();
-    },
-    admins: function () {
-
+        return Songs.find({places: this.place.name});
     }
 });
 
+Template.placeKaraoke.helpers({
+    getUsername: function(name) {
+       return name;
+   }
+});
+
 Template.songsList.helpers({
-    song: function() {
+    songs: function() {
         return Songs.find();
     }
 });

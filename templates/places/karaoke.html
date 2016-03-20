@@ -1,0 +1,32 @@
+<template name="placeKaraoke">
+    <h2>{{place.name}} Play Queue</h2>
+    <h3>Current song</h3>
+
+    <h3>Queued songs</h3>
+
+
+    <h3>Songs Playlist</h3>
+    <table>
+        <thead>
+        <tr>
+            <th><h4>#</h4></th>
+            <th><h4>User</h4></th>
+            <th><h4>Song Name</h4></th>
+            <th><h4>Artist</h4></th>
+            <th><h4>Duration</h4></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each songs}}
+            <tr>
+                <td>{{addOneTo @index}}</td>
+                <td>User</td>
+                <td>{{name}}</td>
+                <td>{{artist}}</td>
+                <td>{{duration}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
