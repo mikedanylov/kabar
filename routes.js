@@ -12,7 +12,7 @@ Router.route('/', {
         return Meteor.user();
     }
 });
-Router.route('/register');
+Router.route('/signup');
 Router.route('/login');
 
 Router.route('/places', {

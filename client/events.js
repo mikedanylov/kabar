@@ -114,39 +114,92 @@ Template.songs.events({
     }
 });
 
-Template.register.events({
+Template.signup.events({
     'submit form': function(event) {
         event.preventDefault();
-        var username = document.querySelector('[name=username]').value;
-        var email = document.querySelector('[name=email]').value;
-        var pwd = document.querySelector('[name=password]').value;
-        Accounts.createUser({
-            username: username,
-            email: email,
-            password: pwd,
-            admin: false
-        }, function errorHandling(error){
-            if (error) {
-                console.log('Registration Failed: ' + error.reason);
-            }
-        });
-        Router.go('home');
     }
+});
+Template.signup.onRendered(function(){
+    $('.signup').validate({
+        submitHandler: function(event) {
+            var username = document.querySelector('[name=username]').value;
+            var email = document.querySelector('[name=email]').value;
+            var pwd = document.querySelector('[name=password]').value;
+            Accounts.createUser({
+                username: username,
+                email: email,
+                password: pwd,
+                admin: false
+            }, function errorHandling(error){
+                if (error) {
+                    console.log('Signup ation Failed: ' + error.reason);
+                }
+            });
+            Router.go('home');
+        }
+    });
 });
 
 Template.login.events({
     'submit form': function(event) {
         event.preventDefault();
-        var email = document.querySelector('[name=email]').value;
-        var pwd = document.querySelector('[name=password]').value;
-        Meteor.loginWithPassword( email, pwd, function errorHandling(error) {
-            if (error) {
-                console.log('Login Failed: ' + error.reason);
-                return;
-            }
-            Router.go('home');
-        });
+    }
+});
+Template.login.onRendered(function(){
+    $('.login').validate({
+        submitHandler: function(event) {
+            var email = document.querySelector('[name=email]').value;
+            var pwd = document.querySelector('[name=password]').value;
+            Meteor.loginWithPassword( email, pwd, function errorHandling(error) {
+                if (error) {
+                    if (error.reason === 'Email already exists.') {
+                        console.log('Login Failed: ' + error.reason);
+                        validator.showErrors({
+                            email: "That email already belongs to a registered user."
+                        });
+                    }
+                    return;
+                }
+                if (Router.current().route.getName() === 'login') {
+                    Router.go('home');
+                } else {
+                    Router.go(Router.current().route.getName());
+                }
+            });
+        }
+    });
+});
+Template.login.onDestroyed(function(){
 
+});
+
+// default rules for form validation
+$.validator.setDefaults({
+    rules: {
+        username: {
+            required: true
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        password: {
+            required: true,
+            minlength: 4
+        }
+    },
+    messages: {
+        username: {
+            required: 'You need to have a name'
+        },
+        email: {
+            required: 'Enter email to login',
+            email: 'That is not a correct email'
+        },
+        password: {
+            required: 'Password field is required',
+            minlength: 'Password should be at least {0} characters'
+        }
     }
 });
 
@@ -154,6 +207,6 @@ Template.navigation.events({
     'click .logout': function(event) {
         event.preventDefault();
         Meteor.logout();
-        Router.go('home');
+        Router.go(Router.current().route.getName());
     }
 });

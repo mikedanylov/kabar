@@ -7,12 +7,12 @@ OrdersSchema = new SimpleSchema({
 		max: 64
 	},
 	song: {
-		type: Object,
-		label: 'Ordered song'
+		type: String,
+		label: 'Order Song id'
 	},
     place: {
         type: String,
-        label: 'Place of order'
+        label: 'Order Place id'
     },
 	createdAt: {
 		type: Date,

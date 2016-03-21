@@ -16,3 +16,7 @@ li {
     display: inline-block;
     margin: 5px;
 }
+
+input.error{
+    background-color: palevioletred;
+}
