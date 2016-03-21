@@ -108,71 +108,6 @@ Template.songShow.events({
     }
 });
 
-Template.songs.events({
-    'click .remove': function(event) {
-        Songs.remove(this._id);
-    }
-});
-
-Template.signup.events({
-    'submit form': function(event) {
-        event.preventDefault();
-    }
-});
-Template.signup.onRendered(function(){
-    $('.signup').validate({
-        submitHandler: function(event) {
-            var username = document.querySelector('[name=username]').value;
-            var email = document.querySelector('[name=email]').value;
-            var pwd = document.querySelector('[name=password]').value;
-            Accounts.createUser({
-                username: username,
-                email: email,
-                password: pwd,
-                admin: false
-            }, function errorHandling(error){
-                if (error) {
-                    console.log('Signup ation Failed: ' + error.reason);
-                }
-            });
-            Router.go('home');
-        }
-    });
-});
-
-Template.login.events({
-    'submit form': function(event) {
-        event.preventDefault();
-    }
-});
-Template.login.onRendered(function(){
-    $('.login').validate({
-        submitHandler: function(event) {
-            var email = document.querySelector('[name=email]').value;
-            var pwd = document.querySelector('[name=password]').value;
-            Meteor.loginWithPassword( email, pwd, function errorHandling(error) {
-                if (error) {
-                    if (error.reason === 'Email already exists.') {
-                        console.log('Login Failed: ' + error.reason);
-                        validator.showErrors({
-                            email: "That email already belongs to a registered user."
-                        });
-                    }
-                    return;
-                }
-                if (Router.current().route.getName() === 'login') {
-                    Router.go('home');
-                } else {
-                    Router.go(Router.current().route.getName());
-                }
-            });
-        }
-    });
-});
-Template.login.onDestroyed(function(){
-
-});
-
 // default rules for form validation
 $.validator.setDefaults({
     rules: {
@@ -201,6 +136,78 @@ $.validator.setDefaults({
             minlength: 'Password should be at least {0} characters'
         }
     }
+});
+
+Template.songs.events({
+    'click .remove': function(event) {
+        Songs.remove(this._id);
+    }
+});
+
+Template.signup.events({
+    'submit form': function(event) {
+        event.preventDefault();
+    }
+});
+Template.signup.onRendered(function(){
+    $('.signup').validate({
+        submitHandler: function(event) {
+            var username = document.querySelector('[name=username]').value;
+            var email = document.querySelector('[name=email]').value;
+            var pwd = document.querySelector('[name=password]').value;
+            Accounts.createUser({
+                username: username,
+                email: email,
+                password: pwd,
+                admin: false
+            }, function errorHandling(error){
+                if (error) {
+                    console.log('Signup ation Failed: ' + error.reason);
+                    if(error.reason == "Email already exists."){
+                        validator.showErrors({
+                            email: "That email already belongs to a registered user."
+                        });
+                    }
+                    return;
+                }
+                Router.go('home');
+            });
+        }
+    });
+});
+
+Template.login.events({
+    'submit form': function(event) {
+        event.preventDefault();
+    }
+});
+Template.login.onRendered(function(){
+    $('.login').validate({
+        submitHandler: function(event) {
+            var email = document.querySelector('[name=email]').value;
+            var pwd = document.querySelector('[name=password]').value;
+            Meteor.loginWithPassword( email, pwd, function errorHandling(error) {
+                if (error) {
+                    console.log('Login Failed: ' + error.reason);
+                    if(error.reason == "User not found"){
+                        validator.showErrors({
+                            email: error.reason
+                        });
+                    } else if (error.reason == "Incorrect password"){
+                        validator.showErrors({
+                            password: error.reason
+                        });
+                    }
+                    return;
+                }
+                if (Router.current().route.getName() === 'login') {
+                    Router.go('home');
+                } else {
+                    Router.go(Router.current().route.getName());
+                }
+            });
+        }
+    });
 });
 
 Template.navigation.events({

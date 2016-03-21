@@ -69,7 +69,11 @@ Router.route('/songs/add', {
 Router.route('/songs/:_id/show', {
     template: 'songShow',
     data: function () {
-        return Songs.findOne({ _id: this.params._id})
+        var currSong = Songs.findOne({ _id: this.params._id});
+        return {
+            songs: currSong,
+            places: currSong.places
+        }
     }
 });
 Router.route('/songs/:_id/edit', {
