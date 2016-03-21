@@ -1,12 +1,15 @@
 <template name="songShow">
-    <h2>{{name}}</h2>
-    <p>{{artist}}</p>
-    <p>{{duration}}</p>
+    <h2 id="song-name">{{this.song.name}}</h2>
+    <p hidden id="song-id">{{this.song._id}}</p>
+    <p>{{this.song.artist}}</p>
+    <p>{{this.song.duration}}</p>
+
+    <!--<p>{{function this}}</p>-->
+
     {{#if currentUser}}
         <p>Book this song:</p>
-        {{#each place name}}
-            <!--<a class="link" href="/places/{{placeId this}}/show">{{this}}</a>-->
-            <a class="link order-song" href="#">{{this}}</a>
+        {{#each places}}
+            <a class="link place-order" href="#">{{this}}</a>
             <br>
         {{/each}}
     {{/if}}

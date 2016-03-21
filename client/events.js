@@ -91,20 +91,23 @@ Template.songEdit.events({
 });
 
 Template.songShow.events({
-    'click .order-song': function(event) {
+    'click .place-order': function(event) {
         event.preventDefault(); // don't refresh page
-        console.log(this);
-        //Orders.insert({
-        //    username: Meteor.user().username,
-        //
-        //}, function(error, results) {
-        //    if (error) {
-        //        console.log(error);
-        //        return;
-        //    }
-        //    console.log(results);
-        //    Router.go('placeKaraoke');
-        //});
+        var song = Songs.findOne({_id: document.querySelector('#song-id').innerHTML});
+        var place = Places.findOne({name: this.valueOf()});
+
+        Orders.insert({
+            username: Meteor.user().username,
+            song: song._id,
+            place: place._id
+        }, function(error, results) {
+            if (error) {
+                console.log(error);
+                return;
+            }
+            console.log(results);
+            //Router.go('placeKaraoke');
+        });
     }
 });
 

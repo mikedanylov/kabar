@@ -44,14 +44,3 @@ Template.songsList.helpers({
         return Songs.find();
     }
 });
-
-Template.songShow.helpers({
-    place: function(songName) {
-        var currentSong = Songs.findOne({name: songName});
-        return currentSong.places;
-    },
-    placeId: function(place) {
-        var currPlace = Places.findOne({name: place});
-        return currPlace._id;
-    }
-});
