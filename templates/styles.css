@@ -1,6 +1,3 @@
-a:link {
-    text-decoration: none;
-}
 li {list-style-type: none;}
 nav.greedy {
     position: relative;
@@ -9,18 +6,16 @@ nav.greedy {
     align-items: center;
     background: #e0e0e0;
 }
-
 nav.greedy h1 {
     display: flex;
     align-self: stretch;
     align-items: center;
     background: #c6c6c6;
     color: #404040;
-    margin: 0px;
+    margin: 0;
     padding: 0 1rem;
     font-weight: bold;
 }
-
 nav.greedy button {
     align-self: stretch;
     transition: all .4s ease-out;
@@ -51,7 +46,7 @@ nav.greedy button::after {
     font-size: 14px;
     line-height: 14px;
     margin-left: 1rem;
-    margin-right: calc(-1rem + -8px);
+    margin-right: 1rem;
 }
 nav.greedy ul.links {
     display: flex;
@@ -64,7 +59,6 @@ nav.greedy ul.links li {
     padding: 1rem;
 
 }
-
 nav.greedy ul.links li a {
     color: #404040;
 }
@@ -79,4 +73,7 @@ nav.greedy ul.hidden-links.hidden {
 }
 nav.greedy ul.hidden-links li {
     padding: 1rem;
+}
+input.error{
+    background-color: #ff7e76;
 }

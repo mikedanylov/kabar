@@ -1,9 +1,4 @@
-<template name="songs">
-    <h1>Songs</h1>
-    {{> songsList}}
-</template>
-
-<template name="songsList">
+<template name="placeSongs">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -21,9 +16,13 @@
                 <td><a class="link" href="/songs/{{_id}}/show">{{name}}</a></td>
                 <td>{{artist}}</td>
                 <td>{{duration}}</td>
+                <a class="link" href="/songs/{{_id}}/edit">Edit</a>
+                <a class="link remove" href="#">Remove</a>
             </tr>
         {{/each}}
         </tbody>
     </table>
     <br>
+    <h4>{{name}}</h4>
+    <a class="link" href="/songs/add">Add new song</a>
 </template>

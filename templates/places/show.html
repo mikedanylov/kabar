@@ -2,4 +2,7 @@
     <h2>{{name}}</h2>
     <p>{{address}}</p>
     <p>Location: {{latitude}} {{longitude}}</p>
+    {{#if isAdmin admin}}
+        <a class="link" href="/places/{{_id}}/songs">Songs List</a>
+    {{/if}}
 </template>

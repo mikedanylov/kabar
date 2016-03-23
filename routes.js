@@ -3,7 +3,8 @@
  */
 
 Router.configure({
-    layoutTemplate: 'main'
+    layoutTemplate: 'main',
+    loadingTemplate: 'loading'
 });
 Router.route('/', {
     name: 'home',
@@ -12,9 +13,8 @@ Router.route('/', {
         return Meteor.user();
     }
 });
-Router.route('/register');
+Router.route('/signup');
 Router.route('/login');
-
 Router.route('/places', {
     name: 'places'
 });
@@ -33,7 +33,37 @@ Router.route('/places/:_id/edit', {
         return Places.findOne({ _id: this.params._id})
     }
 });
-
+Router.route('/places/:_id/songs', {
+    template: 'placeSongs',
+    data: function () {
+        return {
+            songs: Songs.find({places: this.name}),
+            place: Places.findOne({ _id: this.params._id})
+        }
+    }
+});
+Router.route('/places/:_id/karaoke', {
+    name: 'placeKaraoke',
+    template: 'placeKaraoke',
+    // commented out for development
+    //onBeforeAction: function() {
+    //    if (Meteor.user()) {
+    //       this.next();
+    //    } else {
+    //        Router.go('register');
+    //    }
+    //},
+    data: function () {
+        var place = Places.findOne({ _id: this.params._id});
+        var orders = Orders.find({places: place});
+        var currentUser = Meteor.user();
+        return {
+            orders: orders,
+            user: currentUser,
+            place: place
+        }
+    }
+});
 Router.route('/songs');
 Router.route('/songs/add', {
     template: 'songAdd'
@@ -41,7 +71,17 @@ Router.route('/songs/add', {
 Router.route('/songs/:_id/show', {
     template: 'songShow',
     data: function () {
-        return Songs.findOne({ _id: this.params._id})
+        var song = Songs.findOne({ _id: this.params._id});
+        var places = song.places;
+        console.log(song);
+        console.log(places);
+        return {
+            song: song,
+            places: places
+        };
+    },
+    subscriptions: function() {
+
     }
 });
 Router.route('/songs/:_id/edit', {
