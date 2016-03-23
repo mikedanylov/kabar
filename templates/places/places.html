@@ -1,6 +1,8 @@
 <template name="places">
-    <h1>Karaoke places</h1>
-    {{> placesList}}
+    <div class="container">
+        <h1>Karaoke places</h1>
+        {{> placesList}}
+    </div>
 </template>
 
 <template name="placesList">
@@ -12,6 +14,7 @@
             <th><h4>Address</h4></th>
             <th><h4>Location</h4></th>
             <th><h4>Admin</h4></th>
+            <th><h4></h4></th>
         </tr>
         </thead>
 
@@ -23,13 +26,15 @@
                 <td>{{address}}</td>
                 <td>{{latitude}}, {{longitude}}</td>
                 <td>{{admin}}</td>
-                <a class="link" href="/places/{{_id}}/karaoke">karaoke</a>
+                <td>
+                    <a class="link" href="/places/{{_id}}/karaoke">karaoke</a>
 
-                <!-- only karaoke admins can modify their place info -->
-                {{#if isAdmin admin}}
-                    <a class="link" href="/places/{{_id}}/edit">Edit</a>
-                    <a class="link remove" href="#">Remove</a>
-                {{/if}}
+                    <!-- only karaoke admins can modify their place info -->
+                    {{#if isAdmin admin}}
+                        <a class="link" href="/places/{{_id}}/edit">Edit</a>
+                        <a class="link remove" href="#">Remove</a>
+                    {{/if}}
+                </td>
             </tr>
         {{/each}}
         </tbody>

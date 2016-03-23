@@ -220,3 +220,4 @@ Template.navigation.events({
         Router.go(Router.current().route.getName());
     }
 });
+

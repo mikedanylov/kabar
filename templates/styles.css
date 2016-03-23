@@ -1,79 +1,142 @@
-li {list-style-type: none;}
-nav.greedy {
-    position: relative;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background: #e0e0e0;
+body {
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    background-color: #333333;
+    color: white;
+    font-size: 16px;
 }
-nav.greedy h1 {
-    display: flex;
-    align-self: stretch;
-    align-items: center;
-    background: #c6c6c6;
-    color: #404040;
-    margin: 0;
-    padding: 0 1rem;
-    font-weight: bold;
-}
-nav.greedy button {
-    align-self: stretch;
-    transition: all .4s ease-out;
-    padding: 0 1rem 0 1.5rem;
-    outline: 0;
-    border: 0;
-    font-size: 0.9rem;
-    font-weight: bold;
-    background: #c8c8c8;
-}
-nav.greedy button.hidden {
-    transition: none;
-    border-right: 0.5rem solid #b6b6b6;
-    width: 0;
-    padding: 0;
-    overflow: hidden;
-}
-nav.greedy button::after {
-    content: attr(count);
-    display: inline-flex;
-    width: 25px;
-    height: 25px;
-    align-items: center;
-    justify-content: center;
-    background: #9f9f9f;
-    color: #f2f2f2;
-    border-radius: 50%;
-    font-size: 14px;
-    line-height: 14px;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-nav.greedy ul.links {
-    display: flex;
-    justify-content: flex-end;
-    flex: 1;
-    overflow: hidden;
-}
-nav.greedy ul.links li {
-    flex: none;
-    padding: 1rem;
 
+li {
+    list-style-type: none;
 }
-nav.greedy ul.links li a {
-    color: #404040;
+
+a, a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
 }
-nav.greedy ul.hidden-links {
-    position: absolute;
-    background: #d8d8d8;
-    right: 0;
-    top: 100%;
+a, a:visited, a:active, a:link {
+    color: #DA491C;
 }
-nav.greedy ul.hidden-links.hidden {
-    display: none;
+
+a:hover {
+    color: #5cc0bd;
 }
-nav.greedy ul.hidden-links li {
-    padding: 1rem;
+
+.navbar {
+    border: 0;
+    border-radius: 0;
 }
+
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-nav > li > a:visited,
+.navbar-inverse .navbar-nav > li > a:active,
+.navbar-inverse .navbar-nav > li > a:link,
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #DA491C;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar > .container .navbar-brand:hover,
+.navbar > .container-fluid .navbar-brand:hover {
+    color: #5cc0bd;
+}
+
+
+/*nav.greedy {*/
+    /*position: relative;*/
+    /*height: 60px;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*background: rgba(11, 11, 11, 0.71);*/
+/*}*/
+/*nav.greedy h1 {*/
+    /*display: flex;*/
+    /*align-self: stretch;*/
+    /*align-items: center;*/
+    /*background: #c6c6c6;*/
+    /*color: #404040;*/
+    /*margin: 0;*/
+    /*padding: 0 1rem;*/
+    /*font-weight: bold;*/
+/*}*/
+/*nav.greedy button {*/
+    /*align-self: stretch;*/
+    /*transition: all .4s ease-out;*/
+    /*padding: 0 1rem 0 1.5rem;*/
+    /*outline: 0;*/
+    /*border: 0;*/
+    /*font-size: 0.9rem;*/
+    /*font-weight: bold;*/
+    /*background: #c8c8c8;*/
+/*}*/
+/*nav.greedy button.hidden {*/
+    /*transition: none;*/
+    /*border-right: 0.5rem solid #b6b6b6;*/
+    /*width: 0;*/
+    /*padding: 0;*/
+    /*overflow: hidden;*/
+/*}*/
+/*nav.greedy button::after {*/
+    /*content: attr(count);*/
+    /*display: inline-flex;*/
+    /*width: 25px;*/
+    /*height: 25px;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*background: #9f9f9f;*/
+    /*color: #f2f2f2;*/
+    /*border-radius: 50%;*/
+    /*font-size: 14px;*/
+    /*line-height: 14px;*/
+    /*margin-left: 1rem;*/
+    /*margin-right: calc(-1rem + -8px);*/
+/*}*/
+/*nav.greedy ul.links {*/
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
+    /*flex: 1;*/
+    /*overflow: hidden;*/
+/*}*/
+/*nav.greedy ul.links li {*/
+    /*flex: none;*/
+    /*padding: 1rem;*/
+
+/*}*/
+/*nav.greedy ul.links li a {*/
+    /*font-weight: bold;*/
+    /*text-transform: uppercase;*/
+
+/*}*/
+/*nav.greedy ul.hidden-links {*/
+    /*position: absolute;*/
+    /*background: #d8d8d8;*/
+    /*right: 0;*/
+    /*top: 100%;*/
+/*}*/
+/*nav.greedy ul.hidden-links.hidden {*/
+    /*display: none;*/
+/*}*/
+/*nav.greedy ul.hidden-links li {*/
+    /*padding: 1rem;*/
+/*}*/
 input.error{
     background-color: #ff7e76;
 }
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #333333;
+}
+
+.table-striped > tbody > tr:hover {
+    background-color: #252525;
+}
+.table > thead > tr > th, .table > tbody > tr > th,
+.table > tfoot > tr > th, .table > thead > tr > td,
+.table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top-color: #525252;
+}
+.table > thead > tr > th {
+    border-bottom: 0;
+}
+
