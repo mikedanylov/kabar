@@ -1,7 +1,6 @@
 /**
  * Created by mikedanylov on 3/19/16.
  */
-
 Template.register.events({
    'submit form': function(event) {
        event.preventDefault();
