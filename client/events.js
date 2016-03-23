@@ -106,7 +106,7 @@ Template.songShow.events({
                 return;
             }
             console.log(results);
-            //Router.go('placeKaraoke');
+            Router.go('placeKaraoke', {_id: place._id});
         });
     }
 });

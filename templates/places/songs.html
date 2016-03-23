@@ -2,6 +2,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th><h4>#</h4></th>
             <th><h4>Song Name</h4></th>
             <th><h4>Song Artist</h4></th>
             <th><h4>Duration</h4></th>
@@ -11,6 +12,7 @@
         <tbody>
         {{#each songs}}
             <tr>
+                <td>{{addOneTo @index}}</td>
                 <td><a class="link" href="/songs/{{_id}}/show">{{name}}</a></td>
                 <td>{{artist}}</td>
                 <td>{{duration}}</td>

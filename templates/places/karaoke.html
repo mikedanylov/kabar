@@ -1,11 +1,6 @@
 <template name="placeKaraoke">
-    <h2>{{place.name}} Play Queue</h2>
-    <h3>Current song</h3>
-
-    <h3>Queued songs</h3>
-
-
-    <h3>Songs Playlist</h3>
+    <p>Welcome, {{this.user.username}}</p>
+    <h2>{{this.place.name}} Play Queue</h2>
     <table>
         <thead>
         <tr>
@@ -21,10 +16,10 @@
         {{#each orders}}
             <tr>
                 <td>{{addOneTo @index}}</td>
-                <td>{{order.username}}</td>
-                <td>{{order.song.name}}</td>
-                <td>{{order.song.artist}}</td>
-                <td>{{order.song.duration}}</td>
+                <td>{{username}}</td>
+                <td>{{song.name}}</td>
+                <td>{{song.artist}}</td>
+                <td>{{song.duration}}</td>
             </tr>
         {{/each}}
         </tbody>

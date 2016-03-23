@@ -7,6 +7,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th><h4>#</h4></th>
             <th><h4>Place Name</h4></th>
             <th><h4>Address</h4></th>
             <th><h4>Location</h4></th>
@@ -17,6 +18,7 @@
         <tbody>
         {{#each places}}
             <tr>
+                <td>{{addOneTo @index}}</td>
                 <td><a class="link" href="/places/{{_id}}/show">{{name}}</a></td>
                 <td>{{address}}</td>
                 <td>{{latitude}}, {{longitude}}</td>
