@@ -1,0 +1,16 @@
+body {
+    background-color: #333333;
+    color: white;
+    font-size: 16px;
+}
+li { list-style-type: none; }
+a, a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+}
+a, a:visited, a:active, a:link { color: #DA491C; }
+a:hover { color: #5cc0bd; }
+
+input.error{
+    background-color: #ff7e76;
+}
+
