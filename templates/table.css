@@ -1,12 +1,17 @@
 .table-striped > tbody > tr:nth-of-type(odd) {
-  background-color: #333333;
+    background-color: #333333;
 }
 .table-striped > tbody > tr:hover {
-  background-color: #252525;
+    background-color: #252525;
 }
 .table > thead > tr > th, .table > tbody > tr > th,
 .table > tfoot > tr > th, .table > thead > tr > td,
 .table > tbody > tr > td, .table > tfoot > tr > td {
-  border-top-color: #525252;
+    border-top-color: #525252;
+    vertical-align: middle;
+}
+.table > tbody > tr > td.visible-xs,
+.table > thead > tr > th.visible-xs {
+    text-align: center;
 }
 .table > thead > tr > th { border-bottom: 0; }

@@ -3,11 +3,11 @@
  */
 
 Template.registerHelper('isAdmin', function(adminsList) {
-    return true ? (Meteor.user() && adminsList.indexOf(Meteor.user().username) >= 0) : false;
+    return !!(Meteor.user() && adminsList.indexOf(Meteor.user().username) >= 0);
 });
 
 Template.registerHelper('isKabarAdmin', function() {
-    return true ? (Meteor.user() && Meteor.user().username === 'kabaradmin') : false;
+    return !!(Meteor.user() && Meteor.user().username === 'kabaradmin');
 });
 
 Template.registerHelper('songs', function() {

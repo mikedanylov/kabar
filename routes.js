@@ -28,6 +28,7 @@ Router.route('/places/:_id/show', {
     }
 });
 Router.route('/places/:_id/edit', {
+    name: 'placeEdit',
     template: 'placeEdit',
     data: function () {
         return Places.findOne({ _id: this.params._id})

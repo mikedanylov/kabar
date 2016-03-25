@@ -3,16 +3,14 @@
 .navbar-inverse .navbar-nav > li > a:visited,
 .navbar-inverse .navbar-nav > li > a:active,
 .navbar-inverse .navbar-nav > li > a:link,
-.navbar > .container .navbar-brand,
-.navbar > .container-fluid .navbar-brand {
+.navbar > .container .navbar-brand {
     font-weight: bold;
     text-transform: uppercase;
     color: #DA491C;
     text-align: center;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
-.navbar > .container .navbar-brand:hover,
-.navbar > .container-fluid .navbar-brand:hover {
+.navbar > .container .navbar-brand:hover {
     color: #5cc0bd;
     background-color: #333333;
 }
@@ -35,8 +33,8 @@
 }
 #nav-toggle.active span { background-color: transparent; }
 #nav-toggle.active span:before, #nav-toggle.active span:after { top: 0; }
-#nav-toggle.active span:before { transform: rotate(45deg); }
-#nav-toggle.active span:after { transform: rotate(-45deg); }
+#nav-toggle.active span:before { transform: rotate(45deg); background: #5cc0bd; }
+#nav-toggle.active span:after { transform: rotate(-45deg); background: #5cc0bd; }
 
 .navbar-inverse .navbar-nav > li > a.active {
     color: #5cc0bd;

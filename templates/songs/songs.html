@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>Songs</h1>
+                <h1>Songs List</h1>
                 {{> songsList}}
             </div>
         </div>
@@ -10,26 +10,35 @@
 </template>
 
 <template name="songsList">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th><h4>#</h4></th>
-            <th><h4>Song Name</h4></th>
-            <th><h4>Song Artist</h4></th>
-            <!--<th><h4>Duration</h4></th>-->
-        </tr>
-        </thead>
-
-        <tbody>
-        {{#each songs}}
+    <div class="col-xs-offset-1 col-xs-10">
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td>{{addOneTo @index}}</td>
-                <td><a class="link" href="/songs/{{_id}}/show">{{name}}</a></td>
-                <td>{{artist}}</td>
-                <!--<td>{{duration}}</td>-->
+                <th class="visible-xs visible-sm visible-md visible-lg"><h4>#</h4></th>
+                <th class="visible-xs"><h4>Song</h4></th>
+                <th class="visible-sm visible-md visible-lg"><h4>Name</h4></th>
+                <th class="visible-sm visible-md visible-lg"><h4>Artist</h4></th>
+                <th class="visible-md visible-lg"><h4>Duration</h4></th>
             </tr>
-        {{/each}}
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody>
+            {{#each songs}}
+                <tr>
+                    <td class="visible-xs visible-sm visible-md visible-lg">{{addOneTo @index}}</td>
+                    <td class="visible-xs">
+                        <a class="link" href="/songs/{{_id}}/show">{{name}}</a>
+                        <p><small>{{artist}}</small></p>
+                    </td>
+                    <td class="visible-sm visible-md visible-lg">
+                        <a class="link" href="/songs/{{_id}}/show">{{name}}</a>
+                    </td>
+                    <td class="visible-sm visible-md visible-lg">{{artist}}</td>
+                    <td class="visible-md visible-lg">{{duration}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
     <br>
 </template>

@@ -6,7 +6,9 @@
 
 <template name="main">
     {{> navigation }}
-    {{> yield }}
-    <hr/>
-    <p>footer goes here</p>
+    <div class="container">
+        <div class="row">
+            {{> yield }}
+        </div>
+    </div>
 </template>

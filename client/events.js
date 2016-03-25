@@ -150,6 +150,9 @@ Template.songs.events({
 Template.signup.events({
     'submit form': function(event) {
         event.preventDefault();
+    },
+    'click .cancel': function(event) {
+        Router.go('home');
     }
 });
 Template.signup.onRendered(function(){
@@ -217,7 +220,33 @@ Template.navigation.events({
     'click .logout': function(event) {
         event.preventDefault();
         Meteor.logout();
-        Router.go(Router.current().route.getName());
+        var currentRoute = Router.current().route.getName();
+        if (currentRoute === 'placeKaraoke' || currentRoute === 'placeEdit') {
+            Router.go('home');
+        } else {
+            Router.go(currentRoute);
+        }
+    },
+    'click #nav-toggle': function(event) {
+        var hamburger = $('#nav-toggle'),
+            menu = $('#menu');
+        setTimeout(changeHamburger, 200);
+    },
+    'blur #nav-toggle': function(event) {
+        if (window.innerWidth < 768) {
+            $('#menu').collapse('hide');
+            setTimeout(changeHamburger, 200);
+        }
     }
 });
 
+function changeHamburger() {
+    var hamburger = $('#nav-toggle'),
+        menu = $('#menu');
+    if ($(menu).attr('aria-expanded') &&
+        $(menu).attr('aria-expanded') === 'true') {
+        $(hamburger).addClass('active');
+    } else {
+        $(hamburger).removeClass('active');
+    }
+}

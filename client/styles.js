@@ -1,18 +1,5 @@
-Template.navigation.rendered = function() {
-    document.querySelector( "#nav-toggle" )
-        .addEventListener( "click", function() {
-            this.classList.toggle("active");
-        });
-    $("#nav-toggle").blur(function (event) {
-        var screenWidth = window.innerWidth;
-        if (screenWidth < 768) {
-            $("#menu").collapse('hide');
-            $("#nav-toggle").removeClass("active");
-        }
-    });
-};
-
 Template.songsList.rendered = function() {
+    console.log(this);
     $("#songs-link").addClass("active");
 };
 Template.songsList.destroyed = function() {
@@ -25,6 +12,7 @@ Template.home.destroyed = function() {
     $("#home-link").removeClass("active");
 };
 Template.placesList.rendered = function() {
+    console.log(this);
     $("#places-link").addClass("active");
 };
 Template.placesList.destroyed = function() {
