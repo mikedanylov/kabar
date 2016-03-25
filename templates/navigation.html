@@ -17,7 +17,8 @@
                     {{#if currentUser}}
                         <li><a class="link logout" href="#">Logout</a></li>
                     {{else}}
-                        <li><a id="login-link" class="link" href="{{pathFor route='login'}}">Login</a></li>
+                        <li><a id="signin-link" class="link" href="{{pathFor route='signin'}}">Signin</a></li>
+                        <li><a id="signup-link" class="link" href="{{pathFor route='signup'}}">Signup</a></li>
                     {{/if}}
                 </ul>
             </div><!-- /.navbar-collapse -->

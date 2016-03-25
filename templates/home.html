@@ -1,9 +1,10 @@
 <template name="home">
-    <h1>Home</h1>
+    <div class="col-xs-12">
+        <h1>Home</h1>
+        {{#if currentUser}}
+            <p>Welcome, {{currentUser.username}}</p>
+        {{else}}
 
-    {{#if currentUser}}
-        <p>Welcome, {{currentUser.username}}</p>
-    {{else}}
-        <a class="link" href="{{pathFor route='signup'}}">Sign Up</a>
-    {{/if}}
+        {{/if}}
+    </div>
 </template>

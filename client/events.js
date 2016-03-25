@@ -131,7 +131,7 @@ $.validator.setDefaults({
             required: 'You need to have a name'
         },
         email: {
-            required: 'Enter email to login',
+            required: 'Enter email to signin',
             email: 'That is not a correct email'
         },
         password: {
@@ -146,13 +146,14 @@ Template.songs.events({
         Songs.remove(this._id);
     }
 });
-
+Template.credentials.events({
+    'click .cancel': function(event) {
+        Router.go('home');
+    }
+});
 Template.signup.events({
     'submit form': function(event) {
         event.preventDefault();
-    },
-    'click .cancel': function(event) {
-        Router.go('home');
     }
 });
 Template.signup.onRendered(function(){
@@ -182,19 +183,19 @@ Template.signup.onRendered(function(){
     });
 });
 
-Template.login.events({
+Template.signin.events({
     'submit form': function(event) {
         event.preventDefault();
     }
 });
-Template.login.onRendered(function(){
-    $('.login').validate({
+Template.signin.onRendered(function(){
+    $('.signin').validate({
         submitHandler: function(event) {
             var email = document.querySelector('[name=email]').value;
             var pwd = document.querySelector('[name=password]').value;
             Meteor.loginWithPassword( email, pwd, function errorHandling(error) {
                 if (error) {
-                    console.log('Login Failed: ' + error.reason);
+                    console.log('signin Failed: ' + error.reason);
                     if(error.reason == "User not found"){
                         validator.showErrors({
                             email: error.reason
@@ -206,7 +207,7 @@ Template.login.onRendered(function(){
                     }
                     return;
                 }
-                if (Router.current().route.getName() === 'login') {
+                if (Router.current().route.getName() === 'signin') {
                     Router.go('home');
                 } else {
                     Router.go(Router.current().route.getName());
