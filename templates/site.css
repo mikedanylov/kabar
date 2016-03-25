@@ -1,7 +1,6 @@
 body {
     background-color: #333333;
     color: white;
-    font-size: 16px;
 }
 li { list-style-type: none; }
 a, a:hover, a:visited, a:active, a:link {
@@ -10,8 +9,18 @@ a, a:hover, a:visited, a:active, a:link {
 a, a:visited, a:active, a:link { color: #DA491C; }
 a:hover { color: #5cc0bd; }
 
-input.error{
-    background-color: #ff7e76;
-}
+h1, h2, h3 { text-align: center; }
 
-h1, h2 { text-align: center; }
+button.btn {
+    border-radius: 0;
+    background: transparent;
+    border: 4px solid #DA491C;
+    font-size: 16px;
+    margin-top: 50px;
+    font-weight: bold;
+    color: white;
+}
+button.btn:hover {
+    color: white;
+    border: 4px solid #5cc0bd;
+}

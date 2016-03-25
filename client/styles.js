@@ -20,7 +20,17 @@ Template.placesList.destroyed = function() {
 };
 Template.login.rendered = function() {
     $("#login-link").addClass("active");
+    $(".signin-heading").addClass("underscore-blue");
+    $(".signup-heading").addClass("underscore-default");
 };
 Template.login.destroyed = function() {
     $("#login-link").removeClass("active");
+};
+Template.signup.rendered = function() {
+    $("#link-signup").addClass("active");
+    $(".signup-heading").addClass("underscore-blue");
+    $(".signin-heading").addClass("underscore-default");
+};
+Template.signup.destroyed = function() {
+    $("#link-signup").removeClass("active");
 };
