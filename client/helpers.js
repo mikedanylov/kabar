@@ -44,3 +44,9 @@ Template.songsList.helpers({
         return Songs.find();
     }
 });
+
+Template.home.helpers({
+   username: function() {
+
+   }
+});

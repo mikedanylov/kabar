@@ -153,6 +153,7 @@ Template.credentials.events({
     'click .btn-facebook': function(event) {
         Meteor.loginWithFacebook({}, function(err){
             if (err) {
+                console.log(err.reason);
                 throw new Meteor.Error("Facebook login failed");
             } else {
                 Router.go('home');
