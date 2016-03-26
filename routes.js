@@ -48,21 +48,25 @@ Router.route('/places/:_id/karaoke', {
     template: 'placeKaraoke',
     // redirect user to signup if he tries to access karaoke
     // without signing in
-    onBeforeAction: function() {
-        if (Meteor.user()) {
-           this.next();
-        } else {
-            Router.go('signup');
-        }
-    },
+    //onBeforeAction: function() {
+    //    if (Meteor.user()) {
+    //       this.next();
+    //    } else {
+    //        Router.go('signup');
+    //    }
+    //},
     data: function () {
         var place = Places.findOne({ _id: this.params._id}),
-            orders = Orders.find({place: place.name}).fetch(),
-            songs = Songs.find({places: place.name}).fetch(),
+            currentOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}}),
+            nextOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}, skip: 1}),
+            ordersPlaylist = Orders.find({place: place.name}, {sort: {priority: -1}, skip: 2}),
+            songs = Songs.find({places: place.name}),
             currentUser = Meteor.user();
         return {
-            orders: orders,
+            currentOrder: currentOrder,
+            nextOrder: nextOrder,
             user: currentUser,
+            ordersPlaylist: ordersPlaylist,
             songs: songs,
             place: place
         }

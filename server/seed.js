@@ -150,7 +150,8 @@ Meteor.startup(function () {
     Orders.insert({
         username: 'Mike Danylov',
         song: 'Society',
-        place: 'Swengi'
+        place: 'Swengi',
+        priority: 1
     });
     Orders.insert({
         username: 'admin',
@@ -160,12 +161,14 @@ Meteor.startup(function () {
     Orders.insert({
         username: 'Paavo Rotti',
         song: 'My Medicine',
-        place: 'Swengi'
+        place: 'Swengi',
+        priority: 3
     });
     Orders.insert({
         username: 'Mike Danylov',
         song: 'Californication',
-        place: 'Swengi'
+        place: 'Swengi',
+        priority: 4
     });
     Orders.insert({
         username: 'karaokefan',

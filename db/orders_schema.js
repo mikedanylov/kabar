@@ -13,6 +13,11 @@ OrdersSchema = new SimpleSchema({
         type: String,
         label: 'Order Place name'
     },
+	priority: {
+        type: Number,
+        label: 'Order Priority',
+        defaultValue:  0
+    },
 	createdAt: {
 		type: Date,
 		label: 'Created at',

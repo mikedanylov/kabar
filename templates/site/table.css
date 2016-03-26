@@ -10,8 +10,8 @@
     border-top-color: #525252;
     vertical-align: middle;
 }
-.table > tbody > tr > td.visible-xs,
-.table > thead > tr > th.visible-xs {
+.table > tbody > tr > td,
+.table > thead > tr > th {
     text-align: center;
 }
 .table > thead > tr > th { border-bottom: 0; }
