@@ -1,19 +1,10 @@
 <template name="signup">
     <div class="col-md-offset-2 col-md-8 signup-form-wrapper">
         <div class="header-wrapper">
-            <div class="col-xs-6">
-                <a class="link link-signup" href="{{pathFor route='signup'}}">
-                    <h3 class="signup-heading">Sign Up</h3>
-                </a>
-            </div>
-            <div class="col-xs-6">
-                <a class="link link-signin" href="{{pathFor route='signin'}}">
-                    <h3 class="signin-heading">Sign In</h3>
-                </a>
-            </div>
+            {{> headerButtons}}
         </div>
         <div class="col-xs-12">
-            <form class="form-horizontal signup" role="form">
+            <form class="form-horizontal signup-form" role="form">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <input type="text" class="signup-input form-control" id="username" name="username" placeholder="Enter username">

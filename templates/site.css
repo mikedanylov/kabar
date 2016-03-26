@@ -11,7 +11,11 @@ a:hover { color: #5cc0bd; }
 
 h1, h2, h3 { text-align: center; }
 
-button.btn {
+button.btn,
+button.btn:focus,
+button.btn:active,
+button.btn:visited,
+button.btn:checked {
     border-radius: 0;
     background: transparent;
     border: 4px solid #DA491C;
@@ -19,6 +23,7 @@ button.btn {
     margin-top: 50px;
     font-weight: bold;
     color: white;
+    box-shadow: none;
 }
 button.btn:hover {
     color: white;

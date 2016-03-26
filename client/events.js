@@ -131,7 +131,7 @@ $.validator.setDefaults({
             required: 'You need to have a name'
         },
         email: {
-            required: 'Enter email to signin',
+            required: 'Email field is required',
             email: 'That is not a correct email'
         },
         password: {
@@ -149,6 +149,15 @@ Template.songs.events({
 Template.credentials.events({
     'click .cancel': function(event) {
         Router.go('home');
+    },
+    'click .btn-facebook': function(event) {
+        Meteor.loginWithFacebook({}, function(err){
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            } else {
+                Router.go('home');
+            }
+        });
     }
 });
 Template.signup.events({
@@ -157,7 +166,7 @@ Template.signup.events({
     }
 });
 Template.signup.onRendered(function(){
-    $('.signup').validate({
+    $('.signup-form').validate({
         submitHandler: function(event) {
             var username = document.querySelector('[name=username]').value;
             var email = document.querySelector('[name=email]').value;

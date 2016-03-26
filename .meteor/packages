@@ -24,3 +24,5 @@ iron:router
 autopublish
 themeteorchef:jquery-validation
 twbs:bootstrap
+accounts-facebook
+service-configuration
