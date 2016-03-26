@@ -3,16 +3,15 @@ Orders = new Mongo.Collection('orders');
 OrdersSchema = new SimpleSchema({
 	username: {
 		type: String,
-		label: 'Username',
-		max: 64
+		label: 'User name'
 	},
 	song: {
 		type: String,
-		label: 'Order Song id'
+		label: 'Order Song name'
 	},
     place: {
         type: String,
-        label: 'Order Place id'
+        label: 'Order Place name'
     },
 	createdAt: {
 		type: Date,

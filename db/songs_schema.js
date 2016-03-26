@@ -1,37 +1,32 @@
-Places = new Mongo.Collection('places');
+Songs = new Mongo.Collection('songs');
 
-// schema for songslist collection
-PlacesSchema = new SimpleSchema({
+// db for songslist collection
+SongsListSchema = new SimpleSchema({
 	name: {
 		type: String,
 		label: 'Name',
 		max: 64
 	},
-	address: {
+	artist: {
 		type: String,
-		label: 'Address',
-		max: 256
+		label: 'Artist',
+		max: 64
 	},
 	popularity: {
 		type: Number,
-		label: 'Total reservation counter',
+		label: 'Reservation counter',
 		defaultValue: 0,
 		min: 0
 	},
-	latitude: {
-		type: Number,
-        decimal: true,
-		label: 'Karaoke place location latitude'
+	duration: {
+		type: String,
+		label: 'Song duration'
 	},
-	longitude: {
-		type: Number,
-        decimal: true,
-		label: 'Karaoke place location longitude'
+	places: {
+		type: [String],
+		optional: true,
+		label: 'Karaoke places'
 	},
-    admin: {
-        type: [String],
-        label: 'Karaoke place admin'
-    },
 	createdAt: {
 		type: Date,
 		label: 'Created at',
@@ -51,6 +46,14 @@ PlacesSchema = new SimpleSchema({
             }
         }
     }
+	//createdBy: {
+	//	type: String,
+	//	label: 'Created by',
+	//	autoValue: function() {
+	//		return this.userId;
+	//	}
+	//}
+
 });
 
-Places.attachSchema(PlacesSchema);
+Songs.attachSchema(SongsListSchema);

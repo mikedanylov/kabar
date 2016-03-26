@@ -46,21 +46,24 @@ Router.route('/places/:_id/songs', {
 Router.route('/places/:_id/karaoke', {
     name: 'placeKaraoke',
     template: 'placeKaraoke',
-    // commented out for development
-    //onBeforeAction: function() {
-    //    if (Meteor.user()) {
-    //       this.next();
-    //    } else {
-    //        Router.go('register');
-    //    }
-    //},
+    // redirect user to signup if he tries to access karaoke
+    // without signing in
+    onBeforeAction: function() {
+        if (Meteor.user()) {
+           this.next();
+        } else {
+            Router.go('signup');
+        }
+    },
     data: function () {
-        var place = Places.findOne({ _id: this.params._id});
-        var orders = Orders.find({places: place});
-        var currentUser = Meteor.user();
+        var place = Places.findOne({ _id: this.params._id}),
+            orders = Orders.find({place: place.name}).fetch(),
+            songs = Songs.find({places: place.name}).fetch(),
+            currentUser = Meteor.user();
         return {
             orders: orders,
             user: currentUser,
+            songs: songs,
             place: place
         }
     }

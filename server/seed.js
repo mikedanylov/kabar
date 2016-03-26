@@ -119,5 +119,58 @@ Meteor.startup(function () {
 
     // INSERT USERS ###################################################################################################
     Meteor.users.remove({});
+    //Accounts.createUser({
+    //    username: 'karaokefan',
+    //    email: 'karaokefan@fun.com',
+    //    password: 'qweqwe',
+    //    admin: false
+    //});
+    Meteor.users.insert({
+        username: 'karaokefan',
+        emails: [
+            {
+                address: 'karaokefan@fan.com',
+                verified: false
+            }
+        ]
+    });
+    Meteor.users.insert({
+        username: 'admin',
+        emails: [
+            {
+                address: 'admin@kabar.com',
+                verified: false
+            }
+        ]
+    });
     // END PLACES USERS ###############################################################################################
+
+    // INSERT ORDERS ##################################################################################################
+    Orders.remove({});
+    Orders.insert({
+        username: 'Mike Danylov',
+        song: 'Society',
+        place: 'Swengi'
+    });
+    Orders.insert({
+        username: 'admin',
+        song: 'Old Enough',
+        place: 'Swengi'
+    });
+    Orders.insert({
+        username: 'Paavo Rotti',
+        song: 'My Medicine',
+        place: 'Swengi'
+    });
+    Orders.insert({
+        username: 'Mike Danylov',
+        song: 'Californication',
+        place: 'Swengi'
+    });
+    Orders.insert({
+        username: 'karaokefan',
+        song: 'No One Knows',
+        place: 'Swengi'
+    });
+    // END PLACES ORDERS ##############################################################################################
 });

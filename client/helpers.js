@@ -32,10 +32,30 @@ Template.placeSongs.helpers({
 });
 
 Template.placeKaraoke.helpers({
-    orders: function () {
+    printAll: function () {
         console.log('data: ');
         console.log(this);
+    },
+    songs: function() {
+        return this.songs;
+    },
+    orders: function() {
         return this.orders;
+    },
+    getSongName: function(songName) {
+        var currentSong = Songs.findOne({name: songName});
+        console.log('Template::placeKaraoke::helpers::getSongName: ' + currentSong.name);
+        return currentSong.name;
+    },
+    getSongArtist: function(songName) {
+        var currentSong = Songs.findOne({name: songName});
+        console.log('Template::placeKaraoke::helpers::getSongArtist: ' + currentSong.artist);
+        return currentSong.artist;
+    },
+    getSongDuration: function(songName) {
+        var currentSong = Songs.findOne({name: songName});
+        console.log('Template::placeKaraoke::helpers::getSongDuration: ' + currentSong.duration);
+        return currentSong.duration;
     }
 });
 
@@ -47,6 +67,17 @@ Template.songsList.helpers({
 
 Template.home.helpers({
    username: function() {
-
+       var user = Meteor.user();
+       if (user) {
+           if (user.hasOwnProperty('profile')) {
+               console.log(user.profile.name);
+               return user.profile.name;
+           } else {
+               console.log(user);
+               return user.username;
+           }
+       } else {
+           console.log('Not logged in');
+       }
    }
 });
