@@ -167,7 +167,7 @@ Template.signup.events({
     }
 });
 Template.signup.onRendered(function(){
-    $('.signup-form').validate({
+    var validator = $('.signup-form').validate({
         submitHandler: function(event) {
             var username = document.querySelector('[name=username]').value;
             var email = document.querySelector('[name=email]').value;
@@ -199,7 +199,7 @@ Template.signin.events({
     }
 });
 Template.signin.onRendered(function(){
-    $('.signin').validate({
+    var validator = $('.signin-form').validate({
         submitHandler: function(event) {
             var email = document.querySelector('[name=email]').value;
             var pwd = document.querySelector('[name=password]').value;
@@ -208,11 +208,15 @@ Template.signin.onRendered(function(){
                     console.log('signin Failed: ' + error.reason);
                     if(error.reason == "User not found"){
                         validator.showErrors({
-                            email: error.reason
+                            email: "User not found"
                         });
                     } else if (error.reason == "Incorrect password"){
                         validator.showErrors({
-                            password: error.reason
+                            password: "Incorrect password"
+                        });
+                    } else if (error.reason == "User has no password set") {
+                        validator.showErrors({
+                            email: "User has no password set"
                         });
                     }
                     return;

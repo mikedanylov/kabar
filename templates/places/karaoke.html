@@ -16,7 +16,7 @@
                         <a class="link" href="/songs/{{getSongId currentOrder.song}}/show">
                             {{currentOrder.song}}
                         </a>
-                        <p>{{getSongArtist currentOrder.song}}</p>
+                        <p class="song-details">{{getSongArtist currentOrder.song}}</p>
                     </td>
                     <td class="td-no-border">{{getSongDuration currentOrder.song}}</td>
                 </tr>
@@ -34,7 +34,7 @@
                     <a class="link" href="/songs/{{getSongId nextOrder.song}}/show">
                         {{nextOrder.song}}
                     </a>
-                    <p>{{getSongArtist nextOrder.song}}</p>
+                    <p class="song-details">{{getSongArtist nextOrder.song}}</p>
                 </td>
                 <td class="td-no-border">{{getSongDuration nextOrder.song}}</td>
             </tr>
@@ -62,7 +62,7 @@
                         <a class="link" href="/songs/{{getSongId song}}/show">
                             {{song}}
                         </a>
-                        <p>{{getSongArtist song}}</p>
+                        <p class="song-details">{{getSongArtist song}}</p>
                     </td>
                     <td>{{getSongDuration song}}</td>
                 </tr>

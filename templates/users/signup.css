@@ -35,3 +35,4 @@ button.btn.btn-cancel:hover { border: 4px solid #5cc0bd; }
 a.link.link-signup, a.link.link-signin {
     color: white;
 }
+.fa.fa-facebook-official { font-size: 22px; }

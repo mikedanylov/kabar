@@ -13,5 +13,6 @@
 .table > tbody > tr > td,
 .table > thead > tr > th {
     text-align: center;
+    padding: 0 4px;
 }
 .table > thead > tr > th { border-bottom: 0; }
