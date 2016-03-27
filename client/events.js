@@ -248,6 +248,14 @@ Template.navigation.events({
             $('#menu').collapse('hide');
             setTimeout(changeHamburger, 200);
         }
+    },
+    'click #nav-search-open': function(event) {
+        $('#search-inactive').hide('slow');
+        $('#search-active').show('slow');
+    },
+    'click #nav-search-close': function(event) {
+        $('#search-inactive').show('slow');
+        $('#search-active').hide('slow');
     }
 });
 

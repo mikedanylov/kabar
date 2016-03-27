@@ -14,7 +14,7 @@
     color: #5cc0bd;
     background-color: #333333;
 }
-#nav-toggle { position: relative; float: right; margin: 10px 10px; }
+#nav-toggle { position: relative; float: left; margin: 10px 10px; }
 #nav-toggle { cursor: pointer; padding: 10px 35px 16px 0; }
 #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
     cursor: pointer;
@@ -39,4 +39,38 @@
 .navbar-inverse .navbar-nav > li > a.active {
     color: #5cc0bd;
     background-color: #333333;
+}
+#nav-search-open, #nav-search-close {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 26px;
+    cursor: pointer;
+}
+input#nav-search-input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    background: none;
+    outline: none;
+    resize: none;
+    border: 0;
+    transition: all .3s;
+    border-bottom: 2px solid #78788c;
+
+    font-size: 24px;
+    box-shadow: none;
+    border-radius: 0;
+    color: white;
+    height: auto;
+}
+input#nav-search-input:focus { border-bottom: 2px solid #5cc0bd; }
+#menu.width {
+    height: auto;
+    -webkit-transition: width 0.35s ease;
+    -moz-transition: width 0.35s ease;
+    transition: width 0.35s ease;
+    -o-transition: width 0.35s ease;
+    width: 40%;
 }

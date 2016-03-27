@@ -32,3 +32,6 @@ Template.signup.rendered = function() {
 Template.signup.destroyed = function() {
     $("#signup-link").removeClass("active");
 };
+Template.navigation.rendered = function() {
+    $("#search-active").hide();
+};
