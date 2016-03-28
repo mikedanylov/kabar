@@ -48,3 +48,6 @@ button.btn:focus, button.btn:active:focus {
     margin-right: auto;
     text-align: center;
 }
+#noNav > .row {
+    margin-top: 50px;
+}

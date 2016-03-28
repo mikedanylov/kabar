@@ -6,14 +6,11 @@
 .navbar > .container .navbar-brand {
     font-weight: bold;
     text-transform: uppercase;
-    color: #DA491C;
+    color: white;
     text-align: center;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
-.navbar > .container .navbar-brand:hover {
-    color: #5cc0bd;
-    background-color: #333333;
-}
+.navbar > .container .navbar-brand:hover { color: #5cc0bd; }
 #nav-toggle { position: relative; float: left; margin: 10px 10px; }
 #nav-toggle { cursor: pointer; padding: 10px 35px 16px 0; }
 #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
@@ -35,10 +32,13 @@
 #nav-toggle.active span:before, #nav-toggle.active span:after { top: 0; }
 #nav-toggle.active span:before { transform: rotate(45deg); background: #5cc0bd; }
 #nav-toggle.active span:after { transform: rotate(-45deg); background: #5cc0bd; }
-
 .navbar-inverse .navbar-nav > li > a.active {
-    color: #5cc0bd;
-    background-color: #333333;
+    /*color: #DA491C;*/
+    /*border-bottom: 2px solid #DA491C;*/
+}
+.navbar-inverse .navbar-nav > li > a.active > span {
+    color: #DA491C;
+    border-bottom: 2px solid #DA491C;
 }
 #nav-search-open, #nav-search-close {
     float: right;
@@ -71,7 +71,7 @@ input#nav-search-input:focus { border-bottom: 2px solid #5cc0bd; }
     .width{
         width: 220px;
         height: 100vh;
-        background-color: black;
+        background-color: #222222;
         -webkit-transition: width 0.2s ease-in;
         -moz-transition: width 0.2s ease-in;
         transition: width 0.2s ease-in;

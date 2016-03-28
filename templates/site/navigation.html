@@ -1,5 +1,5 @@
 <template name="navigation">
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container navbar-fixed-top">
             <div class="navbar-header">
                 <a id="nav-toggle" data-toggle="collapse" data-target="#menu" class="visible-xs">
@@ -10,14 +10,24 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse width" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="home-link" class="nav-link" href="{{pathFor route='home'}}">Home</a></li>
-                    <li><a id="songs-link" class="nav-link" href="{{pathFor route='songs'}}">Songs</a></li>
-                    <li><a id="places-link" class="nav-link" href="{{pathFor route='places'}}">Places</a></li>
+                    <li><a id="home-link" class="nav-link" href="{{pathFor route='home'}}">
+                        <span>Home</span>
+                    </a></li>
+                    <li><a id="songs-link" class="nav-link" href="{{pathFor route='songs'}}">
+                        <span>Songs</span>
+                    </a></li>
+                    <li><a id="places-link" class="nav-link" href="{{pathFor route='places'}}">
+                        <span>Places</span>
+                    </a></li>
                     {{#if currentUser}}
-                        <li><a class="link logout nav-link" href="#">Logout</a></li>
+                        <li><a class="link logout nav-link" href="#"><span>Logout</span></a></li>
                     {{else}}
-                        <li><a id="signin-link" class="link nav-link" href="{{pathFor route='signin'}}">Signin</a></li>
-                        <li><a id="signup-link" class="link nav-link" href="{{pathFor route='signup'}}">Signup</a></li>
+                        <li><a id="signin-link" class="link nav-link" href="{{pathFor route='signin'}}">
+                            <span>Signin</span>
+                        </a></li>
+                        <li><a id="signup-link" class="link nav-link" href="{{pathFor route='signup'}}">
+                            <span>Signup</span>
+                        </a></li>
                     {{/if}}
                 </ul>
             </div><!-- /.navbar-collapse -->
