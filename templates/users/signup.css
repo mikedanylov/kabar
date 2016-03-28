@@ -3,6 +3,20 @@ h3.signin-heading,h3.signup-heading {
     padding-bottom: 10px;
     text-align: center;
 }
+@media (max-width: 767px) {
+    h3.signin-heading,h3.signup-heading {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (min-width: 768px) {
+    h3.signin-heading,h3.signup-heading {
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 h3.signup-heading.visible-xs,
 h3.signin-heading.visible-xs { display: inline-block; }
 input.signup-input.form-control {
@@ -22,11 +36,6 @@ input.signup-input.form-control {
     color: white;
     height: auto;
 }
-/*input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {*/
-    /*-webkit-text-fill-color: white !important;*/
-    /*-webkit-box-shadow: 0 0 0 1000px #333333 inset !important;*/
-    /*color: white !important;*/
-/*}*/
 input.signup-input.form-control:focus { border-bottom: 2px solid white; }
 label.error { color: #ff7e76; }
 input.signup-input.form-control.error { border-bottom: 2px solid #ff7e76; }
