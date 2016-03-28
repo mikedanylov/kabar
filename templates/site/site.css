@@ -1,5 +1,6 @@
 body {
-    background-color: #333333;
+    background: url("Color-Fill-1.png");
+    background-size: 100%;
     color: white;
 }
 li { list-style-type: none; }
@@ -11,19 +12,25 @@ a:hover { color: #5cc0bd; }
 
 h1, h2, h3 { text-align: center; }
 
-button.btn {
+button.btn, button.btn:hover, button.btn:focus {
     border-radius: 0;
-    background: transparent;
-    border: 4px solid #DA491C;
+    background: rgba(218,73,28,0.55);
     font-size: 16px;
-    margin-top: 50px;
+    margin-top: 20px;
     font-weight: bold;
     color: white;
     box-shadow: none;
+    text-transform: uppercase;
+    outline: none;
+    border: 2px solid rgba(218,73,28,0.1);
 }
-button.btn:hover {
+button.btn:hover, button.btn:focus {
+    background: rgba(218,73,28,1);
+    border: 2px solid rgba(218,73,28,1);
+}
+button.btn:focus, button.btn:active:focus {
     color: white;
-    border: 4px solid #5cc0bd;
+    outline: none;
 }
 .underscore-blue {
     border-bottom: 3px solid #5cc0bd;
@@ -32,7 +39,7 @@ button.btn:hover {
     border-bottom: 3px solid #DA491C;
 }
 .underscore-default {
-    border-bottom: 3px solid #78788c;
+    border-bottom: 3px solid #aeaeae;
 }
 .header-wrapper {
     width: 90%;

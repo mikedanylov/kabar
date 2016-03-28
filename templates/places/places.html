@@ -1,47 +1,18 @@
 <template name="places">
-    <div class="container">
-        <h1>Karaoke places</h1>
+    <h1>Karaoke places</h1>
+    <div class="col-xs-12">
         {{> placesList}}
     </div>
 </template>
 
 <template name="placesList">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th><h4>#</h4></th>
-            <th><h4>Name</h4></th>
-            <th><h4>Address</h4></th>
-            <th><h4>Location</h4></th>
-            <th><h4>Admin</h4></th>
-            <th><h4></h4></th>
-        </tr>
-        </thead>
-
-        <tbody>
-        {{#each places}}
-            <tr>
-                <td>{{addOneTo @index}}</td>
-                <td><a class="link" href="/places/{{_id}}/show">{{name}}</a></td>
-                <td>{{address}}</td>
-                <td>{{latitude}}, {{longitude}}</td>
-                <td>{{admin}}</td>
-                <td>
-                    <a class="link" href="/places/{{_id}}/karaoke">karaoke</a>
-
-                    <!-- only karaoke admins can modify their place info -->
-                    {{#if isAdmin admin}}
-                        <a class="link" href="/places/{{_id}}/edit">Edit</a>
-                        <a class="link remove" href="#">Remove</a>
-                    {{/if}}
-                </td>
-            </tr>
-        {{/each}}
-        </tbody>
-    </table>
-    <br>
-    <!-- Only app admins can add new places -->
-    {{#if isKabarAdmin}}
-        <a class="link" href="/places/add">Add new place</a>
-    {{/if}}
+    <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="place-tile">
+            <img class="place-img" width="300" height="300" src="" alt="" />
+            <span>
+                <p>address</p>
+                <p>karaoke-button</p>
+            </span>
+        </div>
+    </div>
 </template>
