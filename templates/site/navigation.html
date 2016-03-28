@@ -1,44 +1,26 @@
 <template name="navigation">
     <nav class="navbar navbar-inverse">
-        <div class="container">
+        <div class="container navbar-fixed-top">
             <div class="navbar-header">
-                <div id="search-wrapper">
-                    <div id="search-inactive" class="col-xs-12">
-                        <a id="nav-toggle" data-toggle="collapse" data-target="#menu" class="visible-xs">
-                            <span></span>
-                        </a>
-                        <a class="navbar-brand" href="{{pathFor route='home'}}">Kabar</a>
-                        <a id="nav-search-open">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </a>
-                    </div>
-                    <div id="search-active" class="col-xs-12">
-                        <div class="col-xs-10">
-                            <input id="nav-search-input" placeholder="Search for anything">
-                        </div>
-                        <div class="col-xs-2">
-                            <a id="nav-search-close">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <a id="nav-toggle" data-toggle="collapse" data-target="#menu" class="visible-xs">
+                    <span></span>
+                </a>
+                <a class="navbar-brand" href="{{pathFor route='home'}}">Kabar</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse width" id="menu">
+            <div class="collapse navbar-collapse width" id="menu">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="home-link" href="{{pathFor route='home'}}">Home</a></li>
-                    <li><a id="songs-link" href="{{pathFor route='songs'}}">Songs</a></li>
-                    <li><a id="places-link" href="{{pathFor route='places'}}">Places</a></li>
+                    <li><a id="home-link" class="nav-link" href="{{pathFor route='home'}}">Home</a></li>
+                    <li><a id="songs-link" class="nav-link" href="{{pathFor route='songs'}}">Songs</a></li>
+                    <li><a id="places-link" class="nav-link" href="{{pathFor route='places'}}">Places</a></li>
                     {{#if currentUser}}
-                        <li><a class="link logout" href="#">Logout</a></li>
+                        <li><a class="link logout nav-link" href="#">Logout</a></li>
                     {{else}}
-                        <li><a id="signin-link" class="link" href="{{pathFor route='signin'}}">Signin</a></li>
-                        <li><a id="signup-link" class="link" href="{{pathFor route='signup'}}">Signup</a></li>
+                        <li><a id="signin-link" class="link nav-link" href="{{pathFor route='signin'}}">Signin</a></li>
+                        <li><a id="signup-link" class="link nav-link" href="{{pathFor route='signup'}}">Signup</a></li>
                     {{/if}}
                 </ul>
             </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
+        </div>
     </nav>
 </template>
