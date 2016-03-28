@@ -1,4 +1,4 @@
-.navbar { border: 0; border-radius: 0; }
+.navbar { border: 0; border-radius: 0;margin: 0;}
 .navbar-inverse .navbar-nav > li > a,
 .navbar-inverse .navbar-nav > li > a:visited,
 .navbar-inverse .navbar-nav > li > a:active,
@@ -66,11 +66,29 @@ input#nav-search-input {
     height: auto;
 }
 input#nav-search-input:focus { border-bottom: 2px solid #5cc0bd; }
-#menu.width {
-    height: auto;
-    -webkit-transition: width 0.35s ease;
-    -moz-transition: width 0.35s ease;
-    transition: width 0.35s ease;
-    -o-transition: width 0.35s ease;
-    width: 40%;
+
+@media (max-width: 767px) {
+    .width{
+        width: 220px;
+        height: 100vh;
+        background-color: black;
+        -webkit-transition: width 0.2s ease-in;
+        -moz-transition: width 0.2s ease-in;
+        transition: width 0.2s ease-in;
+        -o-transition: width 0.2s ease-in;
+    }
+    .container.navbar-fixed-top{
+        height: 50px;
+    }
+}
+@media (min-width: 768px) {
+    div#menu.collapse.navbar-collapse.width {
+        width: auto !important;
+        height: 50px;
+    }
+}
+
+/*OverRide Properties*/
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: none;
 }

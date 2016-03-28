@@ -243,15 +243,9 @@ Template.navigation.events({
         }
     },
     'click #nav-toggle': function(event) {
-        var hamburger = $('#nav-toggle'),
-            menu = $('#menu');
-        setTimeout(changeHamburger, 200);
-    },
-    'blur #nav-toggle': function(event) {
-        if (window.innerWidth < 768) {
-            $('#menu').collapse('hide');
-            setTimeout(changeHamburger, 200);
-        }
+        var hamburger = $('#nav-toggle');
+        setTimeout(changeHamburger, 50);
+
     },
     'click #nav-search-open': function(event) {
         $('#search-inactive').hide('slow');
@@ -260,6 +254,11 @@ Template.navigation.events({
     'click #nav-search-close': function(event) {
         $('#search-inactive').show('slow');
         $('#search-active').hide('slow');
+    },
+    'click .nav-link': function (event) {
+        $('#menu').collapse('hide');
+        setTimeout(changeHamburger,50);
+
     }
 });
 
@@ -273,3 +272,13 @@ function changeHamburger() {
         $(hamburger).removeClass('active');
     }
 }
+Template.main.events({
+    'click #noNav': function (event) {
+        if (window.innerWidth < 768) {
+            $('#menu').collapse('hide');
+            setTimeout(changeHamburger, 50);
+            }
+
+        }
+
+});
