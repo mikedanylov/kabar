@@ -5,7 +5,7 @@ h3.signin-heading,h3.signup-heading {
 }
 @media (max-width: 767px) {
     h3.signin-heading,h3.signup-heading {
-        width: 70%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
