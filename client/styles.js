@@ -19,7 +19,6 @@ Template.placesList.destroyed = function() {
 Template.signin.rendered = function() {
     $("#signin-link").addClass("active");
     $(".signin-heading").addClass("underscore-orange");
-    $(".signup-heading").addClass("underscore-default");
 };
 Template.signin.destroyed = function() {
     $("#signin-link").removeClass("active");
@@ -27,7 +26,6 @@ Template.signin.destroyed = function() {
 Template.signup.rendered = function() {
     $("#signup-link").addClass("active");
     $(".signup-heading").addClass("underscore-orange");
-    $(".signin-heading").addClass("underscore-default");
 };
 Template.signup.destroyed = function() {
     $("#signup-link").removeClass("active");
