@@ -6,14 +6,17 @@
 </template>
 
 <template name="placesList">
-    <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="place-tile">
-            <img class="place-img" src="http://placehold.it/300x300/5cc0bd" alt="" />
-            <div class="place-label">
-                <p>The Louder The Better</p>
-                <p><span class="fa fa-map-marker"></span> Albertinkatu 2, Helsinki</p>
-            </div>
-            <!--<span>karaoke-button</span>-->
+    {{#each places}}
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <a class="link" href="/places/{{_id}}/karaoke">
+                <div class="place-tile">
+                    <div class="place-label">
+                        <p>{{name}}</p>
+                        <p><span class="fa fa-map-marker"></span> {{address}}</p>
+                    </div>
+                    <!--<span>karaoke-button</span>-->
+                </div>
+            </a>
         </div>
-    </div>
+    {{/each}}
 </template>

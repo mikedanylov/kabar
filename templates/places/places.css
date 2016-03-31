@@ -1,24 +1,28 @@
 @media (max-width: 767px) {
-
+    .place-tile {
+        background: url('https://unsplash.it/250/?blur&random') no-repeat center;
+        width: 250px;
+        height: 250px;
+        margin-bottom: 30px;
+    }
 }
 @media (min-width: 768px) {
-
-}
-.place-img {
-    width: 300px;
-    height: 300px;
+    .place-tile {
+        background: url('https://unsplash.it/300/?blur&random') no-repeat center;
+        width: 300px;
+        height: 300px;
+        margin-bottom: 50px;
+    }
 }
 .place-tile {
     position: relative;
-    /*border: 1px solid #78788c;*/
     overflow: hidden;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 1px 5px 1px black;
 }
 .place-tile:hover {
     box-shadow: 0 1px 5px 1px #DA491C;
-    /*border: 1px solid #DA491C;*/
 }
 div.place-label {
     padding: 5px;
@@ -30,7 +34,7 @@ div.place-label {
     text-align: center;
     background-color: black;
     color: white;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 div.place-label p {
     margin-bottom: 0;
