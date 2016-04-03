@@ -1,8 +1,8 @@
 <template name="songShow">
-    <h2 id="song-name">{{this.song.name}}</h2>
-    <p hidden id="song-id">{{this.song._id}}</p>
-    <p>{{this.song.artist}}</p>
-    <p>{{this.song.duration}}</p>
+    <h2 id="song-name">{{song.name}}</h2>
+    <p hidden id="song-id">{{song._id}}</p>
+    <p>{{song.artist}}</p>
+    <p>{{song.duration}}</p>
 
     {{#if currentUser}}
         <p>Book this song:</p>

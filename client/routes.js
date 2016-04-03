@@ -93,10 +93,14 @@ Router.route('/songs/add', {
 Router.route('/songs/:_id/show', {
     template: 'songShow',
     data: function () {
-        var song = Songs.findOne({ _id: this.params._id});
-        var places = song.places;
-        console.log(song);
-        console.log(places);
+        var song, allPlaces, places = [];
+        song = Songs.findOne({ _id: this.params._id});
+        allPlaces = Places.find().fetch();
+        allPlaces.forEach(function (place) {
+            if (song.places.indexOf(place.name) !== -1) {
+                places.push(place);
+            }
+        });
         return {
             song: song,
             places: places

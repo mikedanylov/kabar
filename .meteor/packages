@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 aldeed:collection2
 accounts-password
 accounts-ui-unstyled
-iron:router
 autopublish
 themeteorchef:jquery-validation
 twbs:bootstrap
@@ -27,3 +26,4 @@ service-configuration
 meteorhacks:aggregate
 fortawesome:fontawesome
 standard-minifier-css
+iron:router
