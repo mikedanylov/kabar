@@ -4,12 +4,10 @@
     <p>{{this.song.artist}}</p>
     <p>{{this.song.duration}}</p>
 
-    <!--<p>{{function this}}</p>-->
-
     {{#if currentUser}}
         <p>Book this song:</p>
         {{#each places}}
-            <a class="link place-order" href="#">{{this}}</a>
+            <a class="link place-order" href="#">{{name}}</a>
             <br>
         {{/each}}
     {{/if}}

@@ -1,3 +1,6 @@
+
+import { Mongo } from 'meteor/mongo';
+
 Songs = new Mongo.Collection('songs');
 
 // db for songslist collection
@@ -46,14 +49,6 @@ SongsListSchema = new SimpleSchema({
             }
         }
     }
-	//createdBy: {
-	//	type: String,
-	//	label: 'Created by',
-	//	autoValue: function() {
-	//		return this.userId;
-	//	}
-	//}
-
 });
 
 Songs.attachSchema(SongsListSchema);

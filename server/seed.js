@@ -1,13 +1,16 @@
 /**
  * Created by mikedanylov on 2/20/16.
  */
+
+import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
+
 Meteor.startup(function () {
 
     // INSERT SONGS ###################################################################################################
 
     // remove current docs
     Songs.remove({});
-    // seed fresh data each time server starts
     Songs.insert({
         name: 'Californication',
         artist: 'Red Hot Chilly Peppers',
@@ -119,12 +122,6 @@ Meteor.startup(function () {
 
     // INSERT USERS ###################################################################################################
     Meteor.users.remove({});
-    //Accounts.createUser({
-    //    username: 'karaokefan',
-    //    email: 'karaokefan@fun.com',
-    //    password: 'qweqwe',
-    //    admin: false
-    //});
     Meteor.users.insert({
         username: 'karaokefan',
         emails: [

@@ -1,3 +1,6 @@
+
+import { Mongo } from 'meteor/mongo';
+
 Places = new Mongo.Collection('places');
 
 // db for songslist collection

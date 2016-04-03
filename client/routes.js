@@ -2,6 +2,8 @@
  * Created by mikedanylov on 3/18/16.
  */
 
+import { Meteor } from 'meteor/meteor';
+
 Router.configure({
     layoutTemplate: 'main',
     loadingTemplate: 'loading'
@@ -41,6 +43,9 @@ Router.route('/places/:_id/songs', {
             songs: Songs.find({places: this.name}),
             place: Places.findOne({ _id: this.params._id})
         }
+    },
+    subscriptions: function() {
+        return Songs.find();
     }
 });
 Router.route('/places/:_id/karaoke', {
@@ -72,7 +77,16 @@ Router.route('/places/:_id/karaoke', {
         }
     }
 });
-Router.route('/songs');
+Router.route('/songs', {
+    template: 'songs',
+    name: 'songs',
+    data: () => {
+        return Songs.find();
+    },
+    subscriptions: () => {
+        return Meteor.subscribe('songs');
+    }
+});
 Router.route('/songs/add', {
     template: 'songAdd'
 });
