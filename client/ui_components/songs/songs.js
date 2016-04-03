@@ -4,7 +4,7 @@
 
 import { getUserName } from '../../globals';
 import { Meteor } from 'meteor/meteor';
-import { Template } from 'meteor/templating'
+import { Template } from 'meteor/templating';
 
 Template.songs.events({
     'click .remove': function(event) {
@@ -62,25 +62,15 @@ Template.songShow.events({
         song = Songs.findOne({_id: document.querySelector('#song-id').innerHTML});
         place = this;
         currentUser = getUserName(Meteor.user());
-        Meteor.call('placeOrder', song._id, place._id, currentUser);
-
-        //var song, place;
-        //event.preventDefault(); // don't refresh page
-        //song = Songs.findOne({_id: document.querySelector('#song-id').innerHTML});
-        //place = Places.findOne({name: this.valueOf()});
-        //Meteor.call('placeOrder', song._id, place._id);
-        //Orders.insert({
-        //    username: Meteor.user().username,
-        //    song: song._id,
-        //    place: place._id
-        //}, function(error, results) {
-        //    if (error) {
-        //        console.log(error);
-        //        return;
-        //    }
-        //    console.log(results);
-        //    Router.go('placeKaraoke', {_id: place._id});
-        //});
+        Meteor.call('orders.placeOrder', song.name, place.name, currentUser,
+        (err, res) => {
+            if (err && err.length) {
+                console.log('Template::songShow::events: ' + err);
+            } else {
+                console.log('Template::songShow::events: ' + res);
+                Router.go('placeKaraoke', {_id: place._id});
+            }
+        });
     }
 });
 
