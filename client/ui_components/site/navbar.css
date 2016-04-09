@@ -66,7 +66,6 @@ input#nav-search-input {
     height: auto;
 }
 input#nav-search-input:focus { border-bottom: 2px solid #5cc0bd; }
-
 @media (max-width: 767px) {
     .width{
         width: 50vw;
@@ -87,7 +86,6 @@ input#nav-search-input:focus { border-bottom: 2px solid #5cc0bd; }
         height: 50px;
     }
 }
-
 /*OverRide Properties*/
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
     max-height: none;

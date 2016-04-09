@@ -96,6 +96,14 @@ Template.signin.onRendered(() => {
 });
 
 Template.navigation.events({
+    'click #nav-toggle': function(event) {
+        var hamburger = $('#nav-toggle');
+        setTimeout(changeHamburger, 50);
+
+    }
+});
+
+Template.navbarLinks.events({
     'click .logout': function(event) {
         event.preventDefault();
         Meteor.logout();
@@ -106,23 +114,9 @@ Template.navigation.events({
             Router.go(currentRoute);
         }
     },
-    'click #nav-toggle': function(event) {
-        var hamburger = $('#nav-toggle');
-        setTimeout(changeHamburger, 50);
-
-    },
-    'click #nav-search-open': function(event) {
-        $('#search-inactive').hide('slow');
-        $('#search-active').show('slow');
-    },
-    'click #nav-search-close': function(event) {
-        $('#search-inactive').show('slow');
-        $('#search-active').hide('slow');
-    },
     'click .nav-link': function (event) {
         $('#menu').collapse('hide');
         setTimeout(changeHamburger,50);
-
     }
 });
 
@@ -137,25 +131,22 @@ Template.main.events({
 });
 
 Template.home.onRendered(() => {
-    $("#home-link").addClass("active");
+    $(".home-link").addClass("active");
 });
 Template.home.onDestroyed(() => {
-    $("#home-link").removeClass("active");
+    $(".home-link").removeClass("active");
 });
 Template.signin.onRendered(() => {
-    $("#signin-link").addClass("active");
+    $(".signin-link").addClass("active");
     $(".signin-heading").addClass("underscore-orange");
 });
 Template.signin.onDestroyed(() => {
-    $("#signin-link").removeClass("active");
+    $(".signin-link").removeClass("active");
 });
 Template.signup.onRendered(() => {
-    $("#signup-link").addClass("active");
+    $(".signup-link").addClass("active");
     $(".signup-heading").addClass("underscore-orange");
 });
 Template.signup.onDestroyed(() => {
-    $("#signup-link").removeClass("active");
-});
-Template.navigation.onRendered(() => {
-    $("#search-active").hide();
+    $(".signup-link").removeClass("active");
 });

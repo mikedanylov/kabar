@@ -75,8 +75,8 @@ Template.songShow.events({
 });
 
 Template.songsList.onRendered(() => {
-    $("#songs-link").addClass("active");
+    $(".songs-link").addClass("active");
 });
 Template.songsList.onDestroyed(() => {
-    $("#songs-link").removeClass("active");
+    $(".songs-link").removeClass("active");
 });

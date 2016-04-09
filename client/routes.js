@@ -16,6 +16,7 @@ Router.route('/', {
     }
 });
 Router.route('/signup');
+Router.route('/search');
 Router.route('/signin');
 Router.route('/places', {
     name: 'places'

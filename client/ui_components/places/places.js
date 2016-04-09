@@ -101,8 +101,8 @@ Template.places.events({
 });
 
 Template.placesList.onRendered(() => {
-    $("#places-link").addClass("active");
+    $(".places-link").addClass("active");
 });
 Template.placesList.onDestroyed(() => {
-    $("#places-link").removeClass("active");
+    $(".places-link").removeClass("active");
 });

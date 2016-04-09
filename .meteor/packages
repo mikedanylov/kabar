@@ -27,3 +27,4 @@ meteorhacks:aggregate
 fortawesome:fontawesome
 standard-minifier-css
 iron:router
+less
