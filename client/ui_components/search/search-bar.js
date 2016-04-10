@@ -9,7 +9,7 @@ Template.search.onRendered(() => {
 });
 
 Template.search.events({
-    'click span.search-icon-hover': (event) => {
+    'click span.search-icon-hover': () => {
         // show search div with input field when icon is clicked
         $('div.search-active').fadeIn();
         // and focus on input
@@ -17,13 +17,19 @@ Template.search.events({
         // hide another seach icon, menu hamburger and nav-brand
         $('div.search-inactive').hide();
         $('a.navbar-brand').hide();
+        $('div#search-results-wrapper').fadeIn();
 
     },
-    'blur .search-input': (event) => {
+    'blur .search-input': () => {
         // unhide search div with icon
         $('div.search-inactive').fadeIn();
         // hide search input field
         $('div.search-active').hide();
         $('a.navbar-brand').fadeIn();
-    }
+        $('div#search-results-wrapper').fadeOut();
+    },
+    "keyup .search-input": _.throttle((e) => {
+        let text = $(e.target).val().trim();
+        SongSearch.search(text);
+    }, 400)
 });

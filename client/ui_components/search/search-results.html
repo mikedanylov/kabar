@@ -1,0 +1,10 @@
+<template name="searchResults">
+    <div id="search-results-wrapper">
+        {{#each results}}
+            <div class="result">
+                <a class="link" href="/songs/{{_id}}/show">{{name}}</a>
+                <span>{{artist}}</span>
+            </div>
+        {{/each}}
+    </div>
+</template>
