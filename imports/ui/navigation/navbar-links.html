@@ -1,0 +1,23 @@
+<template name="navbarLinks">
+    <ul class="nav navbar-nav">
+        <li><a class="nav-link home-link" href="{{pathFor route='home'}}">
+            <span>Home</span>
+        </a></li>
+        <li><a class="nav-link songs-link" href="{{pathFor route='songsList'}}">
+            <span>Songs</span>
+        </a></li>
+        <li><a class="nav-link places-link" href="{{pathFor route='places'}}">
+            <span>Places</span>
+        </a></li>
+        {{#if currentUser}}
+            <li><a class="link logout nav-link" href="#"><span>Logout</span></a></li>
+        {{else}}
+            <li><a class="link nav-link signin-link" href="{{pathFor route='signin'}}">
+                <span>Signin</span>
+            </a></li>
+            <li><a class="link nav-link signup-link" href="{{pathFor route='signup'}}">
+                <span>Signup</span>
+            </a></li>
+        {{/if}}
+    </ul>
+</template>
