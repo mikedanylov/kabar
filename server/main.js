@@ -4,10 +4,11 @@
 
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
-import '/imports/api/songs/server/songs';
-import '/imports/api/places/server/places';
-import '/imports/api/orders/server/orders';
-import '/imports/startup/server/dynamic-search'
+import '/imports/api/songs/server/songs.js';
+import '/imports/api/places/server/places.js';
+import '/imports/api/orders/server/orders.js';
+import '/imports/startup/server/dynamic-search.js'
+import '/imports/startup/server/seed.js'
 
 ServiceConfiguration.configurations.remove({
     service: 'facebook'

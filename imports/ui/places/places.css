@@ -39,3 +39,4 @@ div.place-label {
 div.place-label p {
     margin-bottom: 0;
 }
+a.link { width: inherit; height: inherit; }

@@ -30,29 +30,12 @@ Template.placeSongs.helpers({
 });
 
 Template.placeKaraoke.helpers({
-
-    // var place, currentOrder, nextOrder, ordersPlaylist, songs, currentUser;
-    // place = Places.findOne({ _id: this.params._id});
-    // currentOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}});
-    // nextOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}, skip: 1});
-    // ordersPlaylist = Orders.find({place: place.name}, {sort: {priority: -1}, skip: 2});
-    // songs = Songs.find({places: place.name});
-    // currentUser = Meteor.user();
-    // return {
-    //     currentOrder: currentOrder,
-    //     nextOrder: nextOrder,
-    //     user: currentUser,
-    //     ordersPlaylist: ordersPlaylist,
-    //     songs: songs,
-    //     place: place
-    // }
-
     printAll: () => {
         console.log('Template::placeKaraoke::helpers::printAll: ');
         console.log(this);
     },
     songs: () => {
-        return this.songs;
+        return Songs.find({places: this.name});
     },
     orders: () => {
         return this.orders;
@@ -140,8 +123,8 @@ Template.placeKaraoke.onRendered(() => {
 Template.placeKaraoke.onDestroyed(() => {
     $(".places-link").removeClass("active");
 });
-Template.placeKaraoke.onCreated(() => {
-    Meteor.subscribe('songs');
-    Meteor.subscribe('places');
-    Meteor.subscribe('orders');
-});
+// Template.placeKaraoke.onCreated(() => {
+//     Meteor.subscribe('songs');
+//     Meteor.subscribe('places');
+//     Meteor.subscribe('orders');
+// });

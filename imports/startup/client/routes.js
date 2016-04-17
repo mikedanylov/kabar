@@ -2,8 +2,8 @@
  * Created by mikedanylov on 3/18/16.
  */
 
-import { Meteor } from 'meteor/meteor';
-import { Router } from  'meteor/iron:router';
+import {Meteor} from 'meteor/meteor';
+import {Router} from  'meteor/iron:router';
 
 import '/imports/ui/site/site.js';
 import  '/imports/ui/navigation/navigation.js';
@@ -12,7 +12,7 @@ import  '/imports/ui/songs/songs.js';
 import  '/imports/ui/signup/signup.js';
 import  '/imports/ui/places/places.js';
 
-import { Songs, Places, Orders } from  './collections.js';
+import {Songs, Places, Orders} from  './collections.js';
 
 Router.configure({
     layoutTemplate: 'main',
@@ -30,7 +30,7 @@ Router.route('/search');
 Router.route('/signin');
 Router.route('/places', {
     name: 'places',
-    subscriptions: () => {
+    subscriptions: function() {
         return Meteor.subscribe('places');
     }
 });
@@ -74,7 +74,7 @@ Router.route('/places/:_id/karaoke', {
     //        Router.go('signup');
     //    }
     //},
-    data: function() {
+    data: function () {
         var place, currentOrder, nextOrder, ordersPlaylist, songs, currentUser;
         var id  = this.params._id;
         place = Places.findOne({_id: id});
@@ -90,9 +90,9 @@ Router.route('/places/:_id/karaoke', {
             ordersPlaylist: ordersPlaylist,
             songs: songs,
             place: place
-        }
+        };
     },
-    subscriptions: () => {
+    subscriptions: function () {
         return  [
             Meteor.subscribe('songs'),
             Meteor.subscribe('places'),
@@ -104,7 +104,7 @@ Router.route('/songs', {
     template: 'songsList',
     name: 'songsList',
     loadingTemplate: 'loading',
-    subscriptions: () => {
+    subscriptions: function () {
         return Meteor.subscribe('songs');
     }
 });
@@ -127,13 +127,13 @@ Router.route('/songs/:_id/show', {
             places: places
         };
     },
-    subscriptions: () => {
+    subscriptions: function () {
         return  [
             Meteor.subscribe('songs'),
             Meteor.subscribe('places')
         ];
     }
-});
+});;
 Router.route('/songs/:_id/edit', {
     template: 'songEdit',
     data: function () {

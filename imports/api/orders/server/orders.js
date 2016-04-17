@@ -4,36 +4,36 @@ import { Mongo } from 'meteor/mongo';
 
 export const Orders = new Mongo.Collection('orders');
 
-//OrdersSchema = new SimpleSchema({
-//	username: {
-//		type: String,
-//		label: 'User name'
-//	},
-//	song: {
-//		type: String,
-//		label: 'Order Song name'
-//	},
-//    place: {
-//        type: String,
-//        label: 'Order Place name'
-//    },
-//	priority: {
-//        type: Number,
-//        label: 'Order Priority',
-//        defaultValue:  0
-//    },
-//	createdAt: {
-//		type: Date,
-//		label: 'Created at',
-//		autoValue: function() {
-//			if (this.isInsert) {
-//				return new Date();
-//			}
-//		}
-//	}
-//});
-//
-//Orders.attachSchema(OrdersSchema);
+OrdersSchema = new SimpleSchema({
+	username: {
+		type: String,
+		label: 'User name'
+	},
+	song: {
+		type: String,
+		label: 'Order Song name'
+	},
+   place: {
+       type: String,
+       label: 'Order Place name'
+   },
+	priority: {
+       type: Number,
+       label: 'Order Priority',
+       defaultValue:  0
+   },
+	createdAt: {
+		type: Date,
+		label: 'Created at',
+		autoValue: function() {
+			if (this.isInsert) {
+				return new Date();
+			}
+		}
+	}
+});
+
+Orders.attachSchema(OrdersSchema);
 
 Meteor.methods({
     'orders.placeOrder'(song, place, username) {
@@ -70,4 +70,12 @@ Meteor.methods({
         console.log('Meteor::methods::orders.placeOrder: order placed with id ' + cur);
         return cur;
     }
+});
+
+/**
+ * publish all Orders from database
+ * @return  {object}    mongodb cursor for all karaoke places
+ */
+Meteor.publish('orders', () => {
+    return Orders.find();
 });
