@@ -16,3 +16,34 @@
     padding: 0 4px;
 }
 .table > thead > tr > th { border-bottom: 0; }
+
+
+
+.allSongsTable{
+    background: #333333;
+    width:100%;
+    margin-top: 25px;
+}
+.allSongsTable > thead > tr > th {
+    border-bottom: 3px solid black;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    text-align: center;
+    vertical-align: middle;
+}
+.allSongsTable > tbody > tr{
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 1px solid #364043;
+}
+.allSongsTable > tbody > tr > td {
+    color: #fff;
+    font-weight: 400;
+    padding: 10px 16px;
+    vertical-align: middle;
+}
+
+.allSongsTable > tbody > tr:hover {
+    background: #252525;
+}
