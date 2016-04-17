@@ -29,16 +29,25 @@ Template.songsList.events({
     });
     },
     'click button.btn': function (event) {
-        let songName, songPlacesLists, currentElem;
+        let songName, songPlacesLists, currentElem, chevronDown, chevronUp;
         songName = this.name;
+        // use quotation marks around songName because it can contain spaces
         currentElem = $(".song-places-wrapper[data-song-name='" + this.name + "']");
+        chevronDown = $(".song-tile[data-song-name='" + this.name + "'] .fa-chevron-down");
+        chevronUp = $(".song-tile[data-song-name='" + this.name + "'] .fa-chevron-up");
         songPlacesLists = $(".song-places-wrapper");
         songPlacesLists.slideUp('fast');
         if (currentElem.hasClass('active')) {
             songPlacesLists.removeClass('active');
+            $('.fa-chevron-up').hide();
+            $('.fa-chevron-down').show();
         } else {
+            songPlacesLists.removeClass('active');
             currentElem.addClass('active');
-            // use quotation marks around songName because it can contain spaces
+            $('.fa-chevron-up').hide();
+            $('.fa-chevron-down').show();
+            chevronDown.hide();
+            chevronUp.show();
             currentElem.slideDown();
         }
     }
