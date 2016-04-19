@@ -50,6 +50,10 @@ Template.signup.onRendered(() => {
                         validator.showErrors({
                             email: "That email already belongs to a registered user."
                         });
+                    } else if(error.reason == "Username already exists."){
+                        validator.showErrors({
+                            username: "That username already belongs to a registered user."
+                        });
                     }
                     return;
                 }

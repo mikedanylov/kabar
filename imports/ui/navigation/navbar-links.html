@@ -11,6 +11,9 @@
         </a></li>
         {{#if currentUser}}
             <li><a class="link logout nav-link" href="#"><span>Logout</span></a></li>
+            <li><a class="link nav-link feedback-link" href="{{pathFor route='feedback'}}">
+                <span>Feedback</span>
+            </a></li>
         {{else}}
             <li><a class="link nav-link signin-link" href="{{pathFor route='signin'}}">
                 <span>Signin</span>

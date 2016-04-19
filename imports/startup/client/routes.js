@@ -11,6 +11,7 @@ import  '/imports/ui/search/search-bar.js';
 import  '/imports/ui/songs/songs.js';
 import  '/imports/ui/signup/signup.js';
 import  '/imports/ui/places/places.js';
+import  '/imports/ui/feedback/feedback.js'
 
 import {Songs, Places, Orders} from  './collections.js';
 
@@ -105,7 +106,10 @@ Router.route('/songs', {
     name: 'songsList',
     loadingTemplate: 'loading',
     subscriptions: function () {
-        return Meteor.subscribe('songs');
+        return  [
+            Meteor.subscribe('songs'),
+            Meteor.subscribe('places')
+        ];
     }
 });
 Router.route('/songs/add', {
@@ -133,10 +137,15 @@ Router.route('/songs/:_id/show', {
             Meteor.subscribe('places')
         ];
     }
-});;
+});
 Router.route('/songs/:_id/edit', {
     template: 'songEdit',
     data: function () {
         return Songs.findOne({ _id: this.params._id})
+    }
+});
+Router.route('/feedback', {
+    subscriptions: function () {
+        return Meteor.subscribe('comments');
     }
 });

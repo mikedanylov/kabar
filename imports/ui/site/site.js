@@ -18,7 +18,7 @@ Template.home.helpers({
 
 Template.main.events({
     'click #noNav': function (event) {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < 992) {
             $('#menu').collapse('hide');
             setTimeout(changeHamburger, 50);
         }
