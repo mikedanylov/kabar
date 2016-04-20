@@ -1,3 +1,7 @@
 <template name="feedback">
-
+    <h2>User comments</h2>
+    {{#each comments}}
+        {{> singleComment}}
+    {{/each}}
+    {{> feedbackForm}}
 </template>

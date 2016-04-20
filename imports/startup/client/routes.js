@@ -13,7 +13,7 @@ import  '/imports/ui/signup/signup.js';
 import  '/imports/ui/places/places.js';
 import  '/imports/ui/feedback/feedback.js'
 
-import {Songs, Places, Orders} from  './collections.js';
+import {Songs, Places, Orders, Comments} from  './collections.js';
 
 Router.configure({
     layoutTemplate: 'main',
@@ -145,6 +145,10 @@ Router.route('/songs/:_id/edit', {
     }
 });
 Router.route('/feedback', {
+    template: 'feedback',
+    data: function () {
+        return Comments.find();
+    },
     subscriptions: function () {
         return Meteor.subscribe('comments');
     }
