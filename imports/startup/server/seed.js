@@ -208,21 +208,21 @@ Meteor.startup(function () {
     // INSERT COMMENTS ################################################################################################
     Comments.remove({});
     Comments.insert({
-        username: 'anonymous',
-        text: 'we do not forget',
+        username: 'stranger',
+        text: 'Just testing this feedback form',
         votes: 4,
         voters: [],
         createdAt: new Date()
     });
     Comments.insert({
-        username: 'anonymous2',
-        text: 'we do not forgive',
+        username: 'passanger',
+        text: 'I am siiinging in the raaain :)',
         votes: 7,
         voters: ["Mike Danylov"],
         createdAt: new Date()
     });
     Comments.insert({
-        username: 'anonymous3',
+        username: 'anonymous',
         text: 'expect us',
         votes: 1,
         voters: [],

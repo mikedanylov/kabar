@@ -60,8 +60,7 @@ Meteor.methods({
         // }).validate({commentObj, currentUser, inc});
 
         // check if user has voted already
-        if (!commentObj.voters ||
-            (commentObj.voters.length && commentObj.voters.indexOf(currentUser) === -1)) {
+        if (!commentObj.voters.length || commentObj.voters.indexOf(currentUser) === -1) {
             return Comments.update({_id: commentObj._id}, {
                 $inc: {votes: inc},
                 $push: {voters: currentUser}
