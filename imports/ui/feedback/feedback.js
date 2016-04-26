@@ -40,20 +40,32 @@ Template.feedbackForm.events({
 });
 
 Template.singleComment.helpers({
-    hasVoted: function () {
+    hasVotedUp: function () {
         var res = false;
         this.voters.forEach(function (voter) {
             console.log(voter);
-           if (voter === getUserName(Meteor.user())) {
+           if (voter.username === getUserName(Meteor.user()) &&
+                voter.voted === 1) {
                res = true;
            }
         });
         return res;
     },
+    hasVotedDown: function () {
+        var res = false;
+        this.voters.forEach(function (voter) {
+            console.log(voter);
+            if (voter.username === getUserName(Meteor.user()) &&
+                voter.voted === -1) {
+                res = true;
+            }
+        });
+        return res;
+    }
 });
 
 Template.singleComment.events({
-    'click .comment-upvote i, click .comment-downvote i': function (event) {
+    'click .comment-upvote i, click .comment-downvote i': function voteForComment(event) {
         let currentComment, currentUser;
         currentComment = this;
         currentUser = getUserName(Meteor.user());
@@ -61,9 +73,9 @@ Template.singleComment.events({
             (/up/.test(event.target.className) ? 1 : -1),
         (err, res) => {
             if (err && err.length) {
-                console.log('Template::singleComment::events:Error: ' + err);
+                console.log('Template::singleComment::events:voteForComment:Error: ' + err);
             } else {
-                console.log('Template::singleComment::events:Response ' + res);
+                console.log('Template::singleComment::events:voteForComment:Response ' + res);
             }
         });
     }

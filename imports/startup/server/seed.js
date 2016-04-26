@@ -218,13 +218,13 @@ Meteor.startup(function () {
         username: 'passanger',
         text: 'I am siiinging in the raaain :)',
         votes: 7,
-        voters: ["Mike Danylov"],
+        voters: [{ username: "Mike Danylov", voted: 1}],
         createdAt: new Date()
     });
     Comments.insert({
         username: 'anonymous',
         text: 'expect us',
-        votes: 1,
+        votes: 0,
         voters: [],
         createdAt: new Date()
     });

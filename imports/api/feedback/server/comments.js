@@ -19,8 +19,16 @@ CommentsSchema = new SimpleSchema({
        defaultValue:  0
    },
     voters: {
-        type: [String],
+        type: [Object],
         label: 'Users who voted for this comment'
+    },
+    'voters.$.username': {
+        type: String,
+        label: 'User who already voted for this comment'
+    },
+    'voters.$.voted': {
+        type: Number,
+        label: 'Result of user vote upvoted/downvoted'
     },
 	createdAt: {
 		type: Date,
@@ -59,64 +67,23 @@ Meteor.methods({
         //     inc: { type: Number, label: 'Votes increment value' }
         // }).validate({commentObj, currentUser, inc});
 
-        // check if user has voted already
-        if (!commentObj.voters.length || commentObj.voters.indexOf(currentUser) === -1) {
-            return Comments.update({_id: commentObj._id}, {
+        if (!commentObj.voters.length) {
+            Comments.update({_id: commentObj._id}, {
                 $inc: {votes: inc},
-                $push: {voters: currentUser}
+                $push: {voters: {username: currentUser, voted: inc}}
             });
+            return 'new comment inserted';
+        } else {
+            commentObj.voters.forEach(function isInArray(voter) {
+                if (voter.username === currentUser &&
+                    ((voter.voted >= 0 && inc < 0) || (voter.voted <= 0 && inc > 0))) {
+                    Comments.update({_id: commentObj._id, "voters.username": currentUser}, {
+                        $inc: {votes: inc, "voters.$.voted": inc}
+                    });
+                }
+            });
+            return 'comment is incremented ' + inc;
         }
-
-        //
-        // if (curComment[0].voters && curComment[0].voters.length) {
-        //     curComment[0].voters.forEach(function (voter) {
-        //         if (voter.hasOwnProperty(currentUser)) {
-                    // if (inc > 0 && voter.currentUser !== 'upvoted') {
-                    //     return Comments.update({_id: commentId}, {
-                    //         $inc: {votes: inc},
-                    //         $set: {voters: {currentUser: 'upvoted'}}
-                    //     });
-                    // } else if (inc < 0 && voter.currentUser !== 'downvoted') {
-                    //     return Comments.update({_id: commentId}, {
-                    //         $inc: {votes: inc},
-                    //         $set: {voters: {currentUser: 'downvoted'}}
-                    //     });
-                    // }
-            //     } else {
-            //         if (inc > 0) {
-            //             return Comments.update({_id: commentId}, {
-            //                 $inc: {votes: inc},
-            //                 $push: {voters: {currentUser: 'upvoted'}}
-            //             });
-            //         } else {
-            //             return Comments.update({_id: commentId}, {
-            //                 $inc: {votes: inc},
-            //                 $push: {voters: {currentUser: 'downvoted'}}
-            //             });
-            //         }
-            //     }
-            // });
-        // } else {
-        //     if (inc > 0) {
-        //         return Comments.update({_id: commentId}, {
-        //             $inc: {votes: inc},
-        //             $push: {voters: {currentUser: 'upvoted'}}
-        //         });
-        //     } else {
-        //         return Comments.update({_id: commentId}, {
-        //             $inc: {votes: inc},
-        //             $push: {voters: {currentUser: 'downvoted'}}
-        //         });
-        //     }
-        // }
-        // } else {
-        //     if (curComment.voters.currentUser === 'upvoted' && inc < 0) {
-        //         return Comments.update({_id: commentId}, {
-        //             $inc: {votes: inc},
-        //             $pop: {voters: {currentUser: 'upvoted'}}
-        //         });
-        //     }
-        // }
     }
 });
 

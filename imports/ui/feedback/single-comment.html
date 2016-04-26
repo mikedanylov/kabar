@@ -5,13 +5,13 @@
             <footer>{{username}}, {{createdAt}}</footer>
         </blockquote>
         <div class="col-xs-2 comment-votes">
-            {{#if hasVoted}}
+            {{#if hasVotedUp}}
                 <span class="comment-upvote upvoted"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></span>
             {{else}}
                 <span class="comment-upvote"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></span>
             {{/if}}
             <div class="votes-count">{{votes}}</div>
-            {{#if hasVoted}}
+            {{#if hasVotedDown}}
                 <span class="comment-downvote downvoted"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
             {{else}}
                 <span class="comment-downvote"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
