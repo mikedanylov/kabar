@@ -7,15 +7,7 @@ import { Template } from 'meteor/templating'
 
 export function getUserName(user) {
     if (user) {
-        if (user.hasOwnProperty('profile')) {
-            console.log('Logged in as: ' + user.profile.name);
-            return user.profile.name;
-        } else {
-            console.log('Logged in as: ' + user.username);
-            return user.username;
-        }
-    } else {
-        console.log('Not logged in');
+        return user.hasOwnProperty('profile') ? user.profile.name : user.username;
     }
 }
 

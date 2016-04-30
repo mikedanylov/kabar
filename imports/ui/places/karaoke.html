@@ -2,72 +2,76 @@
 
     {{printAll}}
 
-    <div id="header-wrapper" class="col-xs-12">
-        <h2>{{this.name}} Play Queue</h2>
-    </div>
-    <div id="current-song-wrapper" class="col-xs-12">
-        <h3 class="underscore-blue karaoke-heading">Current Song</h3>
-        <table class="table table-striped current-song">
-            <tbody>
+    {{#if Template.subscriptionsReady}}
+        <div id="header-wrapper" class="col-xs-12">
+            <h2>{{this.name}} Play Queue</h2>
+        </div>
+        <div id="current-song-wrapper" class="col-xs-12">
+            <h3 class="underscore-blue karaoke-heading">Current Song</h3>
+            <table class="table table-striped current-song">
+                <tbody>
+                    <tr>
+                        <td class="td-no-border"><span class="glyphicon glyphicon-play"></span></td>
+                        <td class="td-no-border">{{currentOrder.username}}</td>
+                        <td class="td-no-border">
+                            <a class="link" href="/songs/{{getSongId currentOrder.song}}/show">
+                                {{currentOrder.song}}
+                            </a>
+                            <p class="song-details">{{getSongArtist currentOrder.song}}</p>
+                        </td>
+                        <td class="td-no-border">{{getSongDuration currentOrder.song}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="next-songs-wrapper" class="col-xs-12">
+            <h3 class="underscore-orange karaoke-heading">Next Song</h3>
+            <table class="table table-striped">
+                <tbody>
                 <tr>
-                    <td class="td-no-border"><span class="glyphicon glyphicon-play"></span></td>
-                    <td class="td-no-border">{{currentOrder.username}}</td>
+                    <td class="td-no-border"><span class="glyphicon glyphicon-hourglass"></span></td>
+                    <td class="td-no-border">{{nextOrder.username}}</td>
                     <td class="td-no-border">
-                        <a class="link" href="/songs/{{getSongId currentOrder.song}}/show">
-                            {{currentOrder.song}}
+                        <a class="link" href="/songs/{{getSongId nextOrder.song}}/show">
+                            {{nextOrder.song}}
                         </a>
-                        <p class="song-details">{{getSongArtist currentOrder.song}}</p>
+                        <p class="song-details">{{getSongArtist nextOrder.song}}</p>
                     </td>
-                    <td class="td-no-border">{{getSongDuration currentOrder.song}}</td>
+                    <td class="td-no-border">{{getSongDuration nextOrder.song}}</td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
-    <div id="next-songs-wrapper" class="col-xs-12">
-        <h3 class="underscore-orange karaoke-heading">Next Song</h3>
-        <table class="table table-striped">
-            <tbody>
-            <tr>
-                <td class="td-no-border"><span class="glyphicon glyphicon-hourglass"></span></td>
-                <td class="td-no-border">{{nextOrder.username}}</td>
-                <td class="td-no-border">
-                    <a class="link" href="/songs/{{getSongId nextOrder.song}}/show">
-                        {{nextOrder.song}}
-                    </a>
-                    <p class="song-details">{{getSongArtist nextOrder.song}}</p>
-                </td>
-                <td class="td-no-border">{{getSongDuration nextOrder.song}}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
 
-    <div id="songs-pool-wrapper" class="col-xs-12">
-        <h3 class="underscore-default karaoke-heading">Songs Playlist</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th><h4>#</h4></th>
-                    <th><h4>Username</h4></th>
-                    <th><h4>Song</h4></th>
-                    <th><span class="glyphicon glyphicon-time"></span></th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each ordersPlaylist}}
-                <tr>
-                    <td>{{addOneTo @index}}</td>
-                    <td>{{username}}</td>
-                    <td>
-                        <a class="link" href="/songs/{{getSongId song}}/show">
-                            {{song}}
-                        </a>
-                        <p class="song-details">{{getSongArtist song}}</p>
-                    </td>
-                    <td>{{getSongDuration song}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
+        <div id="songs-pool-wrapper" class="col-xs-12">
+            <h3 class="underscore-default karaoke-heading">Songs Playlist</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th><h4>#</h4></th>
+                        <th><h4>Username</h4></th>
+                        <th><h4>Song</h4></th>
+                        <th><span class="glyphicon glyphicon-time"></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each ordersPlaylist}}
+                    <tr>
+                        <td>{{addOneTo @index}}</td>
+                        <td>{{username}}</td>
+                        <td>
+                            <a class="link" href="/songs/{{getSongId song}}/show">
+                                {{song}}
+                            </a>
+                            <p class="song-details">{{getSongArtist song}}</p>
+                        </td>
+                        <td>{{getSongDuration song}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    {{else}}
+        {{> loading}}
+    {{/if}}
 </template>

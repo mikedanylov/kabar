@@ -16,7 +16,7 @@ Template.songsList.events({
     'click .place-order': function(event) {
         var song, place, currentUser;
         song = this;
-        place = Places.findOne({name: event.target.innerHTML});
+        place = Places.findOne({_id: event.target.id});
         currentUser = getUserName(Meteor.user());
         Meteor.call('orders.placeOrder', song.name, place.name, currentUser,
             (err, res) => {
@@ -33,19 +33,19 @@ Template.songsList.events({
         songName = this.name;
         // use quotation marks around songName because it can contain spaces
         currentElem = $(".song-places-wrapper[data-song-name='" + this.name + "']");
-        chevronDown = $(".song-tile[data-song-name='" + this.name + "'] .fa-chevron-down");
-        chevronUp = $(".song-tile[data-song-name='" + this.name + "'] .fa-chevron-up");
+        chevronDown = $(".song-tile[data-song-name='" + this.name + "'] .fa-angle-down");
+        chevronUp = $(".song-tile[data-song-name='" + this.name + "'] .fa-angle-up");
         songPlacesLists = $(".song-places-wrapper");
         songPlacesLists.slideUp('fast');
         if (currentElem.hasClass('active')) {
             songPlacesLists.removeClass('active');
-            $('.fa-chevron-up').hide();
-            $('.fa-chevron-down').show();
+            $('.fa-angle-up').hide();
+            $('.fa-angle-down').show();
         } else {
             songPlacesLists.removeClass('active');
             currentElem.addClass('active');
-            $('.fa-chevron-up').hide();
-            $('.fa-chevron-down').show();
+            $('.fa-angle-up').hide();
+            $('.fa-angle-down').show();
             chevronDown.hide();
             chevronUp.show();
             currentElem.slideDown();
@@ -54,9 +54,13 @@ Template.songsList.events({
 });
 
 Template.songsList.helpers({
-        songs: () => {
+    songs: function () {
         return Songs.find();
-}
+    },
+    getPlaceId: function (placeName) {
+        let placeObj = Places.findOne({name: placeName});
+        return placeObj._id;
+    }
 });
 
 Template.songAdd.events({

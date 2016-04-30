@@ -31,7 +31,7 @@ Router.route('/search');
 Router.route('/signin');
 Router.route('/places', {
     name: 'places',
-    subscriptions: function() {
+    waitOn: function() {
         return Meteor.subscribe('places');
     }
 });
@@ -93,7 +93,7 @@ Router.route('/places/:_id/karaoke', {
             place: place
         };
     },
-    subscriptions: function () {
+    waitOn: function () {
         return  [
             Meteor.subscribe('songs'),
             Meteor.subscribe('places'),
@@ -105,7 +105,7 @@ Router.route('/songs', {
     template: 'songsList',
     name: 'songsList',
     loadingTemplate: 'loading',
-    subscriptions: function () {
+    waitOn: function () {
         return  [
             Meteor.subscribe('songs'),
             Meteor.subscribe('places')
@@ -131,7 +131,7 @@ Router.route('/songs/:_id/show', {
             places: places
         };
     },
-    subscriptions: function () {
+    waitOn: function () {
         return  [
             Meteor.subscribe('songs'),
             Meteor.subscribe('places')
@@ -149,7 +149,7 @@ Router.route('/feedback', {
     data: function () {
         return Comments.find();
     },
-    subscriptions: function () {
+    waitOn: function () {
         return Meteor.subscribe('comments');
     }
 });
