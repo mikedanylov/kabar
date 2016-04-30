@@ -78,5 +78,6 @@ Template.singleComment.events({
                 console.log('Template::singleComment::events:voteForComment:Response ' + res);
             }
         });
+        event.target.blur(); // for mobile to release focus
     }
 });
