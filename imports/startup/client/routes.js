@@ -79,10 +79,12 @@ Router.route('/places/:_id/karaoke', {
         var place, currentOrder, nextOrder, ordersPlaylist, songs, currentUser;
         var id  = this.params._id;
         place = Places.findOne({_id: id});
-        currentOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}});
-        nextOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}, skip: 1});
-        ordersPlaylist = Orders.find({place: place.name}, {sort: {priority: -1}, skip: 2});
-        songs = Songs.find({places: place.name});
+        if (place) {
+            currentOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}});
+            nextOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}, skip: 1});
+            ordersPlaylist = Orders.find({place: place.name}, {sort: {priority: -1}, skip: 2});
+            songs = Songs.find({places: place.name});
+        }
         currentUser = Meteor.user();
         return {
             currentOrder: currentOrder,

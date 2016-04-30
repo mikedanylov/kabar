@@ -4,7 +4,7 @@
 
 import { getUserName } from '/imports/startup/client/globals';
 import { Meteor } from 'meteor/meteor';
-import { Template } from 'meteor/templating'
+import { Template } from 'meteor/templating';
 
 import { Places, Songs } from '/imports/startup/client/collections.js';
 
@@ -13,31 +13,32 @@ import  './places.css';
 import './add.html';
 import './edit.html';
 import './karaoke.html';
-import  './karaoke.css'
+import  './karaoke.less'
 import './show.html';
 import './songs.html';
 
 Template.placesList.helpers({
-    places: () => {
+    places: function () {
         return Places.find();
     }
 });
 
 Template.placeSongs.helpers({
-    songs: () => {
+    songs: function () {
         return Songs.find({places: this.place.name});
     }
 });
 
 Template.placeKaraoke.helpers({
-    printAll: () => {
+    printAll: function () {
         console.log('Template::placeKaraoke::helpers::printAll: ');
         console.log(this);
+        Meteor.logg .log('Template::placeKaraoke::helpers::printAll: ', this);
     },
-    songs: () => {
+    songs: function () {
         return Songs.find({places: this.name});
     },
-    orders: () => {
+    orders: function () {
         return this.orders;
     },
     getSongName: (songName) => {
@@ -111,19 +112,19 @@ Template.places.events({
     }
 });
 
-Template.placesList.onRendered(() => {
+Template.placesList.onRendered(function () {
     $(".places-link").addClass("active");
 });
-Template.placesList.onDestroyed(() => {
+Template.placesList.onDestroyed(function () {
     $(".places-link").removeClass("active");
 });
-Template.placeKaraoke.onRendered(() => {
+Template.placeKaraoke.onRendered(function () {
     $(".places-link").addClass("active");
 });
-Template.placeKaraoke.onDestroyed(() => {
+Template.placeKaraoke.onDestroyed(function () {
     $(".places-link").removeClass("active");
 });
-// Template.placeKaraoke.onCreated(() => {
+// Template.placeKaraoke.onCreated(function () {
 //     Meteor.subscribe('songs');
 //     Meteor.subscribe('places');
 //     Meteor.subscribe('orders');
