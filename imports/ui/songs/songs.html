@@ -16,11 +16,13 @@
                                             Queue
                                         </button>
                                     </a>
-                                    <a class="link place-order" href="#">
-                                        <button id="{{getPlaceId place}}" class="btn btn-cancel btn-block">
-                                            Book
-                                        </button>
-                                    </a>
+                                    {{#if currentUser}}
+                                        <a class="link place-order" href="#">
+                                            <button id="{{getPlaceId place}}" class="btn btn-cancel btn-block">
+                                                Book
+                                            </button>
+                                        </a>
+                                    {{/if}}
                                 </div>
                             </li>
                         {{/each}}

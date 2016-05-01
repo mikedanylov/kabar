@@ -14,8 +14,10 @@
     <div class="song-actions-wrapper" data-song-name="{{name}}">
         <ul class="song-actions">
             <li><button class="btn btn-block book-song">Book</button></li>
-            <li><button class="btn btn-cancel btn-block">Edit</button></li>
-            <li><button class="btn btn-cancel btn-block">Remove</button></li>
+            {{#if isAdmin}}
+                <li><button class="btn btn-cancel btn-block">Edit</button></li>
+                <li><button class="btn btn-cancel btn-block">Remove</button></li>
+            {{/if}}
         </ul>
     </div>
 </template>

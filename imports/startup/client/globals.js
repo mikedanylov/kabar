@@ -23,17 +23,12 @@ export function changeHamburger() {
 }
 
 Template.registerHelper('isAdmin', function(adminsList) {
-    return !!(Meteor.user() && adminsList.indexOf(Meteor.user().username) >= 0);
+    return !!(Meteor.user() && adminsList.indexOf(getUserName(Meteor.user())) >= 0);
 });
 
 Template.registerHelper('isKabarAdmin', function() {
-    return !!(Meteor.user() && Meteor.user().username === 'kabaradmin');
+    return !!(Meteor.user() && adminsList.indexOf(getUserName(Meteor.user())) === 'kabaradmin');
 });
-
-// Template.registerHelper('songs', function() {
-//     console.log(this);
-//     return Songs.find({places: this.place.name});
-// });
 
 Template.registerHelper('addOneTo', function(index) {
     return index + 1;

@@ -22,6 +22,12 @@ OrdersSchema = new SimpleSchema({
        label: 'Order Priority',
        defaultValue:  0
    },
+    status: {
+        type: String,
+        label: 'Status of the song reservation',
+        allowedValues: ['canceled', 'processing', 'completed'],
+        defaultValue: 'processing'
+    },
 	createdAt: {
 		type: Date,
 		label: 'Created at',
@@ -69,6 +75,17 @@ Meteor.methods({
 
         console.log('Meteor::methods::orders.placeOrder: order placed with id ' + cur);
         return cur;
+    },
+    'orders.updateStatus'(orderId, newStatus) {
+        new SimpleSchema({
+            orderId: {type: String, label: 'Order mongo id'},
+            newStatus: {type: String, label: 'New order status'}
+        }).validate({orderId, newStatus});
+
+        var result = Orders.update({_id: orderId}, {$set: {status: newStatus}});
+
+        console.log('Meteor::methods::orders.updateStatus: order status updated:' + result);
+        return result;
     }
 });
 

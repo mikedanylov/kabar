@@ -2,17 +2,21 @@
 
     {{printAll}}
 
-    <!--<div id="header-wrapper" class="col-xs-12">-->
-        <!--<h3>{{place.name}}</h3>-->
-    <!--</div>-->
+    {{#if currentUser}}
+        <div id="add-song-wrapper" class="col-xs-12">
+            <a class="link nav-link" href="/places/{{place._id}}/songs">
+                <i class="add-song-icon fa fa-plus-circle" aria-hidden="true"></i>
+            </a>
+            <div class="book-song">Browse songs</div>
+            <p class="">or use search on top right to look for a specific song</p>
+        </div>
+    {{/if}}
 
-    <div id="add-song-wrapper" class="col-xs-12">
-        <a class="link nav-link" href="/places/{{place._id}}/songs">
-            <i class="add-song-icon fa fa-plus-circle" aria-hidden="true"></i>
-        </a>
-        <div class="book-song">Browse songs</div>
-        <p class="">or use search on top right to look for a specific song</p>
-    </div>
+    {{#if isAdmin place.admin}}
+        <div class="col-xs-12">
+            <button id="play-next" class="btn btn-cancel btn-block">Play next song</button>
+        </div>
+    {{/if}}
 
     <div id="current-song-wrapper" class="col-xs-12">
         <h3 class="underscore-blue karaoke-heading">Current Song</h3>
@@ -32,6 +36,7 @@
             </tbody>
         </table>
     </div>
+
     <div id="next-songs-wrapper" class="col-xs-12">
         <h3 class="underscore-orange karaoke-heading">Next Song</h3>
         <table class="table table-striped">

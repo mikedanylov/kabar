@@ -70,38 +70,17 @@ Router.route('/places/:_id/songs', {
         ];
     }
 });
-// Router.route('/places/:_id/songs', {
-//     template: 'placeSongs',
-//     data: function () {
-//         return {
-//             songs: Songs.find({places: this.name}),
-//             place: Places.findOne({ _id: this.params._id})
-//         }
-//     },
-//     subscriptions: function() {
-//         Meteor.subscribe('songs');
-//     }
-// });
 Router.route('/places/:_id/karaoke', {
     name: 'placeKaraoke',
     template: 'placeKaraoke',
-    // redirect user to signup if he tries to access karaoke
-    // without signing in
-    //onBeforeAction: function() {
-    //    if (Meteor.user()) {
-    //       this.next();
-    //    } else {
-    //        Router.go('signup');
-    //    }
-    //},
     data: function () {
         var place, currentOrder, nextOrder, ordersPlaylist, songs, currentUser;
         var id  = this.params._id;
         place = Places.findOne({_id: id});
         if (place) {
-            currentOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}});
-            nextOrder = Orders.findOne({place: place.name}, {sort: {priority: -1}, skip: 1});
-            ordersPlaylist = Orders.find({place: place.name}, {sort: {priority: -1}, skip: 2});
+            currentOrder = Orders.findOne({place: place.name, status: 'processing'}, {sort: {priority: -1, createdAt: 1}});
+            nextOrder = Orders.findOne({place: place.name, status: 'processing'}, {sort: {priority: -1, createdAt: 1}, skip: 1});
+            ordersPlaylist = Orders.find({place: place.name, status: 'processing'}, {sort: {priority: -1, createdAt: 1}, skip: 2});
             songs = Songs.find({places: place.name});
         }
         currentUser = Meteor.user();
@@ -172,5 +151,14 @@ Router.route('/feedback', {
     },
     waitOn: function () {
         return Meteor.subscribe('comments');
+    },
+    onBeforeAction: function () {
+       if (Meteor.user()) {
+          this.next();
+       } else if (Router.current().route.getName() === 'feedback') {
+           Router.go('home');
+       } else {
+           Router.go('signup');
+       }
     }
 });

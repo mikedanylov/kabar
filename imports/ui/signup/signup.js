@@ -27,11 +27,7 @@ Template.credentials.events({
         });
     }
 });
-Template.signup.events({
-    'submit form': function(event) {
-        event.preventDefault();
-    }
-});
+
 Template.signup.onRendered(() => {
     var validator = $('.signup-form').validate({
         submitHandler: function(event) {
@@ -63,11 +59,6 @@ Template.signup.onRendered(() => {
     });
 });
 
-Template.signin.events({
-    'submit form': function(event) {
-        event.preventDefault();
-    }
-});
 Template.signin.onRendered(() => {
     var validator = $('.signin-form').validate({
         submitHandler: function(event) {

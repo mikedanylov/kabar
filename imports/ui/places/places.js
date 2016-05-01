@@ -5,7 +5,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-import { Places, Songs } from '/imports/startup/client/collections.js';
+import { Places, Songs, Orders } from '/imports/startup/client/collections.js';
 
 import './places.html';
 import  './places.css';
@@ -24,6 +24,21 @@ Template.placesList.helpers({
 Template.placeSongs.helpers({
     songs: function () {
         return Songs.find({places: this.place.name});
+    }
+});
+
+Template.placeKaraoke.events({
+    'click button#play-next': function (event) {
+        var currentOrder = Template.instance().data.currentOrder;
+        if (currentOrder) {
+            Meteor.call('orders.updateStatus', currentOrder._id, 'completed', (err, res) => {
+                if (err && err.length) {
+                    console.log('Template::placeKaraoke::events: ' + err);
+                } else {
+                    console.log('Template::placeKaraoke::events: ' + res);
+                }
+            });
+        }
     }
 });
 

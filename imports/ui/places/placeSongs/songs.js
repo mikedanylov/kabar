@@ -37,6 +37,18 @@ Template.songActionsDropdown.events({
     }
 });
 
+Template.songActionsDropdown.helpers({
+    isAdmin: function () {
+        var url, placeId, place;
+
+        url = window.location.href;
+        placeId = url.match(/places\/(.+)\/songs/)[1];
+        place = Places.findOne({_id: placeId});
+
+        return !!(Meteor.user() && place.admin.indexOf(getUserName(Meteor.user())) >= 0);
+    }
+});
+
 Template.placeSongs.onRendered(function () {
     $(".places-link").addClass("active");
     $("a.navbar-brand").text(this.data.place.name);
