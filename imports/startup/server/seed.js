@@ -97,31 +97,31 @@ Meteor.startup(function () {
 
 
     // INSERT PLACES ##################################################################################################
-    // Places.remove({});
-    // Places.insert({
-    //     name: 'The Louder The Better',
-    //     admin: ['louder-admin', 'kabaradmin', 'Mike Danylov'],
-    //     address: 'Rautatientori 1, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
-    // });
-    // Places.insert({
-    //     name: 'Swengi',
-    //     admin: ['kabaradmin', 'kabaradmin', 'amritg'],
-    //     address: 'Kolmas linja 34, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
-    // });
-    // Places.insert({
-    //     name: 'Karaoke-bar',
-    //     admin: ['karaoke-admin', 'kabaradmin'],
-    //     address: 'Helsinginkatu 15, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
-    // });
+    Places.remove({});
+    Places.insert({
+        name: 'The Louder The Better',
+        admin: ['louder-admin', 'kabaradmin', 'Mike Danylov'],
+        address: 'Rautatientori 1, Helsinki',
+        popularity: '10',
+        latitude: 60.1712419,
+        longitude: 24.942252
+    });
+    Places.insert({
+        name: 'Swengi',
+        admin: ['kabaradmin', 'kabaradmin', 'amritg'],
+        address: 'Kolmas linja 34, Helsinki',
+        popularity: '10',
+        latitude: 60.1712419,
+        longitude: 24.942252
+    });
+    Places.insert({
+        name: 'Karaoke-bar',
+        admin: ['karaoke-admin', 'kabaradmin'],
+        address: 'Helsinginkatu 15, Helsinki',
+        popularity: '10',
+        latitude: 60.1712419,
+        longitude: 24.942252
+    });
     // END PLACES SONGS ###############################################################################################
 
 
