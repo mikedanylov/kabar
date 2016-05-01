@@ -6,12 +6,14 @@ import {Meteor} from 'meteor/meteor';
 import {Router} from  'meteor/iron:router';
 
 import '/imports/ui/site/site.js';
-import  '/imports/ui/navigation/navigation.js';
-import  '/imports/ui/search/search-bar.js';
-import  '/imports/ui/songs/songs.js';
-import  '/imports/ui/signup/signup.js';
-import  '/imports/ui/places/places.js';
-import  '/imports/ui/feedback/feedback.js'
+import '/imports/ui/navigation/navigation.js';
+import '/imports/ui/search/search-bar.js';
+import '/imports/ui/songs/songs.js';
+import '/imports/ui/signup/signup.js';
+import '/imports/ui/places/places.js';
+import '/imports/ui/places/placeSongs/songs.js';
+import '/imports/ui/feedback/feedback.js';
+import '/imports/ui/singleSongBlock/single-song-block.js';
 
 import {Songs, Places, Orders, Comments} from  './collections.js';
 
@@ -49,6 +51,23 @@ Router.route('/places/:_id/edit', {
     template: 'placeEdit',
     data: function () {
         return Places.findOne({ _id: this.params._id});
+    }
+});
+Router.route('/places/:_id/songs', {
+    name: 'placeSongs',
+    template: 'placeSongs',
+    data: function () {
+        return {
+            place: Places.findOne({_id: this.params._id}),
+            songs: Songs.find({place: this.params.name}),
+            currentUser: Meteor.user()
+        };
+    },
+    waitOn: function () {
+        return [
+            Meteor.subscribe('songs'),
+            Meteor.subscribe('places')
+        ];
     }
 });
 // Router.route('/places/:_id/songs', {

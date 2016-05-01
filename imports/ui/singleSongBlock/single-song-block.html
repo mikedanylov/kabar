@@ -1,0 +1,15 @@
+<template name="singleSongBlock">
+    <div class="song-tile" data-song-name="{{name}}">
+        <div class="left-column">
+            <span class="song-name">{{name}}</span>
+            <p class="song-artist">{{artist}}</p>
+        </div>
+        <div class="right-column">
+            <span class ="time"><i class="fa fa-clock-o fa-lg" aria-hidden="true"></i> {{duration}}</span>
+            <button class="btn btn-cancel drop-down" type="button">
+                <span><i class="fa fa-angle-down fa-lg" aria-hidden="true"></i></span>
+                <span><i class="fa fa-angle-up fa-lg" aria-hidden="true"></i></span>
+            </button>
+        </div>
+    </div>
+</template>

@@ -1,47 +1,32 @@
 <template name="songsList">
     <div class="col-xs-12">
         <h1>Songs List</h1>
-        <div class="col-xs-12">
-            {{#each songs}}
-                <div class="song-tile-wrapper">
-                    <div class="song-tile" data-song-name="{{this.name}}">
-                        <div class="left-column">
-                            <span class="song-name">{{name}}</span>
-                            <p class="song-artist">{{artist}}</p>
-                        </div>
-                        <div class="right-column">
-                            <span class ="time">
-                                <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i> {{duration}}
-                            </span>
-                            <button class="btn btn-cancel drop-down" type="button">
-                                <span><i class="fa fa-angle-down fa-lg" aria-hidden="true"></i></span>
-                                <span><i class="fa fa-angle-up fa-lg" aria-hidden="true"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="song-places-wrapper" data-song-name="{{this.name}}">
-                        <ul class="song-places">
-                            {{#each place in places}}
-                                <li>
-                                    <div class="place-ops-wrapper">
-                                        <p class="place-name">{{place}}</p>
-                                        <a class="link" href="/places/{{getPlaceId place}}/karaoke">
-                                            <button type="button" class="btn btn-cancel btn-block">
-                                                Queue
-                                            </button>
-                                        </a>
-                                        <a class="link place-order" href="#">
-                                            <button id="{{getPlaceId place}}" class="btn btn-cancel btn-block">
-                                                Book
-                                            </button>
-                                        </a>
-                                    </div>
-                                </li>
-                            {{/each}}
-                        </ul>
-                    </div>
+        {{#each songs}}
+            <div class="song-tile-wrapper">
+                {{> singleSongBlock}}
+
+                <div class="song-places-wrapper" data-song-name="{{this.name}}">
+                    <ul class="song-places">
+                        {{#each place in places}}
+                            <li>
+                                <div class="place-ops-wrapper">
+                                    <p class="place-name">{{place}}</p>
+                                    <a class="link" href="/places/{{getPlaceId place}}/karaoke">
+                                        <button type="button" class="btn btn-cancel btn-block">
+                                            Queue
+                                        </button>
+                                    </a>
+                                    <a class="link place-order" href="#">
+                                        <button id="{{getPlaceId place}}" class="btn btn-cancel btn-block">
+                                            Book
+                                        </button>
+                                    </a>
+                                </div>
+                            </li>
+                        {{/each}}
+                    </ul>
                 </div>
-            {{/each}}
-        </div>
+            </div>
+        {{/each}}
     </div>
 </template>

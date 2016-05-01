@@ -5,7 +5,7 @@
 import { SearchSource } from 'meteor/meteorhacks:search-source';
 import { Mongo } from 'meteor/mongo';
 
-import { Songs } from './../../api/songs/server/songs.js';
+import { Songs } from '/imports/api/songs/server/songs.js';
 
 SearchSource.defineSource('songs', (searchText) => {
     let options, regExp, selector;

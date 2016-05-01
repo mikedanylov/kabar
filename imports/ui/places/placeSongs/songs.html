@@ -1,0 +1,21 @@
+<template name="placeSongs">
+<div class="col-xs-12">
+    <h3>Choose your song</h3>
+    {{#each songs}}
+        <div class="song-tile-wrapper">
+            {{> singleSongBlock}}
+            {{> songActionsDropdown}}
+        </div>
+    {{/each}}
+</div>
+</template>
+
+<template name="songActionsDropdown">
+    <div class="song-actions-wrapper" data-song-name="{{name}}">
+        <ul class="song-actions">
+            <li><button class="btn btn-block book-song">Book</button></li>
+            <li><button class="btn btn-cancel btn-block">Edit</button></li>
+            <li><button class="btn btn-cancel btn-block">Remove</button></li>
+        </ul>
+    </div>
+</template>

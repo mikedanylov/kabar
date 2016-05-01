@@ -9,6 +9,9 @@
     color: white;
     text-align: center;
 }
+.navbar > .container .navbar-brand {
+    padding: 15px 0;
+}
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar > .container .navbar-brand:hover { color: #5cc0bd; }
 #nav-toggle { position: relative; float: left; margin: 10px 10px; }

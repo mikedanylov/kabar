@@ -22,13 +22,13 @@ Template.songsList.events({
             (err, res) => {
             if (err && err.length) {
             console.log('Template::songsList::events: ' + err);
-        } else {
-            console.log('Template::songsList::events: ' + res);
-            Router.go('placeKaraoke', {_id: place._id});
-        }
-    });
+            } else {
+                console.log('Template::songsList::events: ' + res);
+                Router.go('placeKaraoke', {_id: place._id});
+            }
+        });
     },
-    'click button.btn': function (event) {
+    'click button.drop-down': function (event) {
         let songName, songPlacesLists, currentElem, chevronDown, chevronUp;
         songName = this.name;
         // use quotation marks around songName because it can contain spaces

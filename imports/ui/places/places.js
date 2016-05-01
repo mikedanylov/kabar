@@ -2,7 +2,6 @@
  * Created by mikedanylov on 4/3/16.
  */
 
-import { getUserName } from '/imports/startup/client/globals';
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
@@ -13,9 +12,8 @@ import  './places.css';
 import './add.html';
 import './edit.html';
 import './karaoke.html';
-import  './karaoke.less'
 import './show.html';
-import './songs.html';
+import './placeSongs/songs.html';
 
 Template.placesList.helpers({
     places: function () {
@@ -33,7 +31,6 @@ Template.placeKaraoke.helpers({
     printAll: function () {
         console.log('Template::placeKaraoke::helpers::printAll: ');
         console.log(this);
-        Meteor.logg .log('Template::placeKaraoke::helpers::printAll: ', this);
     },
     songs: function () {
         return Songs.find({places: this.name});
@@ -120,12 +117,10 @@ Template.placesList.onDestroyed(function () {
 });
 Template.placeKaraoke.onRendered(function () {
     $(".places-link").addClass("active");
+    $("a.navbar-brand").text(this.data.place.name);
 });
 Template.placeKaraoke.onDestroyed(function () {
     $(".places-link").removeClass("active");
+    $("a.navbar-brand").text("kabar");
 });
-// Template.placeKaraoke.onCreated(function () {
-//     Meteor.subscribe('songs');
-//     Meteor.subscribe('places');
-//     Meteor.subscribe('orders');
-// });
+
