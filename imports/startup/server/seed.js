@@ -97,31 +97,31 @@ Meteor.startup(function () {
 
 
     // INSERT PLACES ##################################################################################################
-    Places.remove({});
-    Places.insert({
-        name: 'The Louder The Better',
-        admin: ['louder-admin', 'kabaradmin', 'Mike Danylov'],
-        address: 'Rautatientori 1, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: 'Swengi',
-        admin: ['kabaradmin', 'kabaradmin', 'amritg'],
-        address: 'Kolmas linja 34, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: 'Karaoke-bar',
-        admin: ['karaoke-admin', 'kabaradmin'],
-        address: 'Helsinginkatu 15, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
+    // Places.remove({});
+    // Places.insert({
+    //     name: 'The Louder The Better',
+    //     admin: ['louder-admin', 'kabaradmin', 'Mike Danylov'],
+    //     address: 'Rautatientori 1, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: 'Swengi',
+    //     admin: ['kabaradmin', 'kabaradmin', 'amritg'],
+    //     address: 'Kolmas linja 34, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: 'Karaoke-bar',
+    //     admin: ['karaoke-admin', 'kabaradmin'],
+    //     address: 'Helsinginkatu 15, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
     // END PLACES SONGS ###############################################################################################
 
 
@@ -148,61 +148,61 @@ Meteor.startup(function () {
     // END PLACES USERS ###############################################################################################
 
     // INSERT ORDERS ##################################################################################################
-    Orders.remove({});
-    Orders.insert({
-        username: 'karaokefan',
-        song: 'Society',
-        place: 'Karaoke-bar',
-        priority: 1
-    });
-    Orders.insert({
-        username: 'Paavo Rotti',
-        song: 'My Medicine',
-        place: 'Karaoke-bar',
-        priority: 3
-    });
-    Orders.insert({
-        username: 'admin',
-        song: 'Californication',
-        place: 'Karaoke-bar',
-        priority: 4
-    });
-    Orders.insert({
-        username: 'karaokefan',
-        song: 'Society',
-        place: 'Swengi',
-        priority: 1
-    });
-    Orders.insert({
-        username: 'Paavo Rotti',
-        song: 'My Medicine',
-        place: 'Swengi',
-        priority: 3
-    });
-    Orders.insert({
-        username: 'karaokefan',
-        song: 'Californication',
-        place: 'Swengi',
-        priority: 4
-    });
-    Orders.insert({
-        username: 'Mike Danylov',
-        song: 'Society',
-        place: 'The Louder The Better',
-        priority: 1
-    });
-    Orders.insert({
-        username: 'Paavo Rotti',
-        song: 'My Medicine',
-        place: 'The Louder The Better',
-        priority: 3
-    });
-    Orders.insert({
-        username: 'admin',
-        song: 'Californication',
-        place: 'The Louder The Better',
-        priority: 4
-    });
+    // Orders.remove({});
+    // Orders.insert({
+    //     username: 'karaokefan',
+    //     song: 'Society',
+    //     place: 'Karaoke-bar',
+    //     priority: 1
+    // });
+    // Orders.insert({
+    //     username: 'Paavo Rotti',
+    //     song: 'My Medicine',
+    //     place: 'Karaoke-bar',
+    //     priority: 3
+    // });
+    // Orders.insert({
+    //     username: 'admin',
+    //     song: 'Californication',
+    //     place: 'Karaoke-bar',
+    //     priority: 4
+    // });
+    // Orders.insert({
+    //     username: 'karaokefan',
+    //     song: 'Society',
+    //     place: 'Swengi',
+    //     priority: 1
+    // });
+    // Orders.insert({
+    //     username: 'Paavo Rotti',
+    //     song: 'My Medicine',
+    //     place: 'Swengi',
+    //     priority: 3
+    // });
+    // Orders.insert({
+    //     username: 'karaokefan',
+    //     song: 'Californication',
+    //     place: 'Swengi',
+    //     priority: 4
+    // });
+    // Orders.insert({
+    //     username: 'Mike Danylov',
+    //     song: 'Society',
+    //     place: 'The Louder The Better',
+    //     priority: 1
+    // });
+    // Orders.insert({
+    //     username: 'Paavo Rotti',
+    //     song: 'My Medicine',
+    //     place: 'The Louder The Better',
+    //     priority: 3
+    // });
+    // Orders.insert({
+    //     username: 'admin',
+    //     song: 'Californication',
+    //     place: 'The Louder The Better',
+    //     priority: 4
+    // });
     // END PLACES ORDERS ##############################################################################################
 
     // INSERT COMMENTS ################################################################################################

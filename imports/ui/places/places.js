@@ -31,14 +31,38 @@ Template.placeKaraoke.events({
     'click button#play-next': function (event) {
         var currentOrder = Template.instance().data.currentOrder;
         if (currentOrder) {
-            Meteor.call('orders.updateStatus', currentOrder._id, 'completed', (err, res) => {
+            Meteor.call('orders.updateStatus', currentOrder._id, 'completed', function(err, res) {
                 if (err && err.length) {
-                    console.log('Template::placeKaraoke::events: ' + err);
+                    console.log('Template::placeKaraoke::events::orders.updateStatus ' + err);
                 } else {
-                    console.log('Template::placeKaraoke::events: ' + res);
+                    console.log('Template::placeKaraoke::events::orders.updateStatus ' + res);
                 }
             });
         }
+    },
+    'click i.priority': function (event) {
+        var increment = 0;
+        if (event.target.className.match(/up/)) {
+            increment = 1;
+        } else if (event.target.className.match(/down/)) {
+            increment = -1;
+        }
+        if (increment) {
+            var orderId = this._id;
+            if (event.target.className.match(/current/)) {
+                orderId = this.currentOrder._id;
+            } else if (event.target.className.match(/next/)) {
+                orderId = this.nextOrder._id;
+            }
+            Meteor.call('orders.updatePriority', orderId, increment, function(err, res) {
+                    if (err && err.length) {
+                        console.log('Template::placeKaraoke::events::orders.updatePriority: ' + err);
+                    } else {
+                        console.log('Template::placeKaraoke::events::orders.updatePriority: ' + res);
+                    }
+                });
+        }
+
     }
 });
 
@@ -72,6 +96,15 @@ Template.placeKaraoke.helpers({
         var currentSong = Songs.findOne({name: songName});
         console.log('Template::placeKaraoke::helpers::getSongId: ' + currentSong._id);
         return currentSong._id;
+    },
+    getAdmins: function () {
+        var url, placeId, place;
+
+        url = window.location.href;
+        placeId = url.match(/places\/(.+)\/karaoke/);
+        place = Places.findOne({_id: placeId[1]});
+
+        return place.admin;
     }
 });
 
@@ -138,4 +171,3 @@ Template.placeKaraoke.onDestroyed(function () {
     $(".places-link").removeClass("active");
     $("a.navbar-brand").text("kabar");
 });
-

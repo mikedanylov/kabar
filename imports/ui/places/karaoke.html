@@ -23,7 +23,7 @@
         <table class="table table-striped current-song">
             <tbody>
                 <tr>
-                    <td class="td-no-border"><span class="glyphicon glyphicon-play"></span></td>
+                    <!--<td class="td-no-border"><span class="glyphicon glyphicon-play"></span></td>-->
                     <td class="td-no-border">{{currentOrder.username}}</td>
                     <td class="td-no-border">
                         <a class="link" href="/songs/{{getSongId currentOrder.song}}/show">
@@ -31,7 +31,21 @@
                         </a>
                         <p class="song-details">{{getSongArtist currentOrder.song}}</p>
                     </td>
-                    <td class="td-no-border">{{getSongDuration currentOrder.song}}</td>
+                    {{#if isAdmin getAdmins }}
+                        <td class="td-no-border">
+                            <div class="comment-votes">
+                                <span class="comment-upvote">
+                                    <i class="priority current fa fa-angle-up" aria-hidden="true"></i>
+                                </span>
+                                <div class="votes-count">{{currentOrder.priority}}</div>
+                                <span class="comment-downvote">
+                                    <i class="priority current fa fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </td>
+                    {{else}}
+                        <td class="td-no-border">{{getSongDuration currentOrder.song}}</td>
+                    {{/if}}
                 </tr>
             </tbody>
         </table>
@@ -42,7 +56,7 @@
         <table class="table table-striped">
             <tbody>
             <tr>
-                <td class="td-no-border"><span class="glyphicon glyphicon-hourglass"></span></td>
+                <!--<td class="td-no-border"><span class="glyphicon glyphicon-hourglass"></span></td>-->
                 <td class="td-no-border">{{nextOrder.username}}</td>
                 <td class="td-no-border">
                     <a class="link" href="/songs/{{getSongId nextOrder.song}}/show">
@@ -50,7 +64,21 @@
                     </a>
                     <p class="song-details">{{getSongArtist nextOrder.song}}</p>
                 </td>
-                <td class="td-no-border">{{getSongDuration nextOrder.song}}</td>
+                {{#if isAdmin getAdmins }}
+                    <td class="td-no-border">
+                        <div class="comment-votes">
+                                <span class="comment-upvote">
+                                    <i class="priority next fa fa-angle-up" aria-hidden="true"></i>
+                                </span>
+                            <div class="votes-count">{{nextOrder.priority}}</div>
+                                <span class="comment-downvote">
+                                    <i class="priority next fa fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                        </div>
+                    </td>
+                {{else}}
+                    <td class="td-no-border">{{getSongDuration nextOrder.song}}</td>
+                {{/if}}
             </tr>
             </tbody>
         </table>
@@ -64,7 +92,11 @@
                     <th><h4>#</h4></th>
                     <th><h4>Username</h4></th>
                     <th><h4>Song</h4></th>
-                    <th><span class="glyphicon glyphicon-time"></span></th>
+                    {{#if isAdmin place.admin}}
+                        <th><h4>Priority</h4></th>
+                    {{else}}
+                        <th><span class="glyphicon glyphicon-time"></span></th>
+                    {{/if}}
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +110,21 @@
                         </a>
                         <p class="song-details">{{getSongArtist song}}</p>
                     </td>
-                    <td>{{getSongDuration song}}</td>
+                    {{#if isAdmin getAdmins }}
+                        <td>
+                            <div class="comment-votes">
+                                <span class="comment-upvote">
+                                    <i class="priority fa fa-angle-up" aria-hidden="true"></i>
+                                </span>
+                                <div class="votes-count">{{priority}}</div>
+                                <span class="comment-downvote">
+                                    <i class="priority fa fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </td>
+                    {{else}}
+                        <td>{{getSongDuration song}}</td>
+                    {{/if}}
                 </tr>
                 {{/each}}
             </tbody>

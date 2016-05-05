@@ -73,7 +73,7 @@ Meteor.methods({
             createdAt: new Date()
         });
 
-        console.log('Meteor::methods::orders.placeOrder: order placed with id ' + cur);
+        console.log('Meteor::methods::orders.placeOrder: order placed with id: ' + cur);
         return cur;
     },
     'orders.updateStatus'(orderId, newStatus) {
@@ -84,7 +84,18 @@ Meteor.methods({
 
         var result = Orders.update({_id: orderId}, {$set: {status: newStatus}});
 
-        console.log('Meteor::methods::orders.updateStatus: order status updated:' + result);
+        console.log('Meteor::methods::orders.updateStatus: order status updated: ' + result);
+        return result;
+    },
+    'orders.updatePriority'(orderId, increment) {
+        new SimpleSchema({
+            orderId: {type: String, label: 'Order mongo id'},
+            increment: {type: Number, label: 'Order priority increment'}
+        }).validate({orderId, increment});
+
+        var result = Orders.update({_id: orderId}, {$inc: {priority: increment}});
+
+        console.log('Meteor::methods::orders.updatePriority: order priority updated: ' + result);
         return result;
     }
 });
