@@ -7,6 +7,8 @@ import { ServiceConfiguration } from 'meteor/service-configuration';
 import '/imports/api/songs/server/songs.js';
 import '/imports/api/places/server/places.js';
 import '/imports/api/orders/server/orders.js';
+import '/imports/api/feedback/server/comments.js';
+import '/imports/api/lyrics/server/lyrics.js';
 import '/imports/startup/server/dynamic-search.js'
 import '/imports/startup/server/seed.js'
 

@@ -9,6 +9,7 @@ import {Songs} from '/imports/api/songs/server/songs.js';
 import {Places} from '/imports/api/places/server/places.js';
 import {Orders} from '/imports/api/orders/server/orders.js';
 import {Comments} from '/imports/api/feedback/server/comments.js';
+import {Lyrics} from '/imports/api/lyrics/server/lyrics.js';
 
 Meteor.startup(function () {
 
@@ -39,7 +40,7 @@ Meteor.startup(function () {
     // });
     // Songs.insert({
     //     name: 'Old Enough',
-    //     artist: 'Reconteurs',
+    //     artist: 'Raconteurs',
     //     popularity: '3',
     //     duration: '3:57',
     //     places: ['Karaoke-bar', 'Swengi']
@@ -226,6 +227,86 @@ Meteor.startup(function () {
     //     text: 'expect us',
     //     votes: 0,
     //     voters: [],
+    //     createdAt: new Date()
+    // });
+    // END INSERT COMMENTS ############################################################################################
+
+    // INSERT COMMENTS ################################################################################################
+    // Lyrics.remove({});
+    // Lyrics.insert({
+    //     song: 'Californication',
+    //     text:
+    //     "Psychic spies from China\n" +
+    //     "Try to steal your mind's elation\n" +
+    //     "Little girls from Sweden\n" +
+    //     "Dream of silver screen quotations\n" +
+    //     "And if you want these kind of dreams\n" +
+    //     "It's Californication\n" +
+    //     "\n" +
+    //     "It's the edge of the world\n" +
+    //     "And all of western civilization\n" +
+    //     "The sun may rise in the East\n" +
+    //     "At least it settles in the final location\n" +
+    //     "It's understood that Hollywood\n" +
+    //     "Sells Californication\n" +
+    //     "\n" +
+    //     "Pay your surgeon very well\n" +
+    //     "To break the spell of aging\n" +
+    //     "Celebrity skin is this your chin\n" +
+    //     "Or is that war you're waging?\n" +
+    //     "\n" +
+    //     "[Chorus:]\n" +
+    //     "First born unicorn\n" +
+    //     "Hard core soft porn\n" +
+    //     "Dream of Californication\n" +
+    //     "Dream of Californication\n" +
+    //     "\n" +
+    //     "Marry me girl be my fairy to the world\n" +
+    //     "Be my very own constellation\n" +
+    //     "A teenage bride with a baby inside\n" +
+    //     "Getting high on information\n" +
+    //     "And buy me a star on the boulevard\n" +
+    //     "It's Californication\n" +
+    //     "\n" +
+    //     "Space may be the final frontier\n" +
+    //     "But it's made in a Hollywood basement\n" +
+    //     "Cobain can you hear the spheres\n" +
+    //     "Singing songs off station to station\n" +
+    //     "And Alderaan's not far away\n" +
+    //     "It's Californication\n" +
+    //     "\n" +
+    //     "Born and raised by those who praise\n" +
+    //     "Control of population everybody's been there and\n" +
+    //     "I don't mean on vacation\n" +
+    //     "\n" +
+    //     "[Chorus:]\n" +
+    //     "First born unicorn\n" +
+    //     "Hard core soft porn\n" +
+    //     "Dream of Californication\n" +
+    //     "Dream of Californication\n" +
+    //     "Dream of Californication\n" +
+    //     "Dream of Californication\n" +
+    //     "\n" +
+    //     "Destruction leads to a very rough road\n" +
+    //     "But it also breeds creation\n" +
+    //     "And earthquakes are to a girl's guitar\n" +
+    //     "They're just another good vibration\n" +
+    //     "And tidal waves couldn't save the world\n" +
+    //     "From Californication\n" +
+    //     "\n" +
+    //     "Pay your surgeon very well\n" +
+    //     "To break the spell of aging\n" +
+    //     "Sicker than the rest\n" +
+    //     "There is no test\n" +
+    //     "But this is what you're craving\n" +
+    //     "\n" +
+    //     "[Chorus:]\n" +
+    //     "First born unicorn\n" +
+    //     "Hard core soft porn\n" +
+    //     "Dream of Californication\n" +
+    //     "Dream of Californication\n" +
+    //     "Dream of Californication\n" +
+    //     "Dream of Californication\n",
     //     createdAt: new Date()
     // });
     // END INSERT COMMENTS ############################################################################################

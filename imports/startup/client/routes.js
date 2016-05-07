@@ -16,7 +16,7 @@ import '/imports/ui/places/placeSongs/songs.js';
 import '/imports/ui/feedback/feedback.js';
 import '/imports/ui/singleSongBlock/single-song-block.js';
 
-import {Songs, Places, Orders, Comments} from  './collections.js';
+import {Songs, Places, Orders, Comments, Lyrics} from  './collections.js';
 
 Router.configure({
     layoutTemplate: 'main',
@@ -119,8 +119,11 @@ Router.route('/songs/add', {
 Router.route('/songs/:_id/show', {
     template: 'songShow',
     data: function () {
-        var song, allPlaces, places = [];
+        var song, allPlaces, places = [], songLyrics;
         song = Songs.findOne({ _id: this.params._id});
+        if (song && song.name) {
+            songLyrics = Lyrics.findOne({song: song.name});
+        }
         allPlaces = Places.find().fetch();
         allPlaces.forEach(function (place) {
             if (song.places.indexOf(place.name) !== -1) {
@@ -129,13 +132,15 @@ Router.route('/songs/:_id/show', {
         });
         return {
             song: song,
-            places: places
+            places: places,
+            songLyrics: songLyrics
         };
     },
     waitOn: function () {
         return  [
             Meteor.subscribe('songs'),
-            Meteor.subscribe('places')
+            Meteor.subscribe('places'),
+            Meteor.subscribe('lyrics')
         ];
     }
 });
