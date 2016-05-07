@@ -1,0 +1,17 @@
+<template name="songShow">
+    <div class="col-xs-12">
+        <!--<h2 id="song-name">{{song.name}}</h2>-->
+        <p hidden id="song-id">{{song._id}}</p>
+        <h3 id="song-artist">{{song.name}}</h3>
+        <h3 id="song-artist">{{song.artist}}</h3>
+
+        {{#if currentUser}}
+            <h4>Book this song:</h4>
+            {{#each places}}
+                <a class="link place-order" href="#">
+                    <button class="btn btn-cancel btn-block btn-book">{{name}}</button>
+                </a>
+            {{/each}}
+        {{/if}}
+    </div>
+</template>

@@ -9,6 +9,7 @@ import '/imports/ui/site/site.js';
 import '/imports/ui/navigation/navigation.js';
 import '/imports/ui/search/search-bar.js';
 import '/imports/ui/songs/songs.js';
+import '/imports/ui/songs/show/show.js';
 import '/imports/ui/signup/signup.js';
 import '/imports/ui/places/places.js';
 import '/imports/ui/places/placeSongs/songs.js';

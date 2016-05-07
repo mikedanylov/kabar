@@ -6,7 +6,7 @@ import { getUserName } from '/imports/startup/client/globals';
 import { Songs, Places } from '/imports/startup/client/collections.js';
 import './songs.html';
 import './add.html';
-import  './show.html';
+import  './show/show.html';
 import  './edit.html';
 
 Template.songsList.events({
