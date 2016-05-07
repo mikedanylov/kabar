@@ -4,6 +4,8 @@
             <p hidden id="song-id">{{song._id}}</p>
             <p id="song-name">{{song.name}}</p>
             <p id="song-artist">{{song.artist}}</p>
+            {{insertSongImage song}}
+            <div id="song-img-wrapper"></div>
         </div>
         {{#if currentUser}}
             <h4 class="heading">Book this song</h4>
@@ -19,7 +21,8 @@
         {{#if songLyrics}}
             <pre id="song-lyrics">{{songLyrics.text}}</pre>
         {{else}}
-            <pre id="song-lyrics">{{insertSongLyrics song}}</pre>
+            {{insertSongLyrics song}}
+            <pre id="song-lyrics"></pre>
         {{/if}}
     </div>
 </template>

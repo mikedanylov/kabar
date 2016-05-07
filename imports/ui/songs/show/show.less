@@ -8,7 +8,18 @@ div#song-heading-wrapper {
   }
   p#song-name {color: #DA491C;}
   p#song-artist {font-size: 16px;}
-
+  @media (max-width: 400px) {
+    div#song-img-wrapper img {
+      width: 280px;
+      height: 280px;
+    }
+  }
+  @media (min-width: 401px) {
+    div#song-img-wrapper img {
+      width: 350px;
+      height: 350px;
+    }
+  }
 }
 div#song-lyrics-wrapper {
   background-color: #78788c;

@@ -14,12 +14,7 @@ import  './show.html';
 Template.songShow.helpers({
     insertSongLyrics: function (song) {
 
-        window.trackSearchCallback = function (jsonData) {
-        };
-        window.lyricsSearchCallback = function (jsonData) {
-        };
-
-        var lyricsPromise = trackSearchRequest(song)
+        trackSearchRequest(song)
             .then(lyricsSearchRequest)
             .then(appendLyrics)
             .catch(function(error) {
@@ -40,7 +35,7 @@ Template.songShow.helpers({
                         q_track: songObj.name,
                         f_has_lyrics: 1,
                         format: "jsonp",
-                        jsonpCallback: "trackSearchCallback"
+                        jsonpCallback: "jsonpCallback"
                     },
                     success: function(resp) {
                         console.log('trackSearchRequest request success: ', resp);
@@ -71,7 +66,7 @@ Template.songShow.helpers({
                         apikey: "b690a523f4fe3089f574e9b9696e5712",
                         track_id: trackId,
                         format: "jsonp",
-                        jsonpCallback: "lyricsSearchCallback"
+                        jsonpCallback: "jsonpCallback"
                     },
                     success: function (resp) {
                         console.log('lyricsSearchRequest request success: ', resp);
@@ -93,6 +88,60 @@ Template.songShow.helpers({
                 $('pre#song-lyrics').append(lyricsText);
             } else {
                 $('pre#song-lyrics').append('Sorry there are currently no lyrics for this song...');
+            }
+        }
+
+        
+    },
+    insertSongImage: function (song) {
+
+        getArtistImage(song)
+            .then(appendArtistImage)
+            .catch(function(error) {
+                console.log('Could not get artist image: ', error);
+                throw new Meteor.Error('Could not get artist image', error)
+            });
+
+        function getArtistImage(songObj) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: 'http://api.musixmatch.com/ws/1.1/track.search',
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    data: {
+                        apikey: "b690a523f4fe3089f574e9b9696e5712",
+                        q_artist: songObj.artist,
+                        q_track: songObj.name,
+                        // f_has_lyrics: 1,
+                        format: "jsonp",
+                        jsonpCallback: "jsonpCallback"
+                    },
+                    success: function(resp) {
+                        console.log('getArtistImage request success: ', resp);
+                        if (resp.message.header.available) {
+                            resolve(resp.message.body.track_list[0].track.album_coverart_350x350);
+                        } else {
+                            reject('Song image is not found');
+                        }
+                    },
+                    error: function (resp) {
+                        console.log('getArtistImage request failed: ', resp);
+                        reject(resp);
+                    },
+                    complete: function (resp) {
+                        console.log('getArtistImage request completed', resp);
+                    }
+                });
+            });
+        }
+        
+        function appendArtistImage(imgUrl) {
+            if (imgUrl) {
+                var img = document.createElement("img");
+                img.src = imgUrl;
+                $('#song-img-wrapper').append(img);
+            } else {
+                $('#song-img-wrapper').append('Sorry, there is currently no image for this song...');
             }
         }
     }
