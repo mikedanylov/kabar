@@ -1,7 +1,7 @@
 <template name="singleSongBlock">
     <div class="song-tile" data-song-name="{{name}}">
         <div class="left-column">
-            <span class="song-name">{{name}}</span>
+            <a class="link song-name" href="/songs/{{_id}}/show">{{name}}</a>
             <p class="song-artist">{{artist}}</p>
         </div>
         <div class="right-column">

@@ -7,7 +7,7 @@ import '/imports/ui/site/main.html';
 import '/imports/ui/site/home.html';
 import '/imports/ui/site/loading.html';
 
-import '/imports/ui/site/site.css';
+import '/imports/ui/site/site.less';
 import '/imports/ui/site/table.css';
 
 Template.home.helpers({

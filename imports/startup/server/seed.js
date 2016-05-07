@@ -109,7 +109,7 @@ Meteor.startup(function () {
     // Places.insert({
     //     name: 'Swengi',
     //     admin: ['kabaradmin', 'kabaradmin', 'amritg'],
-    //     address: 'Kolmas linja 34, Helsinki',
+    //     address: 'Iso Roobertinkatu 10, Helsinki',
     //     popularity: '10',
     //     latitude: 60.1712419,
     //     longitude: 24.942252
