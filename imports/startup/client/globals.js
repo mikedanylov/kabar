@@ -47,6 +47,12 @@ $.validator.setDefaults({
         password: {
             required: true,
             minlength: 4
+        },
+        songName: {
+            required: true
+        },
+        songArtist: {
+            required: true
         }
     },
     messages: {
@@ -60,6 +66,15 @@ $.validator.setDefaults({
         password: {
             required: 'Password field is required',
             minlength: 'Password should be at least {0} characters'
+        },
+        'song-name': {
+            required: 'Song Name field is required to add new song'
+        },
+        'song-artist': {
+            required: 'Song Artist field is required to add new song'
+        },
+        'song-duration': {
+            required: 'Song Duration field is required to add new song'
         }
     }
 });

@@ -1,0 +1,39 @@
+<template name="songAdd">
+    <div class="col-md-offset-2 col-md-8 signup-form-wrapper">
+        <div class="page-heading-wrapper col-xs-12">
+            <a class="link link-page-heading" href="#">
+                <span class=" underscore-orange">Add Song</span>
+            </a>
+        </div>
+        <div id="add-song-form-wrapper" class="col-xs-12">
+            <form class="form-horizontal add-song-form" role="form" autocomplete="off">
+                <div class="form-group has-feedback">
+                    <div class="col-xs-12">
+                        <i class="fa fa-music form-control-feedback input-icon" aria-hidden="true"></i>
+                        <input type="text" class="form-input form-control" autocomplete="off"
+                               name="song-name" placeholder="Song Name">
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <div class="col-xs-12">
+                        <i class="fa fa-microphone form-control-feedback input-icon" aria-hidden="true"></i>
+                        <input type="text" class="form-input form-control" autocomplete="off"
+                               name="song-artist" placeholder="Song Artist">
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <div class="col-xs-12">
+                        <i class="fa fa-hourglass form-control-feedback input-icon" aria-hidden="true"></i>
+                        <input type="text" class="form-input form-control" autocomplete="off"
+                               name="song-duration" placeholder="Song Duration">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-block">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>

@@ -55,11 +55,24 @@ SongsListSchema = new SimpleSchema({
 Songs.attachSchema(SongsListSchema);
 
 Meteor.methods({
-    'getAllSongs': () => {
-        let allSongs = Songs.find();
-        console.log('Meteor::methods::songs.getAll: ');
-        //console.log(allSongs.fetch());
-        return allSongs;
+    'songs.add'(songName, songArtist, songDuration, karaokePlace) {
+        new SimpleSchema({
+            songName: {type: String, label: 'The name of new song'},
+            songArtist: {type: String, label: 'The artist of new song'},
+            songDuration: {type: String, label: 'New song duration'},
+            karaokePlace: {type: String, label: 'Karaoke bar where song is going to be offered'}
+        }).validate({songName, songArtist, songDuration, karaokePlace});
+
+        var cur = Songs.insert({
+            name: songName,
+            artist: songArtist,
+            popularity: 0,
+            duration: songDuration,
+            places: [karaokePlace],
+            createdAt: new Date()
+        });
+        console.log('Meteor::methods::songs.add: new song added with id ' + cur);
+        return cur;
     }
 });
 

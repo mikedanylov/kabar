@@ -1,8 +1,16 @@
 <template name="placeSongs">
 <div class="col-xs-12">
     <h3>Choose your song</h3>
+    {{#if isAdmin place.admin}}
+        <div id="add-song-wrapper" class="col-xs-12">
+            <a class="link nav-link" href="/places/{{place._id}}/songs/add">
+                <i class="add-song-icon fa fa-plus-circle" aria-hidden="true"></i>
+            </a>
+            <div class="book-song">Add New Song</div>
+        </div>
+    {{/if}}
     {{#each songs}}
-        <div class="song-tile-wrapper">
+        <div class="song-tile-wrapper col-xs-12">
             {{> singleSongBlock}}
             {{> songActionsDropdown}}
         </div>
@@ -14,7 +22,7 @@
     <div class="song-actions-wrapper" data-song-name="{{name}}">
         <ul class="song-actions">
             <li><button class="btn btn-block book-song">Book</button></li>
-            {{#if isAdmin}}
+            {{#if isAdmin place.admin}}
                 <li><button class="btn btn-cancel btn-block">Edit</button></li>
                 <li><button class="btn btn-cancel btn-block">Remove</button></li>
             {{/if}}

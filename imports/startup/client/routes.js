@@ -10,9 +10,10 @@ import '/imports/ui/navigation/navigation.js';
 import '/imports/ui/search/search-bar.js';
 import '/imports/ui/songs/songs.js';
 import '/imports/ui/songs/show/show.js';
+import '/imports/ui/places/songs/add/add.js';
 import '/imports/ui/signup/signup.js';
 import '/imports/ui/places/places.js';
-import '/imports/ui/places/placeSongs/songs.js';
+import '/imports/ui/places/songs/songs.js';
 import '/imports/ui/feedback/feedback.js';
 import '/imports/ui/singleSongBlock/single-song-block.js';
 
@@ -71,6 +72,23 @@ Router.route('/places/:_id/songs', {
         ];
     }
 });
+Router.route('/places/:_id/songs/add', {
+    name: 'songAdd',
+    template: 'songAdd',
+    data: function () {
+        return {
+            place: Places.findOne({_id: this.params._id}),
+            songs: Songs.find({place: this.params.name}),
+            currentUser: Meteor.user()
+        };
+    },
+    waitOn: function () {
+        return [
+            Meteor.subscribe('songs'),
+            Meteor.subscribe('places')
+        ];
+    }
+});
 Router.route('/places/:_id/karaoke', {
     name: 'placeKaraoke',
     template: 'placeKaraoke',
@@ -112,9 +130,6 @@ Router.route('/songs', {
             Meteor.subscribe('places')
         ];
     }
-});
-Router.route('/songs/add', {
-    template: 'songAdd'
 });
 Router.route('/songs/:_id/show', {
     template: 'songShow',

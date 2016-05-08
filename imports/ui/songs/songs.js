@@ -5,7 +5,7 @@ import { Mongo } from 'meteor/mongo';
 import { getUserName } from '/imports/startup/client/globals';
 import { Songs, Places } from '/imports/startup/client/collections.js';
 import './songs.html';
-import './add.html';
+import '../places/songs/add/add.html';
 import  './show/show.html';
 import  './edit.html';
 
@@ -63,24 +63,6 @@ Template.songsList.helpers({
     }
 });
 
-Template.songAdd.events({
-    'submit form': function(event) {
-        event.preventDefault(); // don't refresh page
-        Songs.insert({
-            name: document.querySelector('[name=name]').value,
-            artist: document.querySelector('[name=artist]').value,
-            duration: document.querySelector('[name=duration]').value
-        }, function(error, results) {
-            if (error) {
-                console.log(error);
-                return;
-            }
-            console.log(results);
-            Router.go('songs');
-        });
-    }
-});
-
 Template.songEdit.events({
     'submit form': function(event) {
         event.preventDefault(); // don't refresh page
@@ -105,11 +87,5 @@ Template.songsList.onRendered(() => {
     $(".songs-link").addClass("active");
 });
 Template.songsList.onDestroyed(() => {
-    $(".songs-link").removeClass("active");
-});
-Template.songShow.onRendered(() => {
-    $(".songs-link").addClass("active");
-});
-Template.songShow.onDestroyed(() => {
     $(".songs-link").removeClass("active");
 });

@@ -13,17 +13,10 @@ import './add.html';
 import './edit.html';
 import './karaoke.html';
 import './show.html';
-import './placeSongs/songs.html';
 
 Template.placesList.helpers({
     places: function () {
         return Places.find();
-    }
-});
-
-Template.placeSongs.helpers({
-    songs: function () {
-        return Songs.find({places: this.place.name});
     }
 });
 

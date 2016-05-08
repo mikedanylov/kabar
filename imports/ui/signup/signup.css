@@ -19,7 +19,7 @@ h3.signin-heading,h3.signup-heading {
 }
 h3.signup-heading.visible-xs,
 h3.signin-heading.visible-xs { display: inline-block; }
-input.signup-input.form-control {
+input.form-input.form-control {
     width: 100%;
     padding: 5px 5px 5px 35px;
     box-sizing: border-box;
@@ -36,9 +36,9 @@ input.signup-input.form-control {
     color: white;
     height: auto;
 }
-input.signup-input.form-control:focus { border-bottom: 2px solid white; }
+input.form-input.form-control:focus { border-bottom: 2px solid white; }
 label.error { color: #ff7e76; }
-input.signup-input.form-control.error { border-bottom: 2px solid #ff7e76; }
+input.form-input.form-control.error { border-bottom: 2px solid #ff7e76; }
 .signup-form-wrapper { padding: 0 30px; }
 button.btn.btn-cancel {
     border: 2px solid rgba(218,73,28,0.55);
@@ -52,5 +52,5 @@ button.btn.btn-facebook {
 button.btn.btn-facebook:hover { background: rgba(59,89,152,1); }
 a.link.link-signup, a.link.link-signin { color: white; }
 .fa.fa-facebook-official { font-size: 20px; }
-span.input-icon { left: 10px; top: 31px; font-size: 22px; color: #aeaeae; }
+
 

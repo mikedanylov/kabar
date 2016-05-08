@@ -94,14 +94,14 @@ Template.signin.onRendered(() => {
 
 Template.signin.onRendered(() => {
     $(".signin-link").addClass("active");
-    $(".signin-heading").addClass("underscore-orange");
+    $(".signin-heading span").addClass("underscore-orange");
 });
 Template.signin.onDestroyed(() => {
     $(".signin-link").removeClass("active");
 });
 Template.signup.onRendered(() => {
     $(".signup-link").addClass("active");
-    $(".signup-heading").addClass("underscore-orange");
+    $(".signup-heading span").addClass("underscore-orange");
 });
 Template.signup.onDestroyed(() => {
     $(".signup-link").removeClass("active");
