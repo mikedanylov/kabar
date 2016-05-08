@@ -14,7 +14,11 @@
                     <div class="song-actions-wrapper" data-song-name="{{name}}">
                         <ul class="song-actions">
                             <li><button class="btn btn-block book-song">Book</button></li>
-                            <li><button class="btn btn-cancel btn-block">Edit</button></li>
+                            <li>
+                                <a class="link nav-link" href="/places/{{getPlaceId}}/songs/{{_id}}/edit">
+                                    <button class="btn btn-cancel btn-block">Edit</button>
+                                </a>
+                            </li>
                             <li><button class="btn btn-cancel btn-block">Remove</button></li>
                         </ul>
                     </div>

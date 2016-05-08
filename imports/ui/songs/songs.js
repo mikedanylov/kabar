@@ -5,9 +5,7 @@ import { Mongo } from 'meteor/mongo';
 import { getUserName } from '/imports/startup/client/globals';
 import { Songs, Places } from '/imports/startup/client/collections.js';
 import './songs.html';
-import '../places/songs/add/add.html';
 import  './show/show.html';
-import  './edit.html';
 
 Template.songsList.events({
     'click .remove': function(event) {
@@ -60,26 +58,6 @@ Template.songsList.helpers({
     getPlaceId: function (placeName) {
         let placeObj = Places.findOne({name: placeName});
         return placeObj._id;
-    }
-});
-
-Template.songEdit.events({
-    'submit form': function(event) {
-        event.preventDefault(); // don't refresh page
-        Songs.update(this._id, {
-            $set: {
-                name: document.querySelector('[name=name]').value,
-                artist: document.querySelector('[name=artist]').value,
-                duration: document.querySelector('[name=duration]').value
-            }
-        }, function(error, results) {
-            if (error) {
-                console.log(error);
-                return;
-            }
-            console.log(results);
-            Router.go('songs');
-        });
     }
 });
 

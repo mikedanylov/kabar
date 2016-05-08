@@ -19,6 +19,7 @@ SongsListSchema = new SimpleSchema({
     popularity: {
         type: Number,
         label: 'Reservation counter',
+        optional: true,
         defaultValue: 0,
         min: 0
     },
@@ -28,27 +29,28 @@ SongsListSchema = new SimpleSchema({
     },
     places: {
         type: [String],
-        optional: true,
         label: 'Karaoke places'
     },
     createdAt: {
         type: Date,
         label: 'Created at',
-        autoValue: function() {
-            if (this.isInsert) {
-                return new Date();
-            }
-        }
+        defaultValue: new Date()
+        // autoValue: function () {
+        //     if (this.isInsert) {
+        //         return new Date();
+        //     }
+        // }
     },
     updatedAt: {
         type: Date,
         label: 'Updated at',
         optional: true, // not sure about this, might not work when updating
-        autoValue: function () {
-            if (this.isUpdate) {
-                return new Date();
-            }
-        }
+        defaultValue: new Date()
+        // autoValue: function () {
+        //     if (this.isUpdate) {
+        //         return new Date();
+        //     }
+        // }
     }
 });
 
@@ -68,10 +70,27 @@ Meteor.methods({
             artist: songArtist,
             popularity: 0,
             duration: songDuration,
-            places: [karaokePlace],
-            createdAt: new Date()
+            places: [karaokePlace]
         });
         console.log('Meteor::methods::songs.add: new song added with id ' + cur);
+        return cur;
+    },
+    'songs.update'(songId, songName, songArtist, songDuration) {
+        new SimpleSchema({
+            songName: {type: String, label: 'The name of new song'},
+            songArtist: {type: String, label: 'The artist of new song'},
+            songDuration: {type: String, label: 'New song duration'}
+        }).validate({songName, songArtist, songDuration});
+
+        var cur = Songs.update({ _id: songId }, {
+            $set: {
+                name: songName,
+                artist: songArtist,
+                duration: songDuration,
+                updatedAt: new Date()
+            }
+        });
+        console.log('Meteor::methods::songs.update: song succesfully updated ' + cur);
         return cur;
     }
 });
@@ -80,10 +99,7 @@ Meteor.methods({
  * Publish all songs from database
  * @return  {object}    mongodb cursor for all songs
  */
-Meteor.publish('songs', () => {
-    let songs = Songs.find();
-    if (songs) {
-        return songs;
-    }
+Meteor.publish('songs', function () {
+    return Songs.find();
 });
 

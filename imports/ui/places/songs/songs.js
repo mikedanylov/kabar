@@ -11,8 +11,9 @@ import { getUserName } from '/imports/startup/client/globals';
 import './songs.html';
 
 Template.placeSongs.helpers({
-    data: function () {
-        console.log(this);
+    getPlaceId: function () {
+        var currentSong = this;
+        return Template.instance().data.place._id;
     }
 });
 
