@@ -4,26 +4,17 @@
         {{#each songs}}
             <div class="song-tile-wrapper">
                 {{> singleSongBlock}}
-
                 <div class="song-places-wrapper" data-song-name="{{this.name}}">
                     <ul class="song-places">
                         {{#each place in places}}
-                            <li>
-                                <div class="place-ops-wrapper">
-                                    <p class="place-name">{{place}}</p>
-                                    <a class="link" href="/places/{{getPlaceId place}}/karaoke">
-                                        <button type="button" class="btn btn-cancel btn-block">
-                                            Queue
-                                        </button>
-                                    </a>
-                                    {{#if currentUser}}
-                                        <a class="link place-order" href="#">
-                                            <button id="{{getPlaceId place}}" class="btn btn-cancel btn-block">
-                                                Book
-                                            </button>
-                                        </a>
-                                    {{/if}}
-                                </div>
+                            <li class="place-ops-wrapper">
+                                <p class="place-name">{{place}}</p>
+
+                                <a class="link" href="/places/{{getPlaceId place}}/karaoke">
+                                    <button type="button" class="btn btn-cancel btn-block">
+                                        Check Queue
+                                    </button>
+                                </a>
                             </li>
                         {{/each}}
                     </ul>

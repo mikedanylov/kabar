@@ -1,4 +1,4 @@
-.song-tile-wrapper {margin-bottom: 15px; border-radius: 5px;
+.song-tile-wrapper {margin-bottom: 15px; border-radius: 5px;clear: both;
   div.song-places-wrapper {
     width: 90%;
     height: auto;
@@ -7,13 +7,24 @@
     display: none;
     background-color: #222222;
     border-radius: 0 0 5px 5px;
+    position: relative;
     ul.song-places { margin: 0; padding: 0;
-      li {
-        div.place-ops-wrapper {width: 100%; padding: 10px; height: auto; text-align: center;
-          p.place-name {font-size: 16px; margin: 0 0 5px;}
-          a {
-            button.btn {display: inline-block; width: 40%; margin: 0 10px; font-size: 14px; font-weight: 400;}
-          }
+      li.place-ops-wrapper {
+        padding: 10px;
+        p.place-name {
+          font-size: 16px;
+          margin: 0;
+          padding: 5px;
+          display: inline-block;
+          text-align: left;
+          width: 45%;
+          vertical-align: super;
+        }
+        a {
+          width: 45%;
+          display: inline-block;
+          text-align: right;
+          button.btn {margin: 0; font-size: 14px; font-weight: 400;}
         }
       }
     }

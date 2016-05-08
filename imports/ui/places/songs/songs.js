@@ -16,7 +16,7 @@ Template.placeSongs.helpers({
     }
 });
 
-Template.songActionsDropdown.events({
+Template.placeSongs.events({
     'click .book-song': function(event) {
         var song, place, currentUser, url, placeId;
         song = this;
@@ -34,18 +34,6 @@ Template.songActionsDropdown.events({
                 Router.go('placeKaraoke', {_id: place._id});
             }
         });
-    }
-});
-
-Template.songActionsDropdown.helpers({
-    isAdmin: function () {
-        var url, placeId, place;
-
-        url = window.location.href;
-        placeId = url.match(/places\/(.+)\/songs/)[1];
-        place = Places.findOne({_id: placeId});
-
-        return !!(Meteor.user() && place.admin.indexOf(getUserName(Meteor.user())) >= 0);
     }
 });
 
