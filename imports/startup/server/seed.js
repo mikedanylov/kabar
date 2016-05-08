@@ -16,238 +16,238 @@ Meteor.startup(function () {
     // INSERT SONGS ###################################################################################################
 
     // remove current docs
-    Songs.remove({});
-    Songs.insert({
-        name: 'Live To Rise',
-        artist: 'Soundgarden',
-        popularity: '1',
-        duration: '4:40',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'No One Knows',
-        artist: 'Queens of the Stone Age',
-        popularity: '2',
-        duration: '4:38',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Old Enough',
-        artist: 'Raconteurs',
-        popularity: '3',
-        duration: '3:57',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'My Medicine',
-        artist: 'The Pretty Reckless',
-        popularity: '6',
-        duration: '3:13',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Sour Girl',
-        artist: 'Stone Temple Pilots',
-        popularity: '8',
-        duration: '4:16',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Save Me',
-        artist: 'Shinedown',
-        popularity: '9',
-        duration: '3:33',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Nutshell',
-        artist: 'Alice In Chains',
-        popularity: '10',
-        duration: '4:19',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Highway To Hell',
-        artist: 'AC/DC',
-        popularity: '10',
-        duration: '3:28',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Back in Black',
-        artist: 'AC/DC',
-        popularity: '10',
-        duration: '4:16',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Big Gun',
-        artist: 'AC/DC',
-        popularity: '10',
-        duration: '4:24',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'King For A Day',
-        artist: 'Green Day',
-        popularity: '10',
-        duration: '3:13',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Are You Gonna Be My Girl',
-        artist: 'Jet',
-        popularity: '10',
-        duration: '4:36',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'She\'s A Genius',
-        artist: 'Jet',
-        popularity: '10',
-        duration: '3:44',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'New Perspective',
-        artist: 'Panic! At the Disco',
-        popularity: '10',
-        duration: '3:28',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Hell Yeah',
-        artist: 'Rev Theory',
-        popularity: '10',
-        duration: '4:49',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Dani California',
-        artist: 'Red Hot Chili Peppers',
-        popularity: '10',
-        duration: '4:42',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'What Are You Looking For',
-        artist: 'Sick Puppies',
-        popularity: '10',
-        duration: '6:32',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Flathead',
-        artist: 'The Fratellis',
-        popularity: '10',
-        duration: '3:40',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Creepin Up The Backstairs',
-        artist: 'The Fratellis',
-        popularity: '10',
-        duration: '3:32',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Mr. Maker',
-        artist: 'The Kooks',
-        popularity: '10',
-        duration: '3:00',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Many Shades of Black',
-        artist: 'The Raconteurs',
-        popularity: '10',
-        duration: '4:38',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
-    Songs.insert({
-        name: 'Vagabond',
-        artist: 'Wolfmother',
-        popularity: '10',
-        duration: '3:47',
-        places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
-    });
+    // Songs.remove({});
+    // Songs.insert({
+    //     name: 'Live To Rise',
+    //     artist: 'Soundgarden',
+    //     popularity: '1',
+    //     duration: '4:40',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'No One Knows',
+    //     artist: 'Queens of the Stone Age',
+    //     popularity: '2',
+    //     duration: '4:38',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Old Enough',
+    //     artist: 'Raconteurs',
+    //     popularity: '3',
+    //     duration: '3:57',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'My Medicine',
+    //     artist: 'The Pretty Reckless',
+    //     popularity: '6',
+    //     duration: '3:13',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Sour Girl',
+    //     artist: 'Stone Temple Pilots',
+    //     popularity: '8',
+    //     duration: '4:16',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Save Me',
+    //     artist: 'Shinedown',
+    //     popularity: '9',
+    //     duration: '3:33',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Nutshell',
+    //     artist: 'Alice In Chains',
+    //     popularity: '10',
+    //     duration: '4:19',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Highway To Hell',
+    //     artist: 'AC/DC',
+    //     popularity: '10',
+    //     duration: '3:28',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Back in Black',
+    //     artist: 'AC/DC',
+    //     popularity: '10',
+    //     duration: '4:16',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Big Gun',
+    //     artist: 'AC/DC',
+    //     popularity: '10',
+    //     duration: '4:24',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'King For A Day',
+    //     artist: 'Green Day',
+    //     popularity: '10',
+    //     duration: '3:13',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Are You Gonna Be My Girl',
+    //     artist: 'Jet',
+    //     popularity: '10',
+    //     duration: '4:36',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'She\'s A Genius',
+    //     artist: 'Jet',
+    //     popularity: '10',
+    //     duration: '3:44',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'New Perspective',
+    //     artist: 'Panic! At the Disco',
+    //     popularity: '10',
+    //     duration: '3:28',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Hell Yeah',
+    //     artist: 'Rev Theory',
+    //     popularity: '10',
+    //     duration: '4:49',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Dani California',
+    //     artist: 'Red Hot Chili Peppers',
+    //     popularity: '10',
+    //     duration: '4:42',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'What Are You Looking For',
+    //     artist: 'Sick Puppies',
+    //     popularity: '10',
+    //     duration: '6:32',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Flathead',
+    //     artist: 'The Fratellis',
+    //     popularity: '10',
+    //     duration: '3:40',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Creepin Up The Backstairs',
+    //     artist: 'The Fratellis',
+    //     popularity: '10',
+    //     duration: '3:32',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Mr. Maker',
+    //     artist: 'The Kooks',
+    //     popularity: '10',
+    //     duration: '3:00',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Many Shades of Black',
+    //     artist: 'The Raconteurs',
+    //     popularity: '10',
+    //     duration: '4:38',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
+    // Songs.insert({
+    //     name: 'Vagabond',
+    //     artist: 'Wolfmother',
+    //     popularity: '10',
+    //     duration: '3:47',
+    //     places: ['KGB-Club', 'Restroom', 'Yökyöpeli', 'Kuparikulma', "Jone's", "Populus", "Anna K", "Erottaja", "Pataässä"]
+    // });
     // END INSERT SONGS ###############################################################################################
 
 
     // INSERT PLACES ##################################################################################################
-    Places.remove({});
-    Places.insert({
-        name: 'KGB-Club',
-        admin: ['kgb-admin', 'Mike Danylov', 'amritg'],
-        address: 'Hallituskatu 3, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: 'Restroom',
-        admin: ['restroom-admin', 'Mike Danylov', 'amritg'],
-        address: 'Tehtaankatu 23 A, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: 'Yökyöpeli',
-        admin: ['yökyöpeli-admin', 'Mike Danylov', 'amritg'],
-        address: 'Fabianinkatu 17, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: 'Kuparikulma',
-        admin: ['kuparikulma-admin', 'Mike Danylov', 'amritg'],
-        address: 'Kuparitie 1, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: "Jone's",
-        admin: ['jones-admin', 'Mike Danylov', 'amritg'],
-        address: 'Kaisaniemenkatu 13, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: "Populus",
-        admin: ['populus-admin', 'Mike Danylov', 'amritg'],
-        address: 'Aleksis Kiven katu 22, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: "Anna K",
-        admin: ['annak-admin', 'Mike Danylov', 'amritg'],
-        address: 'Annankatu 23, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: "Erottaja",
-        admin: ['erottaja-admin', 'Mike Danylov', 'amritg'],
-        address: 'Erottajankatu 15-17, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
-    Places.insert({
-        name: "Pataässä",
-        admin: ['pataässä-admin', 'Mike Danylov', 'amritg'],
-        address: 'Snellmaninkatu 13, Helsinki',
-        popularity: '10',
-        latitude: 60.1712419,
-        longitude: 24.942252
-    });
+    // Places.remove({});
+    // Places.insert({
+    //     name: 'KGB-Club',
+    //     admin: ['kgb-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Hallituskatu 3, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: 'Restroom',
+    //     admin: ['restroom-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Tehtaankatu 23 A, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: 'Yökyöpeli',
+    //     admin: ['yökyöpeli-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Fabianinkatu 17, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: 'Kuparikulma',
+    //     admin: ['kuparikulma-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Kuparitie 1, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: 'Jone\'s',
+    //     admin: ['jones-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Kaisaniemenkatu 13, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: "Populus",
+    //     admin: ['populus-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Aleksis Kiven katu 22, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: "Anna K",
+    //     admin: ['annak-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Annankatu 23, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: "Erottaja",
+    //     admin: ['erottaja-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Erottajankatu 15-17, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
+    // Places.insert({
+    //     name: "Pataässä",
+    //     admin: ['pataässä-admin', 'Mike Danylov', 'amritg'],
+    //     address: 'Snellmaninkatu 13, Helsinki',
+    //     popularity: '10',
+    //     latitude: 60.1712419,
+    //     longitude: 24.942252
+    // });
     // END PLACES SONGS ###############################################################################################
 
 

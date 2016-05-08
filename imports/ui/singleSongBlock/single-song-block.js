@@ -12,9 +12,9 @@ Template.singleSongBlock.events({
         var songName, songPlacesLists, currentElem, chevronDown, chevronUp;
         songName = this.name;
         // use quotation marks around songName because it can contain spaces
-        currentElem = $(".song-actions-wrapper[data-song-name='" + this.name + "']");
-        chevronDown = $(".song-tile[data-song-name='" + this.name + "'] .fa-angle-down");
-        chevronUp = $(".song-tile[data-song-name='" + this.name + "'] .fa-angle-up");
+        currentElem = $(".song-actions-wrapper[data-song-name=\"" + this.name + "\"]");
+        chevronDown = $(".song-tile[data-song-name=\"" + this.name + "\"] .fa-angle-down");
+        chevronUp = $(".song-tile[data-song-name=\"" + this.name + "\"] .fa-angle-up");
         songPlacesLists = $(".song-actions-wrapper");
         songPlacesLists.slideUp('fast');
         if (currentElem.hasClass('active')) {
