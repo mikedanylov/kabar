@@ -47,11 +47,14 @@ Router.route('/places/:_id/songs', {
     name: 'placeSongs',
     template: 'placeSongs',
     data: function () {
-        return {
-            place: Places.findOne({_id: this.params._id}),
-            songs: Songs.find({place: this.params.name}),
-            currentUser: Meteor.user()
-        };
+        var place = Places.findOne({_id: this.params._id});
+        if (place) {
+            return {
+                place: place,
+                songs: Songs.find({places: place.name}),
+                currentUser: Meteor.user()
+            };
+        }
     },
     waitOn: function () {
         return [
@@ -64,11 +67,14 @@ Router.route('/places/:_id/songs/add', {
     name: 'songAdd',
     template: 'songAdd',
     data: function () {
-        return {
-            place: Places.findOne({_id: this.params._id}),
-            songs: Songs.find({place: this.params.name}),
-            currentUser: Meteor.user()
-        };
+        var place = Places.findOne({_id: this.params._id});
+        if (place) {
+            return {
+                place: place,
+                songs: Songs.find({places: place.name}),
+                currentUser: Meteor.user()
+            };
+        }
     },
     waitOn: function () {
         return [

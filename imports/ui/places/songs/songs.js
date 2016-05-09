@@ -18,23 +18,42 @@ Template.placeSongs.helpers({
 });
 
 Template.placeSongs.events({
-    'click .book-song': function(event) {
-        var song, place, currentUser, url, placeId;
-        song = this;
+    'click .book-song': function bookSong(event) {
+        var song = this;
+        var place = Template.instance().data.place;
+        var currentUser = getUserName(Meteor.user());
 
-        url = window.location.href;
-        placeId = url.match(/places\/(.+)\/songs/);
-        place = Places.findOne({_id: placeId[1]});
-        currentUser = getUserName(Meteor.user());
         Meteor.call('orders.placeOrder', song.name, place.name, currentUser,
         (err, res) => {
             if (err && err.length) {
-                console.log('Template::songsList::events: ' + err);
+                console.log('Template::songsList::events::bookSong ' + err);
             } else {
-                console.log('Template::songsList::events: ' + res);
+                console.log('Template::songsList::events::bookSong ' + res);
                 Router.go('placeKaraoke', {_id: place._id});
             }
         });
+    },
+    'click .btn-remove-song': function removeSong(event) {
+        var song = this;
+        var place = Template.instance().data.place;
+
+        Meteor.call('songs.removePlace', song._id, place.name, (err, res) => {
+            if (err && err.length) {
+                console.log('Template::songsList::events::removeSong: ' + err);
+            } else {
+                console.log('Template::songsList::events::removeSong ' + res);
+            }
+            Router.go('placeSongs', {_id: place._id});
+        });
+
+        // Songs.update({ _id: song._id }, {
+        //     $pull: {
+        //         places: place.name
+        //     },
+        //     $set: {
+        //         updatedAt: new Date()
+        //     }
+        // });
     }
 });
 

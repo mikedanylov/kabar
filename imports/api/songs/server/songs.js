@@ -92,6 +92,23 @@ Meteor.methods({
         });
         console.log('Meteor::methods::songs.update: song succesfully updated ' + cur);
         return cur;
+    },
+    'songs.removePlace'(songId, placeName) {
+        new SimpleSchema({
+            songId: {type: String, label: 'Id if the song to be removed from the karaoke place'},
+            placeName: {type: String, label: 'Karaoke place name where the song should be removed from'}
+        }).validate({songId, placeName});
+
+        var cur = Songs.update({ _id: songId }, {
+            $pull: {
+                places: placeName
+            },
+            $set: {
+                updatedAt: new Date()
+            }
+        });
+        console.log('Meteor::methods::songs.update: song succesfully removed ' + cur);
+        return cur;
     }
 });
 
