@@ -11,7 +11,6 @@ div#home-jumbotron {
     text-transform: capitalize;
   }
 }
-
 div#register-now {
   text-align: center;
   margin: 30px 0;
@@ -22,29 +21,28 @@ div#register-now {
     margin-top: 0;
   }
 }
-
-div#popular-places {
-  margin: 50px 0;
+div#popular-places, div#popular-songs {
+  margin: 30px 0;
   padding: 20px 0;
-  #pop-places-head {
-    padding-left: 20px;
-    span {
-      border-left: 3px #DA491C solid;
-      text-transform: uppercase;
-      font-size: 20px;
-      padding-left: 5px;
-    }
+}
+#pop-places-head, #pop-songs-head {
+  padding-left: 20px;
+  span {
+    border-left: 3px #DA491C solid;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-left: 5px;
   }
-  #pop-places-list {
-    margin-top: 20px;
-    .place-tile-home {
-      border-radius: 150px;
-      margin-bottom: 5px;
-      .place-label-home {
-        bottom: 40px;
-        opacity: 0.8;
-      }
-    }
+}
+#pop-places-list, #pop-songs-list {
+  margin-top: 20px;
+}
+.place-tile-home {
+  border-radius: 150px;
+  margin-bottom: 5px;
+  .place-label-home {
+    bottom: 40px;
+    opacity: 0.8;
   }
 }
 button.slick-prev, button.slick-next {
@@ -59,11 +57,8 @@ button.slick-prev {
   left: 25px;
 }
 .slick-prev:before, .slick-next:before {
-  font-size: 35px;
-  color: #5cc0bd;
-  opacity: 0.55;
+  display: none;
 }
-
 @media (max-width: 767px) {
   .place-tile.place-tile-home {
     background: url('https://unsplash.it/200/?random') no-repeat center;
@@ -71,15 +66,17 @@ button.slick-prev {
     height: 200px;
   }
 }
-
-//@media (max-width: 767px) {
-//  div#home-jumbotron {
-//    height: 200px;
-//  }
-//}
-//
-//@media (min-width: 768px) {
-//  div#home-jumbotron {
-//    height: 300px;
-//  }
-//}
+.song-name.song-name-home {
+  font-size: 16px;
+}
+.song-artist.song-artist-home {
+  font-size: 13px;
+  color: white;
+}
+.song-name.song-name-home,
+.song-artist.song-artist-home {
+  margin: 0;
+}
+.song-info-home {
+  text-align: center;
+}

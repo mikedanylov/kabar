@@ -16,7 +16,10 @@ Template.home.helpers({
         return getUserName(Meteor.user());
     },
     popularPlaces: function () {
-        return Places.find({}, {sort: {popularity: 1}, limit: 3});
+        return Places.find({}, {sort: {popularity: 1}, limit: 5});
+    },
+    popularSongs: function () {
+        return Songs.find({}, {sort: {popularity: 1}, limit: 10});
     }
 });
 
@@ -29,25 +32,49 @@ Template.home.onRendered(() => {
     $('#pop-places-list').slick({
         infinite: true,
         dots: true,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 3000,
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 1200,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true,
-                    dots: true
+                    slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+    $('#pop-songs-list').slick({
+        infinite: true,
+        dots: true,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 3000,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 380,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                 }
             }
         ]

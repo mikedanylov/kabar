@@ -32,7 +32,10 @@ Router.route('/', {
         return Meteor.user();
     },
     waitOn: function () {
-        return Meteor.subscribe('places');
+        return [
+            Meteor.subscribe('songs'),
+            Meteor.subscribe('places')
+        ];
     }
 });
 Router.route('/signup');
