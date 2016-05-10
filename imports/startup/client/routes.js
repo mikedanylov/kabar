@@ -6,6 +6,7 @@ import {Meteor} from 'meteor/meteor';
 import {Router} from  'meteor/iron:router';
 
 import '/imports/ui/site/site.js';
+import '/imports/ui/site/home/home.js';
 import '/imports/ui/navigation/navigation.js';
 import '/imports/ui/search/search-bar.js';
 import '/imports/ui/songs/songs.js';
@@ -27,8 +28,11 @@ Router.configure({
 Router.route('/', {
     name: 'home',
     template: 'home',
-    data: function() {
+    data: function () {
         return Meteor.user();
+    },
+    waitOn: function () {
+        return Meteor.subscribe('places');
     }
 });
 Router.route('/signup');
@@ -36,7 +40,7 @@ Router.route('/search');
 Router.route('/signin');
 Router.route('/places', {
     name: 'places',
-    waitOn: function() {
+    waitOn: function () {
         return Meteor.subscribe('places');
     }
 });

@@ -40,16 +40,6 @@ input.form-input.form-control:focus { border-bottom: 2px solid white; }
 label.error { color: #ff7e76; }
 input.form-input.form-control.error { border-bottom: 2px solid #ff7e76; }
 .signup-form-wrapper { padding: 0 30px; }
-button.btn.btn-cancel {
-    border: 2px solid rgba(218,73,28,0.55);
-    background: rgba(218,73,28,0.07);
-}
-button.btn.btn-cancel:hover { background: rgba(218,73,28,1); }
-button.btn.btn-facebook {
-    border: 2px solid rgba(59,89,152,0.1);
-    background: rgba(59,89,152,0.55);
-}
-button.btn.btn-facebook:hover { background: rgba(59,89,152,1); }
 a.link.link-signup, a.link.link-signin { color: white; }
 .fa.fa-facebook-official { font-size: 20px; }
 

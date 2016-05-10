@@ -1,0 +1,85 @@
+div#home-jumbotron {
+  border: none;
+  padding: 20px;
+  width: 100%;
+  height: 200px;
+  background: rgba(218,73,28,0.3);
+  text-align: center;
+  p#jumbotron-desription {
+    font-size: 16px;
+    color: #aeaeae;
+    text-transform: capitalize;
+  }
+}
+
+div#register-now {
+  text-align: center;
+  margin: 30px 0;
+  p#register-question {
+    color: #aeaeae;
+  }
+  button.btn.register-now {
+    margin-top: 0;
+  }
+}
+
+div#popular-places {
+  margin: 50px 0;
+  padding: 20px 0;
+  #pop-places-head {
+    padding-left: 20px;
+    span {
+      border-left: 3px #DA491C solid;
+      text-transform: uppercase;
+      font-size: 20px;
+      padding-left: 5px;
+    }
+  }
+  #pop-places-list {
+    margin-top: 20px;
+    .place-tile-home {
+      border-radius: 150px;
+      margin-bottom: 5px;
+      .place-label-home {
+        bottom: 40px;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+button.slick-prev, button.slick-next {
+  width: 35px;
+  height: 35px;
+  top: 45%;
+}
+button.slick-next {
+  right: 25px;
+}
+button.slick-prev {
+  left: 25px;
+}
+.slick-prev:before, .slick-next:before {
+  font-size: 35px;
+  color: #5cc0bd;
+  opacity: 0.55;
+}
+
+@media (max-width: 767px) {
+  .place-tile.place-tile-home {
+    background: url('https://unsplash.it/200/?random') no-repeat center;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+//@media (max-width: 767px) {
+//  div#home-jumbotron {
+//    height: 200px;
+//  }
+//}
+//
+//@media (min-width: 768px) {
+//  div#home-jumbotron {
+//    height: 300px;
+//  }
+//}

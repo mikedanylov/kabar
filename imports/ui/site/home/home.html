@@ -1,0 +1,38 @@
+<template name="home">
+    <div id="home-jumbotron">
+        <h1>Sonify</h1>
+        <p id="jumbotron-desription">a modern way to search & request songs online in your favourite karaoke bar</p>
+    </div>
+    <div id="register-now">
+        {{#if currentUser}}
+            <p id="welcome-user">Welcome, {{username}}</p>
+        {{else}}
+            <p id="register-question">Do you love to sing as we do?</p>
+            <a href="{{pathFor route='signup'}}">
+                <button class="btn register-now" role="button">Register Now</button>
+            </a>
+        {{/if}}
+    </div>
+    <div id="popular-places">
+        <!--<div class="container">-->
+            <div id="pop-places-head">
+                <span>Popular Places</span>
+            </div>
+            <div id="pop-places-list">
+                {{#each place in popularPlaces}}
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <a class="link" href="/places/{{place._id}}/karaoke">
+                            <div class="place-tile place-tile-home">
+                                <div class="place-label place-label-home">
+                                    <p>{{place.name}}</p>
+                                    <p><span class="fa fa-map-marker"></span> {{place.address}}</p>
+                                </div>
+                                <!--<span>karaoke-button</span>-->
+                            </div>
+                        </a>
+                    </div>
+                {{/each}}
+            </div>
+        <!--</div>-->
+    </div>
+</template>
