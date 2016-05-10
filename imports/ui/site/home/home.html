@@ -5,7 +5,7 @@
     </div>
     <div id="register-now">
         {{#if currentUser}}
-            <p id="welcome-user">Welcome, {{username}}</p>
+            <p id="welcome-user">Hi there, {{username}}!</p>
         {{else}}
             <p id="register-question">Do you love to sing as we do?</p>
             <a href="{{pathFor route='signup'}}">
@@ -34,7 +34,7 @@
     </div>
     <div id="popular-songs">
         <div id="pop-songs-head">
-            <span>Popular Songs</span>
+            <span>Top 10 Songs</span>
         </div>
         <div id="pop-songs-list">
             {{#each song in popularSongs}}
