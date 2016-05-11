@@ -18,7 +18,8 @@ Template.searchResults.helpers({
            transform: (matchText, regExp) => {
                return matchText.replace(regExp, "$&")
            },
-           sort: {name: -1}
+           sort: {name: 1, artist: 1},
+           limit: 5
        });
        console.log('Template::searchResults::helpers::results: ');
        console.log(res);
