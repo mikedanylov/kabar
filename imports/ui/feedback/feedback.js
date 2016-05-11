@@ -14,6 +14,7 @@ import './single-comment.html';
 
 Template.feedback.onRendered(function () {
     $(".feedback-link").addClass("active");
+    $("a.navbar-brand").text('feedback');
 });
 Template.feedback.onDestroyed(function () {
     $(".feedback-link").removeClass("active");

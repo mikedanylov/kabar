@@ -63,6 +63,7 @@ Template.songsList.helpers({
 
 Template.songsList.onRendered(() => {
     $(".songs-link").addClass("active");
+    $("a.navbar-brand").text('All Songs');
 });
 Template.songsList.onDestroyed(() => {
     $(".songs-link").removeClass("active");

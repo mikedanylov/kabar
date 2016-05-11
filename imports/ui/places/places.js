@@ -109,6 +109,7 @@ Template.places.events({
 
 Template.placesList.onRendered(function () {
     $(".places-link").addClass("active");
+    $("a.navbar-brand").text('Places');
 });
 Template.placesList.onDestroyed(function () {
     $(".places-link").removeClass("active");

@@ -171,6 +171,7 @@ Template.songShow.events({
 
 Template.songShow.onRendered(() => {
     $(".songs-link").addClass("active");
+    $("a.navbar-brand").text('song');
 });
 Template.songShow.onDestroyed(() => {
     $(".songs-link").removeClass("active");
