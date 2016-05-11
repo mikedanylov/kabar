@@ -1,133 +1,134 @@
 <template name="placeKaraoke">
-
-    {{printAll}}
-
-    {{#if currentUser}}
-        <div id="add-song-wrapper" class="col-xs-12">
-            <a class="link nav-link" href="/places/{{place._id}}/songs">
-                <i class="add-song-icon fa fa-plus-circle" aria-hidden="true"></i>
-            </a>
-            <div class="book-song">Browse songs</div>
-            <p class="">or use search on top right to look for a specific song</p>
-        </div>
-    {{/if}}
-
-    {{#if isAdmin place.admin}}
-        <div class="col-xs-12">
-            <button id="play-next" class="btn btn-cancel btn-block">Play next song</button>
-        </div>
-    {{/if}}
-
-    <div id="current-song-wrapper" class="col-xs-12">
-        <h3 class="underscore-blue karaoke-heading">Current Song</h3>
-        <table class="table table-striped current-song">
-            <tbody>
-                <tr>
-                    <!--<td class="td-no-border"><span class="glyphicon glyphicon-play"></span></td>-->
-                    <td class="td-no-border">{{currentOrder.username}}</td>
-                    <td class="td-no-border">
-                        <a class="link" href="/songs/{{getSongId currentOrder.song}}/show">
-                            {{currentOrder.song}}
-                        </a>
-                        <p class="song-details">{{getSongArtist currentOrder.song}}</p>
-                    </td>
-                    {{#if isAdmin getAdmins }}
-                        <td class="td-no-border">
-                            <div class="comment-votes">
-                                <span class="comment-upvote">
-                                    <i class="priority current fa fa-angle-up" aria-hidden="true"></i>
-                                </span>
-                                <div class="votes-count">{{currentOrder.priority}}</div>
-                                <span class="comment-downvote">
-                                    <i class="priority current fa fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </td>
-                    {{else}}
-                        <td class="td-no-border">{{getSongDuration currentOrder.song}}</td>
-                    {{/if}}
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="next-songs-wrapper" class="col-xs-12">
-        <h3 class="underscore-orange karaoke-heading">Next Song</h3>
-        <table class="table table-striped">
-            <tbody>
-            <tr>
-                <!--<td class="td-no-border"><span class="glyphicon glyphicon-hourglass"></span></td>-->
-                <td class="td-no-border">{{nextOrder.username}}</td>
-                <td class="td-no-border">
-                    <a class="link" href="/songs/{{getSongId nextOrder.song}}/show">
-                        {{nextOrder.song}}
+    <div class="container">
+        <div class="row">
+            {{#if currentUser}}
+                <div id="add-song-wrapper" class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                    <a class="link nav-link" href="/places/{{place._id}}/songs">
+                        <i class="add-song-icon fa fa-plus-circle" aria-hidden="true"></i>
                     </a>
-                    <p class="song-details">{{getSongArtist nextOrder.song}}</p>
-                </td>
-                {{#if isAdmin getAdmins }}
-                    <td class="td-no-border">
-                        <div class="comment-votes">
-                                <span class="comment-upvote">
-                                    <i class="priority next fa fa-angle-up" aria-hidden="true"></i>
-                                </span>
-                            <div class="votes-count">{{nextOrder.priority}}</div>
-                                <span class="comment-downvote">
-                                    <i class="priority next fa fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                        </div>
-                    </td>
-                {{else}}
-                    <td class="td-no-border">{{getSongDuration nextOrder.song}}</td>
-                {{/if}}
-            </tr>
-            </tbody>
-        </table>
-    </div>
+                    <div class="book-song">Browse songs</div>
+                    <p class="">or use search on top right to look for a specific song</p>
+                </div>
+            {{/if}}
 
-    <div id="songs-pool-wrapper" class="col-xs-12">
-        <h3 class="underscore-default karaoke-heading">Songs Queue</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th><h4>#</h4></th>
-                    <th><h4>Username</h4></th>
-                    <th><h4>Song</h4></th>
-                    {{#if isAdmin place.admin}}
-                        <th><h4>Priority</h4></th>
-                    {{else}}
-                        <th><span class="glyphicon glyphicon-time"></span></th>
-                    {{/if}}
-                </tr>
-            </thead>
-            <tbody>
-                {{#each ordersPlaylist}}
-                <tr>
-                    <td>{{addOneTo @index}}</td>
-                    <td>{{username}}</td>
-                    <td>
-                        <a class="link" href="/songs/{{getSongId song}}/show">
-                            {{song}}
-                        </a>
-                        <p class="song-details">{{getSongArtist song}}</p>
-                    </td>
-                    {{#if isAdmin getAdmins }}
-                        <td>
-                            <div class="comment-votes">
-                                <span class="comment-upvote">
-                                    <i class="priority fa fa-angle-up" aria-hidden="true"></i>
-                                </span>
-                                <div class="votes-count">{{priority}}</div>
-                                <span class="comment-downvote">
-                                    <i class="priority fa fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </div>
+            {{#if isAdmin place.admin}}
+                <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                    <button id="play-next" class="btn btn-cancel btn-block">Play next song</button>
+                </div>
+            {{/if}}
+
+            <div id="current-song-wrapper" class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <h3 class="underscore-blue karaoke-heading">Current Song</h3>
+                <table class="table table-striped current-song">
+                    <tbody>
+                        <tr>
+                            <!--<td class="td-no-border"><span class="glyphicon glyphicon-play"></span></td>-->
+                            <td class="td-no-border">{{currentOrder.username}}</td>
+                            <td class="td-no-border">
+                                <a class="link" href="/songs/{{getSongId currentOrder.song}}/show">
+                                    {{currentOrder.song}}
+                                </a>
+                                <p class="song-details">{{getSongArtist currentOrder.song}}</p>
+                            </td>
+                            {{#if isAdmin getAdmins }}
+                                <td class="td-no-border">
+                                    <div class="comment-votes">
+                                        <span class="comment-upvote">
+                                            <i class="priority current fa fa-angle-up" aria-hidden="true"></i>
+                                        </span>
+                                        <div class="votes-count">{{currentOrder.priority}}</div>
+                                        <span class="comment-downvote">
+                                            <i class="priority current fa fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </td>
+                            {{else}}
+                                <td class="td-no-border">{{getSongDuration currentOrder.song}}</td>
+                            {{/if}}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="next-songs-wrapper" class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <h3 class="underscore-orange karaoke-heading">Next Song</h3>
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <!--<td class="td-no-border"><span class="glyphicon glyphicon-hourglass"></span></td>-->
+                        <td class="td-no-border">{{nextOrder.username}}</td>
+                        <td class="td-no-border">
+                            <a class="link" href="/songs/{{getSongId nextOrder.song}}/show">
+                                {{nextOrder.song}}
+                            </a>
+                            <p class="song-details">{{getSongArtist nextOrder.song}}</p>
                         </td>
-                    {{else}}
-                        <td>{{getSongDuration song}}</td>
-                    {{/if}}
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+                        {{#if isAdmin getAdmins }}
+                            <td class="td-no-border">
+                                <div class="comment-votes">
+                                        <span class="comment-upvote">
+                                            <i class="priority next fa fa-angle-up" aria-hidden="true"></i>
+                                        </span>
+                                    <div class="votes-count">{{nextOrder.priority}}</div>
+                                        <span class="comment-downvote">
+                                            <i class="priority next fa fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                </div>
+                            </td>
+                        {{else}}
+                            <td class="td-no-border">{{getSongDuration nextOrder.song}}</td>
+                        {{/if}}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="songs-pool-wrapper" class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <h3 class="underscore-default karaoke-heading">Songs Queue</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><h4>#</h4></th>
+                            <th><h4>Username</h4></th>
+                            <th><h4>Song</h4></th>
+                            {{#if isAdmin place.admin}}
+                                <th><h4>Priority</h4></th>
+                            {{else}}
+                                <th><span class="glyphicon glyphicon-time"></span></th>
+                            {{/if}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each ordersPlaylist}}
+                        <tr>
+                            <td>{{addOneTo @index}}</td>
+                            <td>{{username}}</td>
+                            <td>
+                                <a class="link" href="/songs/{{getSongId song}}/show">
+                                    {{song}}
+                                </a>
+                                <p class="song-details">{{getSongArtist song}}</p>
+                            </td>
+                            {{#if isAdmin getAdmins }}
+                                <td>
+                                    <div class="comment-votes">
+                                        <span class="comment-upvote">
+                                            <i class="priority fa fa-angle-up" aria-hidden="true"></i>
+                                        </span>
+                                        <div class="votes-count">{{priority}}</div>
+                                        <span class="comment-downvote">
+                                            <i class="priority fa fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </td>
+                            {{else}}
+                                <td>{{getSongDuration song}}</td>
+                            {{/if}}
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </template>

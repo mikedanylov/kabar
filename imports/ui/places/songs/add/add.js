@@ -13,6 +13,7 @@ import  './add.html';
 
 Template.songAdd.onRendered(function () {
     var placeObj = Template.instance().data.place;
+    $("a.navbar-brand").text(Template.instance().data.place.name + ' songs');
     var validator = $('.add-song-form').validate({
         submitHandler: function(event) {
             var songName = document.querySelector('[name=song-name]').value;

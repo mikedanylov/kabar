@@ -1,25 +1,29 @@
 <template name="songsList">
-    <div class="col-xs-12">
-        <h1>Songs List</h1>
-        {{#each songs}}
-            <div class="song-tile-wrapper">
-                {{> singleSongBlock}}
-                <div class="song-places-wrapper" data-song-name="{{this.name}}">
-                    <ul class="song-places">
-                        {{#each place in places}}
-                            <li class="place-ops-wrapper">
-                                <p class="place-name">{{place}}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Songs List</h1>
+                {{#each songs}}
+                    <div class="song-tile-wrapper">
+                        {{> singleSongBlock}}
+                        <div class="song-places-wrapper" data-song-name="{{this.name}}">
+                            <ul class="song-places">
+                                {{#each place in places}}
+                                    <li class="place-ops-wrapper">
+                                        <p class="place-name">{{place}}</p>
 
-                                <a class="link" href="/places/{{getPlaceId place}}/karaoke">
-                                    <button type="button" class="btn btn-cancel btn-block">
-                                        Check Queue
-                                    </button>
-                                </a>
-                            </li>
-                        {{/each}}
-                    </ul>
-                </div>
+                                        <a class="link" href="/places/{{getPlaceId place}}/karaoke">
+                                            <button type="button" class="btn btn-cancel btn-block">
+                                                Check Queue
+                                            </button>
+                                        </a>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                {{/each}}
             </div>
-        {{/each}}
+        </div>
     </div>
 </template>

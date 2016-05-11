@@ -59,7 +59,7 @@ Template.placeSongs.events({
 
 Template.placeSongs.onRendered(function () {
     $(".places-link").addClass("active");
-    $("a.navbar-brand").text(this.data.place.name);
+    $("a.navbar-brand").text(Template.instance().data.place.name + ' songs');
 });
 Template.placeSongs.onDestroyed(function () {
     $(".places-link").removeClass("active");

@@ -14,6 +14,7 @@ import  './edit.html';
 Template.songEdit.onRendered(function () {
     var placeObj = Template.instance().data.place;
     var songObj = Template.instance().data.song;
+    $("a.navbar-brand").text(Template.instance().data.place.name + ' songs');
     var validator = $('.add-song-form').validate({
         submitHandler: function(event) {
             var songName = document.querySelector('[name=song-name]').value;
