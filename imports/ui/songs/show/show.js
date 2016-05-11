@@ -26,7 +26,7 @@ Template.songShow.helpers({
         function trackSearchRequest(songObj) {
             return new Promise((resolve, reject) => {
                 $.ajax({
-                    url: 'http://api.musixmatch.com/ws/1.1/track.search',
+                    url: '//api.musixmatch.com/ws/1.1/track.search',
                     type: 'GET',
                     dataType: 'jsonp',
                     data: {
@@ -59,7 +59,7 @@ Template.songShow.helpers({
         function lyricsSearchRequest(trackId) {
             return new Promise((resolve, reject) => {
                 $.ajax({
-                    url: 'http://api.musixmatch.com/ws/1.1/track.lyrics.get',
+                    url: '//api.musixmatch.com/ws/1.1/track.lyrics.get',
                     type: 'GET',
                     dataType: 'jsonp',
                     data: {
@@ -105,7 +105,7 @@ Template.songShow.helpers({
         function getArtistImage(songObj) {
             return new Promise((resolve, reject) => {
                 $.ajax({
-                    url: 'http://api.musixmatch.com/ws/1.1/track.search',
+                    url: '//api.musixmatch.com/ws/1.1/track.search',
                     type: 'GET',
                     dataType: 'jsonp',
                     data: {
