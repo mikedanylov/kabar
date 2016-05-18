@@ -2,6 +2,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 
+import { Places } from '/imports/api/places/server/places'
+
 export const Orders = new Mongo.Collection('orders');
 
 OrdersSchema = new SimpleSchema({
@@ -65,7 +67,7 @@ Meteor.methods({
             }
         }).validate({ song, place, username });
 
-        var cur = Orders.insert({
+        var orderId = Orders.insert({
             username: username,
             song: song,
             place: place,
@@ -73,8 +75,15 @@ Meteor.methods({
             createdAt: new Date()
         });
 
-        console.log('Meteor::methods::orders.placeOrder: order placed with id: ' + cur);
-        return cur;
+        var placeObj = Places.findOne({name: place});
+        var orderObj = Orders.findOne({_id: orderId});
+        Places.update({name: place}, {
+            $push: {queue: {priority: placeObj.queueSize + 1, order: orderId}},
+            $inc: {queueSize: 1}
+        });
+
+        console.log('Meteor::methods::orders.placeOrder: order placed with id: ' + orderId);
+        return orderId;
     },
     'orders.updateStatus'(orderId, newStatus) {
         new SimpleSchema({

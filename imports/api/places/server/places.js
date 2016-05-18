@@ -27,19 +27,27 @@ PlacesSchema = new SimpleSchema({
         defaultValue: 0,
         min: 0
     },
-    latitude: {
-        type: Number,
-        decimal: true,
-        label: 'Karaoke place location latitude'
-    },
-    longitude: {
-        type: Number,
-        decimal: true,
-        label: 'Karaoke place location longitude'
-    },
     admin: {
         type: [String],
         label: 'Karaoke place admin'
+    },
+    queue: {
+        type: [Object],
+        label: 'Current orders queue in karaoke',
+        defaultValue: []
+    },
+    'queue.$.priority': {
+        type: Number,
+        label: 'Order queue priority number'
+    },
+    'queue.$.order': {
+        type: String,
+        label: 'Order Id'
+    },
+    queueSize: {
+        type: Number,
+        label: 'Current orders queue length',
+        defaultValue: 0
     },
     createdAt: {
         type: Date,

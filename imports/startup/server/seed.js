@@ -179,74 +179,47 @@ Meteor.startup(function () {
     // Places.insert({
     //     name: 'KGB-Club',
     //     admin: ['kgb-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Hallituskatu 3, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Hallituskatu 3, Helsinki'
     // });
     // Places.insert({
     //     name: 'Restroom',
     //     admin: ['restroom-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Tehtaankatu 23 A, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Tehtaankatu 23 A, Helsinki'
     // });
     // Places.insert({
     //     name: 'Yökyöpeli',
     //     admin: ['yökyöpeli-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Fabianinkatu 17, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Fabianinkatu 17, Helsinki'
     // });
     // Places.insert({
     //     name: 'Kuparikulma',
     //     admin: ['kuparikulma-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Kuparitie 1, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Kuparitie 1, Helsinki'
     // });
     // Places.insert({
     //     name: 'Jone\'s',
     //     admin: ['jones-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Kaisaniemenkatu 13, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Kaisaniemenkatu 13, Helsinki'
     // });
     // Places.insert({
     //     name: "Populus",
     //     admin: ['populus-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Aleksis Kiven katu 22, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Aleksis Kiven katu 22, Helsinki'
     // });
     // Places.insert({
     //     name: "Anna K",
     //     admin: ['annak-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Annankatu 23, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Annankatu 23, Helsinki'
     // });
     // Places.insert({
     //     name: "Erottaja",
     //     admin: ['erottaja-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Erottajankatu 15-17, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Erottajankatu 15-17, Helsinki'
     // });
     // Places.insert({
     //     name: "Pataässä",
     //     admin: ['pataässä-admin', 'Mike Danylov', 'amritg'],
-    //     address: 'Snellmaninkatu 13, Helsinki',
-    //     popularity: '10',
-    //     latitude: 60.1712419,
-    //     longitude: 24.942252
+    //     address: 'Snellmaninkatu 13, Helsinki'
     // });
     // END PLACES SONGS ###############################################################################################
 
